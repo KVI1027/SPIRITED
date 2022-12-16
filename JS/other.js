@@ -36,82 +36,128 @@ const aboutus_h1 = document.querySelector('.aboutus-h1')
 const En_anim = document.querySelectorAll('.En-anim')
 const Ch_anim = document.querySelectorAll('.Ch-anim')
 
-window.onscroll = function (event) {
 
+
+
+function updateNav() {
     const scroll = window.pageYOffset;
-    console.log(scroll);
-
-
-    function updateNav(scroll) {
-        if (scroll < 1800) {
-            navHamburger.forEach(e => {
-                e.classList.remove('menu-btn-line-dark');
-                e.classList.add('menu-btn-line-light');
-            });
-        } else if (scroll < 4700) {
-            navHamburger.forEach(e => {
-                e.classList.remove('menu-btn-line-light');
-                e.classList.add('menu-btn-line-dark');
-            });
-        }
-
+    if (scroll < 1800) {
+        navHamburger.forEach(e => {
+            e.classList.remove('menu-btn-line-dark');
+            e.classList.add('menu-btn-line-light');
+        });
+    } else if (scroll < 4700) {
+        navHamburger.forEach(e => {
+            e.classList.remove('menu-btn-line-light');
+            e.classList.add('menu-btn-line-dark');
+        });
     }
-    function updateBanner(scroll) {
-        if (scroll < 200) {
-            // 初始
-            bg_color.style.backgroundColor = '#ffffe8';
-        } else if (scroll >= 200 && scroll < 1600) {
-            banner.style.filter = `brightness(${1 - scroll / 5000})`
-            wborder1.style.transform = `scale(1)`
 
-        } else if (scroll >= 1600 && scroll <= 2000) {
+}
+function updateBanner() {
+    const scroll = window.pageYOffset;
+    if (scroll < 200) {
+        // 初始
+        bg_color.style.backgroundColor = '#ffffe8';
+    } else if (scroll >= 200 && scroll < 1600) {
+        banner.style.filter = `brightness(${1 - scroll / 5000})`
+        wborder1.style.transform = `scale(1)`
 
-        } else if (scroll > 2000 && scroll < 2900) {
-        } if (scroll >= 3000 && scroll < 4900) {
-        }
+    } else if (scroll >= 1600 && scroll <= 2000) {
+
+    } else if (scroll > 2000 && scroll < 2900) {
+    } if (scroll >= 3000 && scroll < 4900) {
     }
-    function updateShopFrame(scroll) {
-        if (scroll < 1600) {
-            shop_frame.style.width = '91%'
-            shop_frame.style.margin = `0 0 0 -45.5%`
-            shop_frame.style.top = `${1000 - (scroll) / 2}px`
-            shop_frame.style.borderRadius = ` ${1600-(scroll-300)}px`
-        } else if (scroll >= 1600 && scroll < 2600) {
-            shop_frame.style.width = `100%`
-            shop_frame.style.margin = `0 0 0 -50%`
-            shop_frame.style.top = `${1000 - (scroll - 750) / 1}px`
-            shop_frame.style.borderRadius = ` ${1600-(scroll-300)}px`
-        } else if (scroll >= 3000 && scroll < 5000) {
-            shop_frame.style.top = `${50 - (scroll) / 4}px`
-            shop_frame.style.filter = `brightness(${1 - (scroll - 3000) / 3000})`
-        }
-
-
+}
+function updateShopFrame() {
+    const scroll = window.pageYOffset;
+    if (scroll < 1600) {
+        shop_frame.style.width = '91%'
+        shop_frame.style.margin = `0 0 0 -45.5%`
+        shop_frame.style.top = `${1000 - (scroll) / 2}px`
+        shop_frame.style.borderRadius = ` ${1600 - (scroll - 300)}px`
+    } else if (scroll >= 1600 && scroll < 2600) {
+        shop_frame.style.width = `100%`
+        shop_frame.style.margin = `0 0 0 -50%`
+        shop_frame.style.top = `${1000 - (scroll - 750) / 1}px`
+        shop_frame.style.borderRadius = ` ${1600 - (scroll - 300)}px`
+    } else if (scroll >= 3000 && scroll < 5000) {
+        shop_frame.style.filter = `brightness(${1 - (scroll - 3000) / 3000})`
     }
-    function updateHowToBuy(scroll) {
-        if (scroll >= 3100) {
-            how_to_buy.style.borderRadius = ` ${1600-(scroll-3300)}px`
+    if (scroll >= 4000) {
+        shop_frame.style.top = `${250 - (scroll) / 4}px`
+    }
+
+    window.requestAnimationFrame(updateShopFrame);
+}
+function updateHowToBuy() {
+    const scroll = window.pageYOffset;
+    if (scroll >= 3100) {
+        how_to_buy.style.borderRadius = ` ${1600 - (scroll - 3300)}px`
+    }
+    if (scroll >= 3100 && scroll <= 4400) {
+        how_to_buy.style.top = `${1000 - (scroll - 3100) / 2}px`
+    } else if (scroll > 4400) {
+        how_to_buy.style.top = `${1000 - (scroll - 3700) / 1}px`
+    }
+    if (scroll >= 4600 && scroll <= 5400) {
+        how_left.style.width = `${65 - (scroll - 4600) / 30}%`
+        how_right.style.width = `${25 + (scroll - 4600) / 30}%`
+        how_dscp.style.height = `${0 + (scroll - 4600) / 10}vh`
+        how_midline.style.height = '0%'
+    } else if (scroll > 5400 && scroll < 5800) {
+        how_midline.style.height = '160%'
+        how_left.style.width = `38.3%`
+        how_right.style.width = `51.6%`
+        how_right.style.top = `0px`
+    } else if (scroll >= 5800) {
+        how_right.style.top = `-${(scroll - 5800) / 1}px`
+        how_midline.style.height = '0%'
+    }
+
+    //RWD
+    if (document.body.clientWidth < 800) {
+        how_left.style.width = '90%'
+        how_right.style.width = '90%'
+
+        if (scroll <= 4900) {
+            how_dscp.style.height = `${0 + 272 * (scroll - 4600) / 300}px`
+        } else if (scroll > 4900 && scroll < 5600) {
+            how_dscp.style.height = 'auto'
+        } else {
+            how_dscp.style.height = `${272 - 272 * (scroll - 5600) / 250}px`
         }
-        if (scroll >= 3100 && scroll <= 4400) {
-            how_to_buy.style.top = `${1000 - (scroll - 3100) / 2}px`
-        } else if (scroll > 4400) {
-            how_to_buy.style.top = `${1000 - (scroll - 3700) / 1}px`
-        }
+        how_dscp_li.forEach(e => {
+
+            if (scroll <= 4900) {
+                e.style.opacity = `0`
+                e.style.transform = `translateX(-5px);`
+                e.setAttribute(`data-state`, `off`)
+                e.children[1].innerHTML = ""
+                e.children[1].style.height = '0'
+            } else if (scroll > 4900 && scroll < 5600) {
+                e.style.opacity = `1`
+                e.style.transform = `translateX(5px);`
+            } else {
+                e.style.opacity = `0`
+                e.style.transform = `translateX(-5px);`
+                e.setAttribute(`data-state`, `off`)
+                e.children[1].innerHTML = ""
+                e.children[1].style.height = '0'
+            }
+        });
+
+
+    } else if (document.body.clientWidth < 1366) {
+        how_dscp.style.height = `${20 + (scroll - 4600) / 10}vh`
         if (scroll >= 4600 && scroll <= 5400) {
-            how_left.style.width = `${65 - (scroll - 4600) / 30}%`
-            how_right.style.width = `${25 + (scroll - 4600) / 30}%`
-            how_dscp.style.height = `${0 + (scroll - 4600) / 10}vh`
-            how_midline.style.height = '0%'
+            how_left.style.width = `${55 - (scroll - 4600) / 30}%`
+            how_right.style.width = `${35 + (scroll - 4600) / 30}%`
         } else if (scroll > 5400 && scroll < 5800) {
-            how_midline.style.height = '160%'
-            how_left.style.width = `38.3%`
-            how_right.style.width = `51.6%`
-            how_right.style.top = `0px`
-        } else if (scroll >= 5800) {
-            how_right.style.top = `-${(scroll - 5800) / 1}px`
-            how_midline.style.height = '0%'
+            how_left.style.width = `28.3%`
+            how_right.style.width = `61.6%`
         }
-
+    } else {
         how_dscp_li.forEach(e => {
 
             if (scroll <= 5400) {
@@ -135,18 +181,94 @@ window.onscroll = function (event) {
                 e.children[1].style.height = '0'
             }
         });
-        if (document.body.clientWidth < 1366) {
-            how_dscp.style.height = `${20 + (scroll - 4600) / 10}vh`
-            if (scroll >= 4600 && scroll <= 5400) {
-                how_left.style.width = `${55 - (scroll - 4600) / 30}%`
-                how_right.style.width = `${35 + (scroll - 4600) / 30}%`
-            } else if (scroll > 5400 && scroll < 5800) {
-                how_left.style.width = `28.3%`
-                how_right.style.width = `61.6%`
-            } 
-        }
     }
-    function updateAboutUs(scroll) {
+}
+function updateAboutUs() {
+    
+
+
+    if (document.body.clientWidth < 800) {
+        const scroll = window.pageYOffset;
+        if (scroll < 5900) {
+            aboutus.style.top = `${800 - (scroll - 5700) / 1}px`
+        } else if (scroll >= 5900 & scroll <= 9200) {
+            aboutus.style.top = `${800 - (scroll - 5700) / 1}px`
+            aboutus_BG.style.display = 'none'
+        } else if (scroll <= 9800) {
+            aboutus.style.top = `${1000 - (scroll - 5900) / 1}px`
+        } else if (scroll > 9800) {
+            aboutus.style.top = `-2900px`
+        }
+        if (scroll >= 6000 && scroll <= 6500) {
+            aboutus_h1.style.opacity = '1'
+        }
+        if (scroll >= 6500 && scroll <= 7100) {
+            //Aboutus變色效果
+            const [red, green, blue] = [241, 233, 225]
+            const x = 1 + (scroll - 6500) / 342
+            const y = 1 + (scroll - 6500) / 252
+            const z = 1 + (scroll - 6500) / 204
+            const [r, g, b] = [red / x, green / y, blue / z].map(Math.round)
+            about_card.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+            aboutus_h1.style.color = `rgb(${64 * 1.4 * x}, ${40 * 1.7 * y}, ${27 * 2.1 * z})`
+
+            //Aboutus scroll效果
+            aboutus_BG.style.display = 'block'
+            aboutus_BG.style.opacity = `${(scroll - 6500) / 1000}`
+            about_card.style.width = `${110 - (scroll - 6500) / 10}%`
+            about_card.style.height = `${170 - (scroll - 6500) / 100 * 14.1}vh`
+            about_card.style.borderRadius = `0 0 ${about_card.clientWidth / 2}px ${about_card.clientWidth / 2}px`
+
+            //Aboutus 文字動畫初始狀態
+            En_anim.forEach(e => {
+                e.style.top = '5px'
+                e.style.opacity = '0'
+                e.style.transition = `0.3s ease`
+            });
+            Ch_anim.forEach(e => {
+                e.style.top = '5px'
+                e.style.opacity = '0'
+                e.style.transition = `0.3s ease`
+            });
+        } else if (scroll > 7100) {
+            aboutus_BG.style.display = 'block'
+            about_card.style.backgroundColor = `rgb(68, 47, 33)`
+
+            //Aboutus 文字動畫
+            for (let index = 0; index < En_anim.length; index++) {
+                const p = En_anim[index];
+                p.style.opacity = '1'
+                p.style.top = '0'
+                p.style.transition = `0.3s ease ${index / 16}s`
+            }
+            for (let index = 0; index < Ch_anim.length; index++) {
+                const p = Ch_anim[index];
+                p.style.opacity = '1'
+                p.style.top = '0'
+                p.style.transition = `0.3s ease ${index / 16}s`
+            }
+        } else {
+            about_card.style.backgroundColor = `rgb(241, 233, 225)`
+        }
+        if (scroll >= 6500 && scroll <= 7100) {
+            about_card.style.width = `${110 - (scroll - 6500) / 15}%`
+        }
+        if (scroll <= 9100) {
+            aboutus_BG.style.top = `0px`
+        }
+        else if (scroll > 9100 && scroll < 9800) {
+            aboutus_BG.style.top = `${0 - (scroll - 9100) / 1}px`
+        } else {
+            aboutus_BG.style.top = `-700px`
+        }
+
+    } else if (document.body.clientWidth < 1366) {
+
+        if (scroll >= 7900 && scroll <= 8500) {
+            about_card.style.width = `${110 - (scroll - 7900) / 15}%`
+        }
+    } else {
+        const scroll = window.pageYOffset;
         if (scroll < 5900) {
             aboutus.style.top = `${1000 - (scroll - 5900) / 1}px`
         } else if (scroll >= 5900 & scroll <= 9200) {
@@ -169,14 +291,14 @@ window.onscroll = function (event) {
             const [r, g, b] = [red / x, green / y, blue / z].map(Math.round)
             about_card.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
             aboutus_h1.style.color = `rgb(${64 * 1.4 * x}, ${40 * 1.7 * y}, ${27 * 2.1 * z})`
-
+    
             //Aboutus scroll效果
             aboutus_BG.style.display = 'block'
             aboutus_BG.style.opacity = `${(scroll - 7900) / 1000}`
             about_card.style.width = `${110 - (scroll - 7900) / 10}%`
             about_card.style.height = `${170 - (scroll - 7900) / 100 * 14.1}vh`
             about_card.style.borderRadius = `0 0 ${about_card.clientWidth / 2}px ${about_card.clientWidth / 2}px`
-
+    
             //Aboutus 文字動畫初始狀態
             En_anim.forEach(e => {
                 e.style.top = '5px'
@@ -191,7 +313,7 @@ window.onscroll = function (event) {
         } else if (scroll > 8500) {
             aboutus_BG.style.display = 'block'
             about_card.style.backgroundColor = `rgb(68, 47, 33)`
-
+    
             //Aboutus 文字動畫
             for (let index = 0; index < En_anim.length; index++) {
                 const p = En_anim[index];
@@ -216,25 +338,18 @@ window.onscroll = function (event) {
         } else {
             aboutus_BG.style.top = `-700px`
         }
-
-        if (document.body.clientWidth < 1366) {
-           
-            if (scroll >= 7900 && scroll <= 8500) {
-                about_card.style.width = `${110 - (scroll - 7900) / 15}%`
-            }
-        }
     }
-    updateNav(scroll);
-    updateBanner(scroll);
-    updateShopFrame(scroll);
-    updateHowToBuy(scroll);
-    updateAboutUs(scroll);
-
-
-
-
-
 }
+
+window.addEventListener('scroll', function () {
+    const scroll = window.pageYOffset;
+    console.log(scroll);
+    window.requestAnimationFrame(updateNav);
+    window.requestAnimationFrame(updateBanner);
+    window.requestAnimationFrame(updateShopFrame);
+    window.requestAnimationFrame(updateHowToBuy);
+    window.requestAnimationFrame(updateAboutUs);
+});
 
 
 
@@ -242,17 +357,17 @@ window.onscroll = function (event) {
 var how_detail = [{
     detail: `Our products are limited.
     Booking desserts on the day ,please call us directly: (04) 2378 - 0238. Otherwise
-    please leave a message through FB or IG. We closed on Tuesday and Wednesday.<br/>
+    please leave a message through FB or IG. We closed on Tuesday and Wednesday.<br/><br/>
     現場購買，手工製做，數量有限
 當天預留：請直接打電話到店裡(04) 2378 - 0238
 提前預留：請在禮拜二、三公休日之外，私訊 FB或IG`
 }, {
-    detail: `Please ask us through FB or IG message.<br/>
+    detail: `Please ask us through FB or IG message.<br/><br/>
     請私訊FB或IG詢問`
 }, {
     detail: `Please order at least a week previously through IG or FB message.
     Huge order need at least 2-3 weeks.
-    Spirited Bakery is available on UberEats as well.<br/>
+    Spirited Bakery is available on UberEats as well.<br/><br/>
     請提前⾄少1-2個禮拜，⼤量請提前2-3個禮拜，私訊FB或IG
 在UberEats App上搜尋「Spirited Bakery」，有限定可外送範圍`
 }]

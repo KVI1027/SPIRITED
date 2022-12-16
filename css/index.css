@@ -250,7 +250,6 @@ nav .nav-border aside a {
   border-radius: 50%;
   z-index: 5;
   padding-top: 100px;
-  transition: 0.2s ease-out;
 }
 .web main .shop-frame h1 {
   color: #805944;
@@ -662,6 +661,7 @@ nav .nav-border aside a {
   width: 100%;
   height: 60vh;
   padding-top: 20px;
+  transition: top 0.5s;
 }
 .web main .shop .shop-main-phone .top {
   width: 100%;
@@ -903,6 +903,7 @@ nav .nav-border aside a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+  transition: top 0.5s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1311,12 +1312,16 @@ nav .nav-border aside a {
   border-radius: 100px;
   z-index: 6;
   padding-top: 100px;
-  transition: 0.2s ease-out;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-content: start;
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy {
+    height: 2000px;
+  }
 }
 .web main .how-about .how-to-buy h1 {
   font-family: "Cormorant Infant", serif;
@@ -1326,6 +1331,11 @@ nav .nav-border aside a {
   font-weight: 100;
   color: #6e4105;
   margin-bottom: 350px;
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy h1 {
+    margin-bottom: 0px;
+  }
 }
 .web main .how-about .how-to-buy .sticky-block-how {
   width: 100%;
@@ -1338,12 +1348,24 @@ nav .nav-border aside a {
   justify-content: space-between;
   align-items: flex-start;
 }
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
 .web main .how-about .how-to-buy .sticky-block-how .how-right {
   position: relative;
   width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right {
+    width: 90%;
+  }
 }
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp {
   font-weight: bold;
@@ -1355,9 +1377,10 @@ nav .nav-border aside a {
   padding: 0px;
   margin: 0;
   overflow: hidden;
+  transform: 0.5s ease;
 }
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li {
-  transition: 0.5s ease-out;
+  transition: 0.3s ease-out;
   border-top: 1px solid #744100;
   padding: 20px 0px 30px 10px;
   transform: translateX(5px);
@@ -1378,6 +1401,12 @@ nav .nav-border aside a {
   align-items: center;
   cursor: pointer;
 }
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div span {
   display: flex;
   justify-content: center;
@@ -1391,6 +1420,11 @@ nav .nav-border aside a {
   background-color: #40281b;
   transition: 0.5s ease;
 }
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div span {
+    display: none;
+  }
+}
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div .how-dscp-li-En {
   font-family: "Cormorant Infant", serif;
   font-size: 3rem;
@@ -1401,6 +1435,12 @@ nav .nav-border aside a {
 @media screen and (max-width: 1366px) {
   .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div .how-dscp-li-En {
     font-size: 2rem;
+  }
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div .how-dscp-li-En {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
   }
 }
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div .how-dscp-li-Ch {
@@ -1414,6 +1454,17 @@ nav .nav-border aside a {
 @media screen and (max-width: 1366px) {
   .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div .how-dscp-li-Ch {
     font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div .how-dscp-li-Ch {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li div p {
+    line-height: 1.15;
   }
 }
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li .dscp-li {
@@ -1430,6 +1481,12 @@ nav .nav-border aside a {
 @media screen and (max-width: 1366px) {
   .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li .dscp-li {
     font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li .dscp-li {
+    font-size: 1rem;
+    line-height: 1.2;
   }
 }
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li:nth-child(1) {
@@ -1466,6 +1523,11 @@ nav .nav-border aside a {
   transition: 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 7;
 }
+@media screen and (max-width: 799px) {
+  .web main .how-about .how-to-buy .sticky-block-how .how-midline {
+    display: none;
+  }
+}
 .web main .how-about .how-to-buy .sticky-block-how .how-left {
   position: relative;
   width: 65%;
@@ -1478,7 +1540,7 @@ nav .nav-border aside a {
 .web main .how-about .how-to-buy .sticky-block-how .how-left #how-img-2:hover {
   filter: grayscale(0%);
 }
-.web main .aboutus {
+.web main .how-about .aboutus {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1489,12 +1551,17 @@ nav .nav-border aside a {
   background-color: rgb(241, 233, 225);
   position: fixed;
   top: 2000px;
-  transition: 0.2s ease-out;
   z-index: 5;
   padding-top: 900px;
   padding-bottom: 400px;
 }
-.web main .aboutus .aboutus-BG {
+@media screen and (max-width: 799px) {
+  .web main .how-about .aboutus {
+    padding-top: 0px;
+    z-index: 9;
+  }
+}
+.web main .how-about .aboutus .aboutus-BG {
   display: none;
   position: fixed;
   top: 0;
@@ -1503,7 +1570,7 @@ nav .nav-border aside a {
   filter: brightness(2);
   transition: 0.2s ease-out;
 }
-.web main .aboutus .aboutus-card {
+.web main .how-about .aboutus .aboutus-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1520,7 +1587,7 @@ nav .nav-border aside a {
   opacity: 0.95;
   transition: 0.2s ease-out;
 }
-.web main .aboutus .aboutus-card .aboutus-h1 {
+.web main .how-about .aboutus .aboutus-card .aboutus-h1 {
   font-family: "Cormorant Infant", serif;
   font-size: 5rem;
   text-align: center;
@@ -1533,15 +1600,26 @@ nav .nav-border aside a {
   opacity: 0;
 }
 @media screen and (max-width: 1366px) {
-  .web main .aboutus .aboutus-card .aboutus-h1 {
+  .web main .how-about .aboutus .aboutus-card .aboutus-h1 {
     font-size: 3rem;
   }
 }
-.web main .aboutus .aboutus-card .aboutus-En {
+@media screen and (max-width: 799px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+}
+.web main .how-about .aboutus .aboutus-card .aboutus-En {
   width: 62.8%;
   margin-bottom: 40px;
 }
-.web main .aboutus .aboutus-card .aboutus-En .En-anim {
+@media screen and (max-width: 799px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-En {
+    margin-bottom: 10px;
+  }
+}
+.web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
   position: relative;
   top: 5px;
   font-family: "Cormorant Infant", serif;
@@ -1556,14 +1634,20 @@ nav .nav-border aside a {
   opacity: 0;
 }
 @media screen and (max-width: 1366px) {
-  .web main .aboutus .aboutus-card .aboutus-En .En-anim {
+  .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
     font-size: 1.5rem;
   }
 }
-.web main .aboutus .aboutus-card .aboutus-Ch {
+@media screen and (max-width: 799px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+}
+.web main .how-about .aboutus .aboutus-card .aboutus-Ch {
   width: 62.8%;
 }
-.web main .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
+.web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
   position: relative;
   top: 5px;
   font-family: "Noto Serif TC", serif;
@@ -1578,8 +1662,14 @@ nav .nav-border aside a {
   opacity: 0;
 }
 @media screen and (max-width: 1366px) {
-  .web main .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
+  .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
     font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
+    font-size: 1rem;
+    line-height: 1.15;
   }
 }
 

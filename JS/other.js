@@ -88,7 +88,6 @@ function updateShopFrame() {
         shop_frame.style.top = `${250 - (scroll) / 4}px`
     }
 
-    window.requestAnimationFrame(updateShopFrame);
 }
 function updateHowToBuy() {
     const scroll = window.pageYOffset;

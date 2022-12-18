@@ -280,6 +280,7 @@ nav .nav-border aside a {
 @media screen and (max-width: 799px) {
   .web main .shop-frame h1 {
     font-size: 2.5rem;
+    margin-bottom: 90px;
   }
 }
 .web main .shop {
@@ -1648,16 +1649,20 @@ nav .nav-border aside a {
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-h1 {
     font-size: 2.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 }
 .web main .how-about .aboutus .aboutus-card .aboutus-En {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   width: 62.8%;
   margin-bottom: 40px;
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    width: 80%;
   }
 }
 .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
@@ -1673,20 +1678,32 @@ nav .nav-border aside a {
   color: rgb(224, 218, 211);
   display: inline;
   opacity: 0;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
     font-size: 1.5rem;
+    margin-right: 0.3rem;
   }
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
+    margin-right: 0.3rem;
     font-size: 1.2rem;
     line-height: 1;
   }
 }
 .web main .how-about .aboutus .aboutus-card .aboutus-Ch {
   width: 62.8%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+@media screen and (max-width: 799px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-Ch {
+    width: 80%;
+  }
 }
 .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
   position: relative;
@@ -1701,6 +1718,7 @@ nav .nav-border aside a {
   color: rgba(224, 218, 211, 0.836);
   display: inline;
   opacity: 0;
+  margin-bottom: 4px;
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {

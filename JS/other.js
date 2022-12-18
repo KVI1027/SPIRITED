@@ -69,96 +69,99 @@ function updateBanner() {
     } if (scroll >= 3000 && scroll < 4900) {
     }
 }
+// function updateShopFrame() {
+//     const scroll = window.pageYOffset;
+//     if (scroll < 1600) {
+//         shop_frame.style.width = '91%'
+//         shop_frame.style.margin = `0 0 0 -45.5%`
+//         shop_frame.style.top = `${1000 - (scroll) / 2}px`
+//         shop_frame.style.borderRadius = ` ${1600 - (scroll - 300)}px`
+//     } else if (scroll >= 1600 && scroll < 2600) {
+//         shop_frame.style.width = `100%`
+//         shop_frame.style.margin = `0 0 0 -50%`
+//         shop_frame.style.top = `${1000 - (scroll - 750) / 1}px`
+//         shop_frame.style.borderRadius = ` ${1600 - (scroll - 300)}px`
+//     } else if (scroll >= 3000 && scroll < 5000) {
+//         shop_frame.style.filter = `brightness(${1 - (scroll - 3000) / 3000})`
+//     }
+//     if (scroll >= 4000) {
+//         shop_frame.style.top = `${250 - (scroll) / 4}px`
+//     }
+
+// }
 function updateShopFrame() {
     const scroll = window.pageYOffset;
+    const screenwidth = document.body.clientWidth;
+
+    // 計算 top 和 borderRadius 的值
+    let top, width, borderRadius, margin, display;
+
     if (scroll < 1600) {
-        shop_frame.style.width = '91%'
-        shop_frame.style.margin = `0 0 0 -45.5%`
-        shop_frame.style.top = `${1000 - (scroll) / 2}px`
-        shop_frame.style.borderRadius = ` ${1600 - (scroll - 300)}px`
+        top = 1000 - (scroll) / 2;
+        width = 91;
+        borderRadius = 1600 - (scroll - 300);
+        margin = '0 0 0 -45.5%';
     } else if (scroll >= 1600 && scroll < 2600) {
-        shop_frame.style.width = `100%`
-        shop_frame.style.margin = `0 0 0 -50%`
-        shop_frame.style.top = `${1000 - (scroll - 750) / 1}px`
-        shop_frame.style.borderRadius = ` ${1600 - (scroll - 300)}px`
-    } else if (scroll >= 3000 && scroll < 5000) {
-        shop_frame.style.filter = `brightness(${1 - (scroll - 3000) / 3000})`
-    }
-    if (scroll >= 4000) {
-        shop_frame.style.top = `${250 - (scroll) / 4}px`
+        top = 1000 - (scroll - 750) / 1;
+        width = 100;
+        borderRadius = 1600 - (scroll - 300);
+        margin = '0 0 0 -50%';
+    } else if (screenwidth < 800 && scroll >= 3000 && scroll < 3800) {
+        top = 1000 - (scroll + 3750) / 3;
+        display = 'block'
+    } else if (screenwidth < 800 && scroll >= 3800) {
+        display = 'none'
+    } else if (scroll >= 4000) {
+        top = 250 - (scroll) / 4;
     }
 
+    // 計算 filter 的值
+    let brightness;
+    if (scroll >= 3000 && scroll < 5000) {
+        brightness = `brightness(${1 - (scroll - 3000) / 3000})`;
+    }
+
+    shop_frame.style.top = `${top}px`;
+    shop_frame.style.width = `${width}%`;
+    shop_frame.style.borderRadius = `${borderRadius}px`;
+    shop_frame.style.margin = `${margin}`;
+    shop_frame.style.filter = `${brightness}`;
+    shop_frame.style.display = `${display}`;
 }
 function updateHowToBuy() {
     const scroll = window.pageYOffset;
-    if (scroll >= 3100) {
-        how_to_buy.style.borderRadius = ` ${1600 - (scroll - 3300)}px`
-    }
-    if (scroll >= 3100 && scroll <= 4400) {
-        how_to_buy.style.top = `${1000 - (scroll - 3100) / 2}px`
-    } else if (scroll > 4400) {
-        how_to_buy.style.top = `${1000 - (scroll - 3700) / 1}px`
-    }
-    if (scroll >= 4600 && scroll <= 5400) {
-        how_left.style.width = `${65 - (scroll - 4600) / 30}%`
-        how_right.style.width = `${25 + (scroll - 4600) / 30}%`
-        how_dscp.style.height = `${0 + (scroll - 4600) / 10}vh`
-        how_midline.style.height = '0%'
-    } else if (scroll > 5400 && scroll < 5800) {
-        how_midline.style.height = '160%'
-        how_left.style.width = `38.3%`
-        how_right.style.width = `51.6%`
-        how_right.style.top = `0px`
-    } else if (scroll >= 5800) {
-        how_right.style.top = `-${(scroll - 5800) / 1}px`
-        how_midline.style.height = '0%'
-    }
-
-    //RWD
     if (document.body.clientWidth < 800) {
-        how_left.style.width = '90%'
-        how_right.style.width = '90%'
-
-        if (scroll <= 4900) {
-            how_dscp.style.height = `${0 + 272 * (scroll - 4600) / 300}px`
-        } else if (scroll > 4900 && scroll < 5600) {
-            how_dscp.style.height = 'auto'
-        } else {
-            how_dscp.style.height = `${272 - 272 * (scroll - 5600) / 250}px`
-        }
-        how_dscp_li.forEach(e => {
-
-            if (scroll <= 4900) {
-                e.style.opacity = `0`
-                e.style.transform = `translateX(-5px);`
-                e.setAttribute(`data-state`, `off`)
-                e.children[1].innerHTML = ""
-                e.children[1].style.height = '0'
-            } else if (scroll > 4900 && scroll < 5600) {
-                e.style.opacity = `1`
-                e.style.transform = `translateX(5px);`
-            } else {
-                e.style.opacity = `0`
-                e.style.transform = `translateX(-5px);`
-                e.setAttribute(`data-state`, `off`)
-                e.children[1].innerHTML = ""
-                e.children[1].style.height = '0'
-            }
-        });
-
-
-    } else if (document.body.clientWidth < 1366) {
-        how_dscp.style.height = `${20 + (scroll - 4600) / 10}vh`
-        if (scroll >= 4600 && scroll <= 5400) {
-            how_left.style.width = `${55 - (scroll - 4600) / 30}%`
-            how_right.style.width = `${35 + (scroll - 4600) / 30}%`
-        } else if (scroll > 5400 && scroll < 5800) {
-            how_left.style.width = `28.3%`
-            how_right.style.width = `61.6%`
-        }
+        updateStylesHowToBuySmallScreens(scroll);
     } else {
-        how_dscp_li.forEach(e => {
+        updateStylesHowToBuyLargeScreens(scroll);
+    }
 
+    function updateStylesHowToBuyLargeScreens(scroll) {
+        let how_to_buy_top, how_to_buy_borderRadius, how_left_width, how_right_width, how_right_top, how_dscp_height, how_midline_height;
+        if (scroll >= 3100) {
+            how_to_buy_borderRadius = 1600 - (scroll - 3300)
+        }
+        if (scroll >= 3100 && scroll <= 4400) {
+            how_to_buy_top = 1000 - (scroll - 3100) / 2
+        } else if (scroll > 4400) {
+            how_to_buy_top = 1000 - (scroll - 3700) / 1
+        }
+        if (scroll >= 4600 && scroll <= 5400) {
+            how_left_width = 65 - (scroll - 4600) / 30
+            how_right_width = 25 + (scroll - 4600) / 30
+            how_dscp_height = `${0 + (scroll - 4600) / 10}vh`
+            how_midline_height = 0
+        } else if (scroll > 5400 && scroll < 5800) {
+            how_midline_height = 160
+            how_left_width = 38.3
+            how_right_width = 51.6
+            how_right_top = 0
+        } else if (scroll >= 5800) {
+            how_right_top = -(scroll - 5800) / 1
+            how_midline_height = 0
+        }
+        how_dscp_li.forEach(e => {
+    
             if (scroll <= 5400) {
                 e.style.opacity = `0`
                 e.style.transform = `translateX(-5px);`
@@ -180,42 +183,112 @@ function updateHowToBuy() {
                 e.children[1].style.height = '0'
             }
         });
-    }
-}
-function updateAboutUs() {
     
+        
+        how_to_buy.style.top = `${how_to_buy_top}px`
+        how_to_buy.style.borderRadius = `${how_to_buy_borderRadius}px`
+        how_left.style.width = `${how_left_width}%`
+        how_right.style.width = `${how_right_width}%`
+        how_right.style.top = `${how_right_top}px`
+        how_dscp.style.height = `${how_dscp_height}`
+        how_midline.style.height = `${how_midline_height}%`
+    }
+    function updateStylesHowToBuySmallScreens(scroll) {
+        let how_to_buy_top, how_to_buy_borderRadius, how_left_width, how_right_width, how_right_top, how_dscp_height, how_midline_height;
+    
+        if (scroll >= 2900) {
+            how_to_buy_borderRadius = 400 - (scroll - 2900) / 2
+        }
+        if (scroll >= 2900 && scroll <= 4200) {
+            how_to_buy_top = 750 - (scroll - 2900) / 1
+        } else if (scroll > 4200) {
+            how_to_buy_top = 750 - (scroll - 2900) / 1
+        }
+        if (scroll <= 4100) {
+            how_left_width = 90
+            how_right_width = 90
+            how_dscp_height = `${0 + 272 * (scroll - 3800) / 300}px`
+        } else if (scroll > 4100 && scroll < 4800) {
+            how_dscp_height = 'auto'
+        } else {
+            how_dscp_height = `${272 - 272 * (scroll - 4800) / 250}px`
+        }
+        how_dscp_li.forEach(e => {
+    
+            if (scroll <= 4100) {
+                e.style.opacity = `0`
+                e.style.transform = `translateX(-5px);`
+                e.setAttribute(`data-state`, `off`)
+                e.children[1].innerHTML = ""
+                e.children[1].style.height = '0'
+            } else if (scroll > 4100 && scroll < 4800) {
+                e.style.opacity = `1`
+                e.style.transform = `translateX(5px);`
+            } else {
+                e.style.opacity = `0`
+                e.style.transform = `translateX(-5px);`
+                e.setAttribute(`data-state`, `off`)
+                e.children[1].innerHTML = ""
+                e.children[1].style.height = '0'
+            }
+        });
+    
+        how_to_buy.style.top = `${how_to_buy_top}px`
+        how_to_buy.style.borderRadius = `${how_to_buy_borderRadius}px`
+        how_left.style.width = `${how_left_width}%`
+        how_right.style.width = `${how_right_width}%`
+        how_right.style.top = `${how_right_top}px`
+        how_dscp.style.height = `${how_dscp_height}`
+        how_midline.style.height = `${how_midline_height}%`
+    }
+    //RWD
+    // if (document.body.clientWidth < 1366) {
+    //     how_dscp.style.height = `${20 + (scroll - 4600) / 10}vh`
+    //     if (scroll >= 4600 && scroll <= 5400) {
+    //         how_left.style.width = `${55 - (scroll - 4600) / 30}%`
+    //         how_right.style.width = `${35 + (scroll - 4600) / 30}%`
+    //     } else if (scroll > 5400 && scroll < 5800) {
+    //         how_left.style.width = `28.3%`
+    //         how_right.style.width = `61.6%`
+    //     }
+    // }
+}
+
+
+function updateAboutUs() {
+    const scroll = window.pageYOffset;
 
 
     if (document.body.clientWidth < 800) {
         const scroll = window.pageYOffset;
-        if (scroll < 5900) {
-            aboutus.style.top = `${800 - (scroll - 5700) / 1}px`
-        } else if (scroll >= 5900 & scroll <= 9200) {
-            aboutus.style.top = `${800 - (scroll - 5700) / 1}px`
+        if (scroll < 4900) {
+            aboutus.style.top = `${800 - (scroll - 4700) / 1}px`
+        } else if (scroll >= 4900 & scroll <= 8200) {
+            aboutus.style.top = `${800 - (scroll - 4700) / 1}px`
             aboutus_BG.style.display = 'none'
-        } else if (scroll <= 9800) {
-            aboutus.style.top = `${1000 - (scroll - 5900) / 1}px`
-        } else if (scroll > 9800) {
+        } else if (scroll <= 8800) {
+            aboutus.style.top = `${1000 - (scroll - 4900) / 1}px`
+        } else if (scroll > 8800) {
             aboutus.style.top = `-2900px`
         }
-        if (scroll >= 6000 && scroll <= 6500) {
+        if (scroll >= 5000 && scroll <= 5500) {
             aboutus_h1.style.opacity = '1'
         }
-        if (scroll >= 6500 && scroll <= 7100) {
+        if (scroll >= 5500 && scroll <= 6100) {
             //Aboutus變色效果
             const [red, green, blue] = [241, 233, 225]
-            const x = 1 + (scroll - 6500) / 342
-            const y = 1 + (scroll - 6500) / 252
-            const z = 1 + (scroll - 6500) / 204
+            const x = 1 + (scroll - 5500) / 342
+            const y = 1 + (scroll - 5500) / 252
+            const z = 1 + (scroll - 5500) / 204
             const [r, g, b] = [red / x, green / y, blue / z].map(Math.round)
             about_card.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
             aboutus_h1.style.color = `rgb(${64 * 1.4 * x}, ${40 * 1.7 * y}, ${27 * 2.1 * z})`
 
             //Aboutus scroll效果
             aboutus_BG.style.display = 'block'
-            aboutus_BG.style.opacity = `${(scroll - 6500) / 1000}`
-            about_card.style.width = `${110 - (scroll - 6500) / 10}%`
-            about_card.style.height = `${170 - (scroll - 6500) / 100 * 14.1}vh`
+            aboutus_BG.style.opacity = `${(scroll - 5500) / 1000}`
+            about_card.style.width = `${110 - (scroll - 5500) / 10}%`
+            about_card.style.height = `${170 - (scroll - 5500) / 100 * 14.1}vh`
             about_card.style.borderRadius = `0 0 ${about_card.clientWidth / 2}px ${about_card.clientWidth / 2}px`
 
             //Aboutus 文字動畫初始狀態
@@ -229,7 +302,7 @@ function updateAboutUs() {
                 e.style.opacity = '0'
                 e.style.transition = `0.3s ease`
             });
-        } else if (scroll > 7100) {
+        } else if (scroll > 6100) {
             aboutus_BG.style.display = 'block'
             about_card.style.backgroundColor = `rgb(68, 47, 33)`
 
@@ -249,14 +322,14 @@ function updateAboutUs() {
         } else {
             about_card.style.backgroundColor = `rgb(241, 233, 225)`
         }
-        if (scroll >= 6500 && scroll <= 7100) {
-            about_card.style.width = `${110 - (scroll - 6500) / 15}%`
+        if (scroll >= 5500 && scroll <= 6100) {
+            about_card.style.width = `${110 - (scroll - 5500) / 15}%`
         }
-        if (scroll <= 9100) {
+        if (scroll <= 8100) {
             aboutus_BG.style.top = `0px`
         }
-        else if (scroll > 9100 && scroll < 9800) {
-            aboutus_BG.style.top = `${0 - (scroll - 9100) / 1}px`
+        else if (scroll > 8100 && scroll < 8800) {
+            aboutus_BG.style.top = `${0 - (scroll - 8100) / 1}px`
         } else {
             aboutus_BG.style.top = `-700px`
         }
@@ -290,14 +363,14 @@ function updateAboutUs() {
             const [r, g, b] = [red / x, green / y, blue / z].map(Math.round)
             about_card.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
             aboutus_h1.style.color = `rgb(${64 * 1.4 * x}, ${40 * 1.7 * y}, ${27 * 2.1 * z})`
-    
+
             //Aboutus scroll效果
             aboutus_BG.style.display = 'block'
             aboutus_BG.style.opacity = `${(scroll - 7900) / 1000}`
             about_card.style.width = `${110 - (scroll - 7900) / 10}%`
             about_card.style.height = `${170 - (scroll - 7900) / 100 * 14.1}vh`
             about_card.style.borderRadius = `0 0 ${about_card.clientWidth / 2}px ${about_card.clientWidth / 2}px`
-    
+
             //Aboutus 文字動畫初始狀態
             En_anim.forEach(e => {
                 e.style.top = '5px'
@@ -312,13 +385,13 @@ function updateAboutUs() {
         } else if (scroll > 8500) {
             aboutus_BG.style.display = 'block'
             about_card.style.backgroundColor = `rgb(68, 47, 33)`
-    
+
             //Aboutus 文字動畫
             for (let index = 0; index < En_anim.length; index++) {
                 const p = En_anim[index];
                 p.style.opacity = '1'
                 p.style.top = '0'
-                p.style.transition = `0.3s ease ${index / 16}s`
+                p.style.transition = `0.3s ease ${index / 34}s`
             }
             for (let index = 0; index < Ch_anim.length; index++) {
                 const p = Ch_anim[index];

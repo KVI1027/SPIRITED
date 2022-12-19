@@ -41,7 +41,7 @@ const Ch_anim = document.querySelectorAll('.Ch-anim')
 
 function updateNav() {
     const scroll = window.pageYOffset;
-    if (scroll < 1800) {
+    if (scroll < 800) {
         navHamburger.forEach(e => {
             e.classList.remove('menu-btn-line-dark');
             e.classList.add('menu-btn-line-light');
@@ -96,20 +96,20 @@ function updateShopFrame() {
     // 計算 top 和 borderRadius 的值
     let top, width, borderRadius, margin, display;
 
-    if (scroll < 1600) {
-        top = 1000 - (scroll) / 2;
+    if (scroll < 700) {
+        top = 800 - (scroll) / 1;
         width = 91;
-        borderRadius = 1600 - (scroll - 300);
+        borderRadius = 400 - (scroll) / 2 ;
         margin = '0 0 0 -45.5%';
-    } else if (scroll >= 1600 && scroll < 2600) {
-        top = 1000 - (scroll - 750) / 1;
+    } else if (scroll >= 700 && scroll < 1600) {
+        top = 800 - (scroll) / 1;
         width = 100;
-        borderRadius = 1600 - (scroll - 300);
+        borderRadius = 400 - (scroll) /2;
         margin = '0 0 0 -50%';
-    } else if (screenwidth < 800 && scroll >= 3000 && scroll < 3800) {
-        top = 1000 - (scroll + 3750) / 3;
+    } else if (screenwidth < 800 && scroll >= 1600 && scroll < 2400) {
+        top = 300 - (scroll + 3400) / 3;
         display = 'block'
-    } else if (screenwidth < 800 && scroll >= 3800) {
+    } else if (screenwidth < 800 && scroll >= 2400) {
         display = 'none'
     } else if (scroll >= 4000) {
         top = 250 - (scroll) / 4;
@@ -196,32 +196,32 @@ function updateHowToBuy() {
     function updateStylesHowToBuySmallScreens(scroll) {
         let how_to_buy_top, how_to_buy_borderRadius, how_left_width, how_right_width, how_right_top, how_dscp_height, how_midline_height;
     
-        if (scroll >= 2900) {
-            how_to_buy_borderRadius = 400 - (scroll - 2900) / 2
+        if (scroll >= 1500) {
+            how_to_buy_borderRadius = 400 - (scroll - 1500) / 2
         }
-        if (scroll >= 2900 && scroll <= 4200) {
-            how_to_buy_top = 750 - (scroll - 2900) / 1
-        } else if (scroll > 4200) {
-            how_to_buy_top = 750 - (scroll - 2900) / 1
+        if (scroll >= 1500 && scroll <= 2800) {
+            how_to_buy_top = 750 - (scroll - 1500) / 1
+        } else if (scroll > 2800) {
+            how_to_buy_top = 750 - (scroll - 1500) / 1
         }
-        if (scroll <= 4100) {
+        if (scroll <= 2700) {
             how_left_width = 90
             how_right_width = 90
-            how_dscp_height = `${0 + 272 * (scroll - 3800) / 300}px`
-        } else if (scroll > 4100 && scroll < 4800) {
+            how_dscp_height = `${0 + 272 * (scroll - 2400) / 300}px`
+        } else if (scroll > 2700 && scroll < 3400) {
             how_dscp_height = 'auto'
         } else {
-            how_dscp_height = `${272 - 272 * (scroll - 4800) / 250}px`
+            how_dscp_height = `${272 - 272 * (scroll - 3400) / 250}px`
         }
         how_dscp_li.forEach(e => {
     
-            if (scroll <= 4100) {
+            if (scroll <= 2700) {
                 e.style.opacity = `0`
                 e.style.transform = `translateX(-5px);`
                 e.setAttribute(`data-state`, `off`)
                 e.children[1].innerHTML = ""
                 e.children[1].style.height = '0'
-            } else if (scroll > 4100 && scroll < 4800) {
+            } else if (scroll > 2700 && scroll < 3400) {
                 e.style.opacity = `1`
                 e.style.transform = `translateX(5px);`
             } else {
@@ -261,34 +261,34 @@ function updateAboutUs() {
 
     if (document.body.clientWidth < 800) {
         const scroll = window.pageYOffset;
-        if (scroll < 4900) {
-            aboutus.style.top = `${800 - (scroll - 4700) / 1}px`
-        } else if (scroll >= 4900 & scroll <= 8200) {
-            aboutus.style.top = `${800 - (scroll - 4700) / 1}px`
+        if (scroll < 3500) {
+            aboutus.style.top = `${800 - (scroll - 3300) / 1}px`
+        } else if (scroll >= 3500 & scroll <= 6800) {
+            aboutus.style.top = `${800 - (scroll - 3300) / 1}px`
             aboutus_BG.style.display = 'none'
-        } else if (scroll <= 8800) {
-            aboutus.style.top = `${1000 - (scroll - 4900) / 1}px`
-        } else if (scroll > 8800) {
+        } else if (scroll <= 7400) {
+            aboutus.style.top = `${1000 - (scroll - 3500) / 1}px`
+        } else if (scroll > 7400) {
             aboutus.style.top = `-2900px`
         }
-        if (scroll >= 5000 && scroll <= 5500) {
+        if (scroll >= 3600 && scroll <= 4100) {
             aboutus_h1.style.opacity = '1'
         }
-        if (scroll >= 5500 && scroll <= 6100) {
+        if (scroll >= 4100 && scroll <= 4700) {
             //Aboutus變色效果
             const [red, green, blue] = [241, 233, 225]
-            const x = 1 + (scroll - 5500) / 342
-            const y = 1 + (scroll - 5500) / 252
-            const z = 1 + (scroll - 5500) / 204
+            const x = 1 + (scroll - 4100) / 342
+            const y = 1 + (scroll - 4100) / 252
+            const z = 1 + (scroll - 4100) / 204
             const [r, g, b] = [red / x, green / y, blue / z].map(Math.round)
             about_card.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
             aboutus_h1.style.color = `rgb(${64 * 1.4 * x}, ${40 * 1.7 * y}, ${27 * 2.1 * z})`
 
             //Aboutus scroll效果
             aboutus_BG.style.display = 'block'
-            aboutus_BG.style.opacity = `${(scroll - 5500) / 1000}`
-            about_card.style.width = `${110 - (scroll - 5500) / 10}%`
-            about_card.style.height = `${170 - (scroll - 5500) / 100 * 14.1}vh`
+            aboutus_BG.style.opacity = `${(scroll - 4100) / 1000}`
+            about_card.style.width = `${110 - (scroll - 4100) / 15}%`
+            about_card.style.height = `${170 - (scroll - 4100) / 100 * 14.1}vh`
             about_card.style.borderRadius = `0 0 ${about_card.clientWidth / 2}px ${about_card.clientWidth / 2}px`
 
             //Aboutus 文字動畫初始狀態
@@ -302,7 +302,7 @@ function updateAboutUs() {
                 e.style.opacity = '0'
                 e.style.transition = `0.3s ease`
             });
-        } else if (scroll > 6100) {
+        } else if (scroll > 4700) {
             aboutus_BG.style.display = 'block'
             about_card.style.backgroundColor = `rgb(68, 47, 33)`
 
@@ -322,14 +322,11 @@ function updateAboutUs() {
         } else {
             about_card.style.backgroundColor = `rgb(241, 233, 225)`
         }
-        if (scroll >= 5500 && scroll <= 6100) {
-            about_card.style.width = `${110 - (scroll - 5500) / 15}%`
-        }
-        if (scroll <= 8100) {
+        if (scroll <= 6700) {
             aboutus_BG.style.top = `0px`
         }
-        else if (scroll > 8100 && scroll < 8800) {
-            aboutus_BG.style.top = `${0 - (scroll - 8100) / 1}px`
+        else if (scroll > 6700 && scroll < 7400) {
+            aboutus_BG.style.top = `${0 - (scroll - 6700) / 1}px`
         } else {
             aboutus_BG.style.top = `-700px`
         }

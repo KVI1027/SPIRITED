@@ -88,6 +88,7 @@ body a:hover {
   font-size: 4rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 400;
   text-align: start;
   color: #ffffe8;
@@ -186,6 +187,7 @@ nav .nav-border .nav-content a .text-en {
   font-size: 10rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 100;
 }
 @media screen and (max-width: 1450px) {
@@ -195,6 +197,7 @@ nav .nav-border .nav-content a .text-en {
     font-size: 2rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 @media screen and (max-width: 1350px) {
@@ -204,6 +207,7 @@ nav .nav-border .nav-content a .text-en {
     font-size: 1.5rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 @media screen and (max-width: 799px) {
@@ -213,6 +217,7 @@ nav .nav-border .nav-content a .text-en {
     font-size: 1.25rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 nav .nav-border .nav-content .list-a .text-ch,
@@ -222,6 +227,7 @@ nav .nav-border .nav-content a .text-ch {
   font-size: 1.5rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   line-height: 2.5rem;
 }
@@ -232,6 +238,7 @@ nav .nav-border .nav-content a .text-ch {
     font-size: 1rem;
     text-align: center;
     unicode-range: -5FA5;
+    -webkit-font-smoothing: antialiased;
     text-align: start;
   }
 }
@@ -274,13 +281,16 @@ nav .nav-border aside a {
   font-size: 5rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 200;
   margin-bottom: 400px;
 }
 @media screen and (max-width: 799px) {
   .web main .shop-frame h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
+    font-weight: 500;
     margin-bottom: 90px;
+    color: #6e4105;
   }
 }
 .web main .shop {
@@ -383,12 +393,14 @@ nav .nav-border aside a {
   font-size: 1.875rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
 }
 .web main .shop .shop-main .top .kanban-bg .kanban .types .type .title-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
 }
 .web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item {
   width: 100%;
@@ -405,12 +417,14 @@ nav .nav-border aside a {
   font-size: 1.875rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
 }
 .web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
 }
 .web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-en-sp {
   height: 1.875rem;
@@ -418,6 +432,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -483,6 +498,7 @@ nav .nav-border aside a {
   font-size: 2.25rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   line-height: 2rem;
   text-align: start;
   margin-bottom: 0.5rem;
@@ -492,6 +508,7 @@ nav .nav-border aside a {
   font-size: 1.5rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   line-height: 2rem;
   text-align: start;
   margin-bottom: 1rem;
@@ -515,6 +532,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   width: 100%;
 }
@@ -523,6 +541,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   width: 100%;
 }
@@ -558,6 +577,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   width: 100%;
 }
@@ -590,6 +610,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   width: 100%;
 }
@@ -631,6 +652,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   top: -2.5rem;
   right: 0rem;
@@ -682,9 +704,11 @@ nav .nav-border aside a {
 }
 .web main .shop .shop-main-phone {
   width: 100%;
-  height: 60vh;
+  height: 55vh;
   padding-top: 20px;
   transition: top 0.5s;
+  z-index: 10;
+  margin-bottom: -2vh;
 }
 .web main .shop .shop-main-phone .top {
   width: 100%;
@@ -709,6 +733,7 @@ nav .nav-border aside a {
   font-size: 2.25rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #40281b;
 }
 .web main .shop .shop-main-phone .top .kanban .types {
@@ -717,6 +742,8 @@ nav .nav-border aside a {
   align-items: center;
   justify-content: center;
   width: 70%;
+  position: relative;
+  top: -10px;
 }
 .web main .shop .shop-main-phone .top .kanban .types .swiper-slide {
   display: flex;
@@ -761,25 +788,29 @@ nav .nav-border aside a {
   align-items: center;
   justify-content: center;
 }
+.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-pic {
+  margin-top: 3px;
+}
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-pic img {
-  width: 245px;
-  height: 245px;
+  width: 228px;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info {
   width: 400px;
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name {
-  margin-bottom: 10px;
+  position: relative;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en {
   font-family: "Lobster", cursive;
   font-size: 1.75rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -803,6 +834,7 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -819,12 +851,21 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet {
+  position: absolute;
+  top: 55px;
+  left: calc(50% - 78px);
+  border: 1px solid rgba(128, 89, 68, 0.4117647059);
+  border-radius: 14px;
+  background-color: rgb(245, 240, 223);
+  padding: 2px 8px 2px 8px;
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -842,10 +883,10 @@ nav .nav-border aside a {
   background-color: #c6c5af;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info {
-  width: 80%;
+  width: 100%;
   height: 650px;
   position: absolute;
-  bottom: -715px;
+  bottom: -693px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -853,7 +894,6 @@ nav .nav-border aside a {
   justify-content: flex-start;
   align-items: flex-start;
   display: none;
-  bottom: -670px;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips {
   margin-bottom: 1.5rem;
@@ -864,6 +904,7 @@ nav .nav-border aside a {
   font-size: 0.75rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips .tips-en {
@@ -871,13 +912,15 @@ nav .nav-border aside a {
   font-size: 0.75rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-ch {
   font-family: "Noto Serif TC", serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   opacity: 0.9;
   text-align: left;
   line-height: 120%;
@@ -887,11 +930,12 @@ nav .nav-border aside a {
   font-size: 1.1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
   line-height: 100%;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info p {
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
 }
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-btn {
   cursor: pointer;
@@ -926,7 +970,7 @@ nav .nav-border aside a {
 }
 .web main .shop .shop-bottom-phone {
   width: 100%;
-  height: 60vh;
+  height: 67vh;
   padding-top: 5px;
   background-image: url(../img/menu-bottom.png);
   background-position: center;
@@ -1085,6 +1129,7 @@ nav .nav-border aside a {
   font-size: 4rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
 }
 @media all and (max-width: 1199px) {
@@ -1093,6 +1138,7 @@ nav .nav-border aside a {
     font-size: 3rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 @media all and (max-width: 799px) {
@@ -1101,6 +1147,7 @@ nav .nav-border aside a {
     font-size: 2.5rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 .web main .news .news-border .news-en {
@@ -1108,6 +1155,7 @@ nav .nav-border aside a {
   font-size: 2.5rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
   margin-bottom: 1rem;
 }
@@ -1117,6 +1165,7 @@ nav .nav-border aside a {
     font-size: 2.25rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 @media all and (max-width: 799px) {
@@ -1125,6 +1174,7 @@ nav .nav-border aside a {
     font-size: 2rem;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 .web main .news .news-border .news-ch {
@@ -1132,6 +1182,7 @@ nav .nav-border aside a {
   font-size: 2.5rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
   margin-bottom: 1rem;
 }
@@ -1141,6 +1192,7 @@ nav .nav-border aside a {
     font-size: 2.25rem;
     text-align: center;
     unicode-range: -5FA5;
+    -webkit-font-smoothing: antialiased;
   }
 }
 @media all and (max-width: 799px) {
@@ -1149,6 +1201,7 @@ nav .nav-border aside a {
     font-size: 2rem;
     text-align: center;
     unicode-range: -5FA5;
+    -webkit-font-smoothing: antialiased;
   }
 }
 .web main .news .news-border .news-btn {
@@ -1269,6 +1322,7 @@ nav .nav-border aside a {
   font-size: 2rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   transform: scaleX(0.8);
   color: #5d412e;
   margin-bottom: 0.5rem;
@@ -1369,14 +1423,16 @@ nav .nav-border aside a {
   font-size: 5rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 100;
   color: #6e4105;
   margin-bottom: 350px;
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .how-to-buy h1 {
-    margin-bottom: 0px;
-    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-size: 4rem;
+    font-weight: 500;
   }
 }
 .web main .how-about .how-to-buy .sticky-block-how {
@@ -1472,6 +1528,7 @@ nav .nav-border aside a {
   font-size: 3rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 200;
 }
 @media screen and (max-width: 1366px) {
@@ -1490,6 +1547,7 @@ nav .nav-border aside a {
   font-size: 2rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   font-weight: 400;
   margin-left: 20px;
 }
@@ -1634,6 +1692,7 @@ nav .nav-border aside a {
   font-size: 5rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 200;
   color: rgb(137, 87, 60);
   border-bottom: 1px double rgb(241, 233, 225);
@@ -1672,6 +1731,7 @@ nav .nav-border aside a {
   font-size: 2rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-weight: 200;
   text-align: center;
   line-height: 1.4;
@@ -1712,6 +1772,7 @@ nav .nav-border aside a {
   font-size: 1.5rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: center;
   line-height: 1.4;
   font-weight: 100;
@@ -1771,6 +1832,7 @@ nav .nav-border aside a {
   font-size: 4rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   text-align: start;
   color: #f4d4bd;
   display: flex;
@@ -1856,6 +1918,7 @@ nav .nav-border aside a {
   font-size: 2rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
 }
 .phone .news-phone .news-border .news-en {
@@ -1863,6 +1926,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
   margin-bottom: 0.5rem;
 }
@@ -1871,6 +1935,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
   margin-bottom: 0.7rem;
 }
@@ -1984,6 +2049,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
   margin-bottom: 1rem;
   transform: scaleX(0.8);
@@ -2004,6 +2070,7 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   color: #5d412e;
   transform: scaleX(0.8);
 }
@@ -2074,6 +2141,7 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   color: #40281b;
 }
 .phone .shop-phone .shop-main-phone .top .kanban .types {
@@ -2145,6 +2213,7 @@ nav .nav-border aside a {
   font-size: 1.75rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2161,6 +2230,7 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2177,12 +2247,14 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
 }
 .phone .shop-phone .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2219,6 +2291,7 @@ nav .nav-border aside a {
   font-size: 0.75rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
 }
 .phone .shop-phone .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips .tips-en {
@@ -2226,6 +2299,7 @@ nav .nav-border aside a {
   font-size: 0.75rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
 }
 .phone .shop-phone .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-ch {
@@ -2233,6 +2307,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
   line-height: 1.5rem;
 }
@@ -2241,6 +2316,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   text-align: left;
 }
 .phone .shop-phone .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info p {
@@ -2500,6 +2576,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
   text-align: start;
   margin-bottom: 0.5rem;
@@ -2509,6 +2586,7 @@ nav .nav-border aside a {
   font-size: 0.75rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
   text-align: start;
   margin-bottom: 2.5rem;
@@ -2522,6 +2600,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
   text-align: left;
   margin-bottom: 0.55rem;
@@ -2531,6 +2610,7 @@ nav .nav-border aside a {
   font-size: 0.75rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
   text-align: left;
   margin-bottom: 2.5rem;
@@ -2590,6 +2670,7 @@ nav .nav-border aside a {
   font-size: 2rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   transform: rotateZ(-35deg);
   position: absolute;
   top: 50%;
@@ -2609,6 +2690,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
   text-align: start;
   margin-bottom: 2rem;
@@ -2618,6 +2700,7 @@ nav .nav-border aside a {
   font-size: 0.8rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
   text-align: left;
 }
@@ -2663,6 +2746,7 @@ nav .nav-border aside a {
   font-size: 1.25rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   color: #9c6a4e;
   line-height: 1;
   margin-bottom: 2rem;
@@ -2677,6 +2761,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   margin-bottom: 1rem;
 }
 .phone .footer-phone .footer-lax-phone .footer-info .footer-time .footer-time-en {
@@ -2684,6 +2769,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
   font-style: italic;
 }
 .phone .footer-phone .footer-lax-phone .footer-info .footer-number {
@@ -2691,6 +2777,7 @@ nav .nav-border aside a {
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
+  -webkit-font-smoothing: antialiased;
   color: #9c6a4e;
   margin-bottom: 2rem;
 }

@@ -22,6 +22,7 @@
     font-size: $size;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
 }
 
 @mixin Cormorant($size) {
@@ -29,6 +30,7 @@
     font-size: $size;
     text-align: center;
     unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
 }
 
 @mixin Noto-Serif-TC($size) {
@@ -36,6 +38,7 @@
     font-size: $size;
     text-align: center;
     unicode-range: 4E00-9FA5;
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -305,8 +308,10 @@ nav {
                 margin-bottom: 400px;
 
                 @media screen and(max-width:799px) {
-                    font-size: 2.5rem;
+                    font-size: 4rem;
+                    font-weight: 500;
                     margin-bottom: 90px;
+                    color: #6e4105;
                 }
             }
         }
@@ -716,9 +721,11 @@ nav {
 
             .shop-main-phone {
                 width: 100%;
-                height: 60vh;
+                height: 55vh;
                 padding-top: 20px;
                 transition: top 0.5s;
+                z-index: 10;
+                margin-bottom: -2vh;
 
                 .top {
                     width: 100%;
@@ -740,6 +747,8 @@ nav {
                         .types {
                             @include flex(row);
                             width: 70%;
+                            position: relative;
+                            top: -10px;
 
                             .swiper-slide {
                                 @include flex(column);
@@ -804,19 +813,19 @@ nav {
                                         @include flex(column);
 
                                         .item-pic {
+                                            margin-top: 3px;
                                             img {
-                                                width: 245px;
-                                                height: 245px;
+                                                width: 228px;
                                             }
                                         }
 
                                         .item-info {
                                             width: 400px;
+                                            margin-top: 5px;
                                             @include flex(column);
 
                                             .item-name {
-                                                margin-bottom: 10px;
-
+                                                position: relative;
                                                 .item-name-en {
                                                     @include Lobster(1.75rem);
                                                     @include flex(row);
@@ -851,6 +860,13 @@ nav {
                                                 }
 
                                                 .item-sweet {
+                                                    position: absolute;
+                                                    top: 55px;
+                                                    left: calc(50% - 78px);
+                                                    border: 1px solid #80594469;
+                                                    border-radius: 14px;
+                                                    background-color: rgb(245, 240, 223);
+                                                    padding: 2px 8px 2px 8px ;
                                                     @include Noto-Serif-TC(1rem);
                                                     @include flex(row);
 
@@ -873,15 +889,14 @@ nav {
                                     }
 
                                     .menu-info {
-                                        width: 80%;
+                                        width: 100%;
                                         height: 650px;
                                         position: absolute;
-                                        bottom: -715px;
+                                        bottom: -693px;
                                         @include flex(column);
                                         justify-content: flex-start;
                                         align-items: flex-start;
                                         display: none;
-                                        bottom: -670px;
 
                                         .tips {
                                             margin-bottom: 1.5rem;
@@ -899,7 +914,7 @@ nav {
                                         }
 
                                         .info-ch {
-                                            @include Noto-Serif-TC(1rem);
+                                            @include Noto-Serif-TC(0.9rem);
                                             opacity: 0.9;
                                             text-align: left;
                                             line-height: 120%;
@@ -912,7 +927,7 @@ nav {
                                         }
 
                                         p {
-                                            margin-bottom: 1rem;
+                                            margin-bottom: 8px;
                                         }
 
                                         .info-btn {
@@ -970,7 +985,7 @@ nav {
 
             .shop-bottom-phone {
                 width: 100%;
-                height: 60vh;
+                height: 67vh;
                 padding-top: 5px;
                 background-image: url(../img/menu-bottom.png);
                 @include bg-style();
@@ -1354,8 +1369,10 @@ nav {
                     margin-bottom: 350px;
 
                     @media screen and(max-width:799px) {
-                        margin-bottom: 0px;
-                        font-size: 2.5rem;
+                        margin-bottom: 5px;
+                        
+                    font-size: 4rem;
+                    font-weight: 500;
                     }
                 }
 

@@ -139,6 +139,7 @@ body a:hover {
 @media screen and (max-width: 799px) {
   .web-background .web-border-1 {
     top: 80px;
+    height: 100%;
   }
 }
 .web-background .web-border-1 .web-border-2 {
@@ -1430,7 +1431,7 @@ nav .nav-border aside a {
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .how-to-buy h1 {
-    margin-bottom: 5px;
+    margin-bottom: 110px;
     font-size: 4rem;
     font-weight: 500;
   }

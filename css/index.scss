@@ -186,6 +186,7 @@ body {
         top: 140px;
         @media screen and(max-width:799px) {
             top: 80px;
+            height: 100%;
         }
 
         .web-border-2 {
@@ -1369,7 +1370,7 @@ nav {
                     margin-bottom: 350px;
 
                     @media screen and(max-width:799px) {
-                        margin-bottom: 5px;
+                        margin-bottom: 110px;
                         
                     font-size: 4rem;
                     font-weight: 500;

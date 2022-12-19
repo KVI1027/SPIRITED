@@ -107,7 +107,7 @@ function updateShopFrame() {
         borderRadius = 400 - (scroll) /2;
         margin = '0 0 0 -50%';
     } else if (screenwidth < 800 && scroll >= 1600 && scroll < 2400) {
-        top = 300 - (scroll + 3400) / 3;
+        top = 300 - (scroll + 3300) / 3;
         display = 'block'
     } else if (screenwidth < 800 && scroll >= 2400) {
         display = 'none'
@@ -197,7 +197,7 @@ function updateHowToBuy() {
         let how_to_buy_top, how_to_buy_borderRadius, how_left_width, how_right_width, how_right_top, how_dscp_height, how_midline_height;
     
         if (scroll >= 1500) {
-            how_to_buy_borderRadius = 400 - (scroll - 1500) / 2
+            how_to_buy_borderRadius = 500 - (scroll - 1500) / 2
         }
         if (scroll >= 1500 && scroll <= 2800) {
             how_to_buy_top = 750 - (scroll - 1500) / 1

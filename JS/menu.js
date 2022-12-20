@@ -589,7 +589,7 @@ function swipermidsize(item) {
         //上方選單 細項選擇的swiper
         var swiper = new Swiper(".mySwiper", {
             speed: 800,
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 30,
             slidesPerGroup: 1,
             mousewheel: false,

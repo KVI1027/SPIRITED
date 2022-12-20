@@ -173,6 +173,13 @@ nav .nav-border {
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 799px) {
+  nav .nav-border {
+    width: 80%;
+    height: 100vh;
+    justify-content: space-between;
+  }
+}
 nav .nav-border .nav-content {
   width: 100%;
 }
@@ -215,7 +222,7 @@ nav .nav-border .nav-content a .text-en {
   nav .nav-border .nav-content .list-a .text-en,
 nav .nav-border .nav-content a .text-en {
     font-family: "Cormorant Infant", serif;
-    font-size: 1.25rem;
+    font-size: 2.5rem;
     text-align: center;
     unicode-range: U+00-024F;
     -webkit-font-smoothing: antialiased;
@@ -255,6 +262,12 @@ nav .nav-border aside a {
   height: 4.125rem;
   margin: 1rem;
 }
+@media screen and (max-width: 799px) {
+  nav .nav-border aside a {
+    width: 2.5rem;
+    height: auto;
+  }
+}
 
 .web {
   display: block;
@@ -272,7 +285,6 @@ nav .nav-border aside a {
   height: 2400px;
   width: 91%;
   background-color: rgb(245, 240, 223);
-  border-radius: 50%;
   z-index: 5;
   padding-top: 100px;
 }
@@ -1653,7 +1665,7 @@ nav .nav-border aside a {
   position: fixed;
   top: 2000px;
   z-index: 5;
-  padding-top: 900px;
+  padding-top: 400px;
   padding-bottom: 400px;
 }
 @media screen and (max-width: 799px) {

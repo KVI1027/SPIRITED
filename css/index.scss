@@ -220,6 +220,11 @@ nav {
         height: 900px;
         padding: 7% 0% 2%;
         @include flex(column);
+        @media screen and(max-width:799px) {
+            width: 80%;
+            height: 100vh;
+            justify-content: space-between;
+        }
 
         .nav-content {
             width: 100%;
@@ -243,7 +248,7 @@ nav {
                     }
 
                     @media screen and(max-width:799px) {
-                        @include Cormorant(1.25rem);
+                        @include Cormorant(2.5rem);
                     }
                 }
 
@@ -275,6 +280,10 @@ nav {
                 width: 4.125rem;
                 height: 4.125rem;
                 margin: 1rem;
+                @media screen and(max-width:799px) {
+                    width: 2.5rem;
+                    height: auto;
+                }
             }
         }
     }
@@ -298,7 +307,6 @@ nav {
             height: 2400px;
             width: 91%;
             background-color: rgb(245, 240, 223);
-            border-radius: 50%;
             z-index: 5;
             padding-top: 100px;
 
@@ -1605,7 +1613,7 @@ nav {
             position: fixed;
             top: 2000px;
             z-index: 5;
-            padding-top: 900px;
+            padding-top: 400px;
             padding-bottom: 400px;
 
             @media screen and(max-width:799px) {

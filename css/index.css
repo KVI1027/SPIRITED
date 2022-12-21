@@ -186,11 +186,18 @@ nav .nav-border .nav-content {
 nav .nav-border .nav-content .list-a,
 nav .nav-border .nav-content a {
   color: #eca97f;
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: start;
   align-content: flex-end;
 }
+nav .nav-border .nav-content .list-a:hover,
+nav .nav-border .nav-content a:hover {
+  filter: brightness(1.7);
+}
 nav .nav-border .nav-content .list-a .text-en,
 nav .nav-border .nav-content a .text-en {
+  line-height: 0.8;
   font-family: "Cormorant Infant", serif;
   font-size: 10rem;
   text-align: center;
@@ -222,15 +229,19 @@ nav .nav-border .nav-content a .text-en {
   nav .nav-border .nav-content .list-a .text-en,
 nav .nav-border .nav-content a .text-en {
     font-family: "Cormorant Infant", serif;
-    font-size: 2.5rem;
+    font-size: 5rem;
     text-align: center;
     unicode-range: U+00-024F;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -3px;
   }
 }
 nav .nav-border .nav-content .list-a .text-ch,
 nav .nav-border .nav-content a .text-ch {
-  margin-left: 30px;
+  line-height: 0.8;
+  margin-top: -10px;
+  margin-bottom: 24px;
+  align-self: end;
   font-family: "Noto Serif TC", serif;
   font-size: 1.5rem;
   text-align: center;
@@ -1590,6 +1601,7 @@ nav .nav-border aside a {
   transition: 0.5s ease-out;
   transform-origin: 50% 0;
   overflow: hidden;
+  line-height: 1;
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li .dscp-li {
@@ -1599,7 +1611,7 @@ nav .nav-border aside a {
 @media screen and (max-width: 799px) {
   .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li .dscp-li {
     font-size: 1rem;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 }
 .web main .how-about .how-to-buy .sticky-block-how .how-right .how-dscp .how-dscp-li:nth-child(1) {

@@ -232,10 +232,17 @@ nav {
             .list-a,
             a {
                 color: #eca97f;
+                display: flex;
+                flex-flow: column nowrap;
                 justify-content: start;
                 align-content: flex-end;
 
+                &:hover{
+                    filter: brightness(1.7);
+                }
+
                 .text-en {
+                    line-height: 0.8;
                     @include Cormorant(10rem);
                     font-weight: 100;
 
@@ -248,12 +255,16 @@ nav {
                     }
 
                     @media screen and(max-width:799px) {
-                        @include Cormorant(2.5rem);
+                        @include Cormorant(5rem);
+                        letter-spacing: -3px;
                     }
                 }
 
                 .text-ch {
-                    margin-left: 30px;
+                    line-height: 0.8;
+                    margin-top: -10px;
+                    margin-bottom: 24px;
+                    align-self: end;
                     @include Noto-Serif-TC(1.5rem);
                     text-align: start;
                     line-height: 2.5rem;
@@ -1519,6 +1530,7 @@ nav {
                                     transition: 0.5s ease-out;
                                     transform-origin: 50% 0;
                                     overflow: hidden;
+                                    line-height: 1;
 
 
                                     @media screen and(max-width: 1366px) {
@@ -1527,7 +1539,7 @@ nav {
 
                                     @media screen and(max-width:799px) {
                                         font-size: 1rem;
-                                        line-height: 1.2;
+                                        line-height: 1.1;
                                     }
 
                                 }

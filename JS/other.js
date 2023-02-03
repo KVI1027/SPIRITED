@@ -1,6 +1,11 @@
+
 // 重整時回到頂部
+
 window.addEventListener('beforeunload', function () {
     window.scrollTo(0, 0);
+});
+window.addEventListener('load', function () {
+    document.querySelector('#loading').style.display = 'none';
 });
 
 const menu_btn = document.querySelector(".menu-btn");
@@ -9,10 +14,9 @@ const a = document.querySelectorAll(".list-a");
 const news = document.querySelector('.news');
 const news_phone = document.querySelector('.news-phone');
 
-
-//改變背景顏色
 const navHamburger = document.querySelectorAll('.menu-btn-line')
 const banner = document.querySelector('.banner')
+const banner_title = document.querySelector('.banner-title')
 const bg_color = document.querySelector('.web')
 const wb0 = document.querySelector('.web-border-0')
 const wt = document.querySelector('.web-title')
@@ -38,7 +42,7 @@ const Ch_anim = document.querySelectorAll('.Ch-anim')
 
 
 
-
+// nav變色
 function updateNav() {
     const scroll = window.pageYOffset;
     if (scroll < 800) {
@@ -54,6 +58,8 @@ function updateNav() {
     }
 
 }
+
+// banner區塊
 function updateBanner() {
     const scroll = window.pageYOffset;
     if (scroll < 200) {
@@ -61,13 +67,8 @@ function updateBanner() {
         bg_color.style.backgroundColor = '#ffffe8';
     } else if (scroll >= 200 && scroll < 1600) {
         banner.style.filter = `brightness(${1 - (scroll - 200) / 1600})`
-        wborder1.style.transform = `scale(1)`
-
-    } else if (scroll >= 1600 && scroll <= 2000) {
-
-    } else if (scroll > 2000 && scroll < 2900) {
-    } if (scroll >= 3000 && scroll < 4900) {
     }
+    banner_title.style.left = `-${2.5*scroll}px`
 }
 // function updateShopFrame() {
 //     const scroll = window.pageYOffset;
@@ -89,14 +90,20 @@ function updateBanner() {
 //     }
 
 // }
+
+// MENU區塊 動畫
 function updateShopFrame() {
+
     const scroll = window.pageYOffset;
+
+    // 根據螢幕寬度切換
     if (document.body.clientWidth < 800) {
         updateStylesShopFrameSmallScreens(scroll);
     } else {
         updateStylesShopFrameLargeScreens(scroll);
     }
 
+    // 小尺寸
     function updateStylesShopFrameSmallScreens(scroll) {
         let top, width, borderRadius, margin, display;
         const vh = window.innerHeight;
@@ -139,6 +146,8 @@ function updateShopFrame() {
         shop_frame.style.display = `${display}`;
 
     };
+
+    // 大尺寸
     function updateStylesShopFrameLargeScreens(scroll) {
         let top, width, borderRadius, margin, display;
 
@@ -154,7 +163,7 @@ function updateShopFrame() {
         if (scroll < 500) {
             width = 93;
             margin = '0 0 0 -46.5%';
-        } else if (scroll >= 500 ) {
+        } else if (scroll >= 500) {
             width = 100;
             margin = '0 0 0 -50%';
         }
@@ -234,6 +243,8 @@ function updateShopFrame() {
     // shop_frame.style.filter = `${brightness}`;
     // shop_frame.style.display = `${display}`;
 }
+
+// 如何購買區塊
 function updateHowToBuy() {
     const scroll = window.pageYOffset;
     if (document.body.clientWidth < 800) {
@@ -251,7 +262,7 @@ function updateHowToBuy() {
             how_to_buy_top = 1000 - (scroll - 2500) / 2
         } else if (scroll > 3800) {
             how_to_buy_top = 1000 - (scroll - 3100) / 1
-        }else{
+        } else {
             how_to_buy_top = 2000
         }
         if (scroll >= 4000 && scroll <= 4800) {
@@ -268,7 +279,7 @@ function updateHowToBuy() {
         } else if (scroll >= 5500 && scroll < 6300) {
             how_right_top = -(scroll - 5500) / 1
             how_midline_height = 0
-        }else if (scroll < 2500) {
+        } else if (scroll < 2500) {
             how_right_top = 0
             how_to_buy_top = 2500
         }
@@ -368,7 +379,7 @@ function updateHowToBuy() {
     // }
 }
 
-
+// 關於我們區塊
 function updateAboutUs() {
     const scroll = window.pageYOffset;
 
@@ -476,7 +487,7 @@ function updateAboutUs() {
             aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
         } else if (scroll >= 5600 & scroll <= 8300) {
             aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
-            
+
         }
         // else if (scroll <= 9000) {
         //     aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
@@ -575,26 +586,27 @@ window.addEventListener('scroll', function () {
 
 
 
-
+//印製 如何購買文字內容
 var how_detail = [{
     detail: `Our products are limited.
     Booking desserts on the day ,please call us directly: (04) 2378 - 0238. Otherwise
-    please leave a message through FB or IG. We closed on Tuesday and Wednesday.<br/><br/>
+    please leave a message through FB or IG. We closed on Tuesday and Wednesday.<br/>
     現場購買，手工製做，數量有限
 當天預留：請直接打電話到店裡(04) 2378 - 0238
 提前預留：請在禮拜二、三公休日之外，私訊 FB或IG`
 }, {
-    detail: `Please ask us through FB or IG message.<br/><br/>
+    detail: `Please ask us through FB or IG message.<br/>
     請私訊FB或IG詢問`
 }, {
     detail: `Please order at least a week previously through IG or FB message.
     Huge order need at least 2-3 weeks.
-    Spirited Bakery is available on UberEats as well.<br/><br/>
+    Spirited Bakery is available on UberEats as well.<br/>
     請提前⾄少1-2個禮拜，⼤量請提前2-3個禮拜，私訊FB或IG
 在UberEats App上搜尋「Spirited Bakery」，有限定可外送範圍`
 }]
 var str = "";
 
+// 如何購買 展開動畫
 how_dscp_li.forEach((e, index) => {
     console.log(e.children[0].children[0].children[0]);
     e.addEventListener('click', function () {
@@ -678,35 +690,35 @@ a.forEach((element, index) => {
 
 //跳轉
 function clicklinkEvent(index) {
-if (document.body.clientWidth < 800) {
-    if (index === 0) {
-        closeList();
-        document.querySelector('input').checked = false;
-        window.scrollTo(0, 1100);
-    } else if (index === 1) {
-        closeList();
-        document.querySelector('input').checked = false;
-        window.scrollTo(0, 2300);
-    } else if (index === 2) {
-        closeList();
-        document.querySelector('input').checked = false;
-        window.scrollTo(0, 4800);
+    if (document.body.clientWidth < 800) {
+        if (index === 0) {
+            closeList();
+            document.querySelector('input').checked = false;
+            window.scrollTo(0, 1100);
+        } else if (index === 1) {
+            closeList();
+            document.querySelector('input').checked = false;
+            window.scrollTo(0, 2300);
+        } else if (index === 2) {
+            closeList();
+            document.querySelector('input').checked = false;
+            window.scrollTo(0, 4800);
+        }
+    } else {
+        if (index === 0) {
+            closeList();
+            document.querySelector('input').checked = false;
+            window.scrollTo(0, 1700);
+        } else if (index === 1) {
+            closeList();
+            document.querySelector('input').checked = false;
+            window.scrollTo(0, 4900);
+        } else if (index === 2) {
+            closeList();
+            document.querySelector('input').checked = false;
+            window.scrollTo(0, 7800);
+        }
     }
-} else {
-    if (index === 0) {
-        closeList();
-        document.querySelector('input').checked = false;
-        window.scrollTo(0, 1700);
-    } else if (index === 1) {
-        closeList();
-        document.querySelector('input').checked = false;
-        window.scrollTo(0, 4900);
-    } else if (index === 2) {
-        closeList();
-        document.querySelector('input').checked = false;
-        window.scrollTo(0, 7800);
-    }
-}
 }
 
 

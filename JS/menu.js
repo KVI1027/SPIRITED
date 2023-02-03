@@ -142,17 +142,7 @@ function Create(item) {
                         </div>
 
                         <!-- 細項按鈕 -->
-                        <div class="items w-100">
-                            <div class="swiper-item">
-                                <div class="swiper mySwiper">
-                                    <div class="swiper-wrapper swipertop-wrapper">
-                                    ${Create_content(item, "top")}
-                                    </div>
-                                </div>
-                                <div class="swipertop-button-next swiper-button-next"></div>
-                                <div class="swipertop-button-prev swiper-button-prev"></div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- 右上的燈 -->
@@ -215,6 +205,20 @@ function Create(item) {
         </div>
         `
     }
+    // <!-- 細項按鈕 -->
+    //     <div class="items w-100">
+    //     <div class="swiper-item">
+    //         <div class="swiper mySwiper">
+    //             <div class="swiper-wrapper swipertop-wrapper">
+    //             ${Create_content(item, "top")}
+    //             </div>
+    //         </div>
+    //         <div class="swipertop-button-next swiper-button-next"></div>
+    //         <div class="swipertop-button-prev swiper-button-prev"></div>
+    //     </div>
+    // </div>
+
+    
     // 綁定swiper
     swipermidsize(item);
 

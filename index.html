@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    <div class="loading"></div>
     <!-- 漢堡條(選單按鈕) -->
     <div>
         <input type="checkbox" id="menu-btn" class="d-none">
@@ -45,25 +46,26 @@
     <!-- 選單列 -->
     <nav>
         <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+
             <section class="nav-border">
                 <div class="nav-content">
                     <a href="#menu" class=" align-items-start flex-nowrap" onclick="clicklinkEvent(0)">
                         <span class=" text-left text-en">MENU</span>
                         <span class="text-right text-ch">菜單</span>
                     </a>
-                    
+
                     <a href="#menu" class="  align-items-start flex-nowrap" onclick="clicklinkEvent(1)">
                         <span class=" text-left text-en">ORDER</span>
                         <span class="text-right text-ch">購買方式</span>
                     </a>
-                    
+
                     <a href="#menu" class="align-items-start flex-nowrap" onclick="clicklinkEvent(2)">
                         <span class=" text-left text-en">ABOUT US</span>
                         <span class="text-right text-ch">關於我們</span>
                     </a>
-                    
-        
-                    
+
+
+
                 </div>
 
                 <aside class="d-flex justify-content-center align-items-center ">
@@ -78,6 +80,7 @@
                     </a>
                 </aside>
             </section>
+            <div class="navBackground"></div>
         </div>
 
     </nav>
@@ -126,7 +129,18 @@
 
             <!-- BANNER -->
             <section class="banner">
-
+                <div class="decor dots">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="decor ellipse"></div>
+                
                 <div class="banner-animate" id="banner-animate">
 
 
@@ -140,19 +154,10 @@
 
                 <div class="banner-title">
 
-                    <div class="banner-en">
-                        Let us bring you some
-                    </div>
+                    
                     <div class="banner-en light-up">
-                        energetic
+                        ENERGETIC 。 CLASSIC 。 ENERGETIC 。 CLASSIC 。 ENERGETIC 。 CLASSIC
                     </div>
-                    <div class="banner-en light-up">
-                        classic
-                    </div>
-                    <div class="banner-en">
-                        American desserts.
-                    </div>
-
                 </div>
 
             </section>
@@ -216,7 +221,7 @@
                             </ul>
                             <img id="how-img-1" src="./img/how-img-1 (1).jpg" alt="">
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="aboutus">

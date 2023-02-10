@@ -617,7 +617,7 @@ function swipermidsize(item) {
             loop: true,
             mousewheel: false,
             breakpoints: {
-                1800: {
+                1600: {
                     slidesPerView: 2,
                 }
             },

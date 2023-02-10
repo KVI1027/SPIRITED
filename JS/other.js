@@ -4,9 +4,9 @@
 window.addEventListener('beforeunload', function () {
     window.scrollTo(0, 0);
 });
-window.addEventListener('load', function () {
-    document.querySelector('#loading').style.display = 'none';
-});
+// window.addEventListener('load', function () {
+//     document.querySelector('#loading').style.display = 'none';
+// });
 
 const menu_btn = document.querySelector(".menu-btn");
 const nav = document.querySelector("nav");
@@ -39,9 +39,32 @@ const aboutus_BG = document.querySelector('.aboutus-BG')
 const aboutus_h1 = document.querySelector('.aboutus-h1')
 const En_anim = document.querySelectorAll('.En-anim')
 const Ch_anim = document.querySelectorAll('.Ch-anim')
+const Footer = document.querySelector("footer")
+
+function updateFooter() {
+    const scroll = window.pageYOffset;
+    if (document.body.clientWidth < 800) {
+        footermobile(scroll);
+    } else {
+        footerpc(scroll);
+    }
+    function footerpc(scroll) {
+        if (scroll > 8500) {
+            Footer.style.bottom = `0px`
+        } else if (scroll <= 8500) {
+            Footer.style.bottom = `-100%`
+        }
+    }
+    function footermobile(scroll) {
+        if (scroll > 4900) {
+            Footer.style.bottom = `0px`
+        } else if (scroll <= 4900) {
+            Footer.style.bottom = `-100%`
+        }
+    }
 
 
-
+}
 // nav變色
 function updateNav() {
     const scroll = window.pageYOffset;
@@ -68,7 +91,7 @@ function updateBanner() {
     } else if (scroll >= 200 && scroll < 1600) {
         banner.style.filter = `brightness(${1 - (scroll - 200) / 1600})`
     }
-    banner_title.style.left = `-${2.5*scroll}px`
+    banner_title.style.left = `-${2.5 * scroll}px`
 }
 // function updateShopFrame() {
 //     const scroll = window.pageYOffset;
@@ -476,18 +499,15 @@ function updateAboutUs() {
             aboutus_BG.style.top = `-700px`
         }
 
-    } else if (document.body.clientWidth < 1366) {
-
-        if (scroll >= 7900 && scroll <= 8500) {
-            about_card.style.width = `${110 - (scroll - 7900) / 15}%`
-        }
-    } else {
+    }else {
         const scroll = window.pageYOffset;
         if (scroll < 5600) {
             aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
         } else if (scroll >= 5600 & scroll <= 8300) {
             aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
 
+        } else {
+            aboutus.style.top = `${-2400 - (scroll - 8300) / 1}px`
         }
         // else if (scroll <= 9000) {
         //     aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
@@ -574,6 +594,7 @@ function updateAboutUs() {
     }
 }
 
+
 window.addEventListener('scroll', function () {
     const scroll = window.pageYOffset;
     console.log(scroll);
@@ -582,6 +603,7 @@ window.addEventListener('scroll', function () {
     window.requestAnimationFrame(updateShopFrame);
     window.requestAnimationFrame(updateHowToBuy);
     window.requestAnimationFrame(updateAboutUs);
+    window.requestAnimationFrame(updateFooter);
 });
 
 

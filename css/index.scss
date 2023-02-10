@@ -51,8 +51,12 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 1200vh;
+    height: 1030vh;
     scroll-behavior: smooth;
+
+    @media screen and (max-width:799px) {
+        height: 900vh;
+    }
 
     .a,
     a:hover {
@@ -79,7 +83,7 @@ body {
     align-items: flex-end;
     cursor: pointer;
 
-    @media screen and(max-width:799px) {
+    @media screen and (max-width:799px) {
         transform: scale(0.7);
         top: 0;
     }
@@ -155,7 +159,7 @@ body {
         @include flex(row);
         z-index: 10;
 
-        @media screen and(max-width:799px) {
+        @media screen and (max-width:799px) {
             font-size: 2rem;
             height: 10%;
         }
@@ -192,7 +196,7 @@ body {
         position: fixed;
         top: 15%;
 
-        @media screen and(max-width:799px) {
+        @media screen and (max-width:799px) {
             top: 80px;
             height: 100%;
         }
@@ -230,67 +234,105 @@ nav {
         border-radius: 161.8vh/100vh;
         transform: rotate(50deg);
         z-index: -10;
+        @media screen and (max-width:1450px) {
+            transform: scale(0.9) rotate(50deg);
+        }
+        @media screen and (max-width:1050px) {
+            transform: scale(0.8) rotate(50deg);
+        }
+        @media screen and (max-width:950px) {
+            transform: scale(0.7) rotate(50deg);
+        }
+        @media screen and (max-width:799px) {
+            transform: scale(0.6) rotate(50deg);
+        }
+        @media screen and (max-width:550px) {
+            transform: scale(0.5) rotate(50deg);
+        }
+        
     }
 
     .nav-border {
         margin: auto;
         width: 1600px;
         height: 900px;
-        padding: 7% 0% 2%;
+        padding: 7% 5% 2%;
         @include flex(column);
 
-        @media screen and(max-width:799px) {
-            width: 80%;
+        @media screen and (max-width:799px) {
+            width: 100%;
             height: 100vh;
             justify-content: space-between;
         }
 
         .nav-content {
             width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-content: space-between;
 
             .list-a,
             a {
+                width: 100%;
                 color: #eca97f;
                 display: flex;
-                flex-flow: column nowrap;
-                justify-content: start;
+                flex-flow: row nowrap;
+                justify-content: space-between;
                 align-content: flex-end;
-
+                margin-bottom: 10px;
                 &:hover {
                     filter: brightness(1.7);
+                }
+                @media screen and (max-width:1050px) {
+                    margin-bottom: 20px;
                 }
 
                 .text-en {
                     line-height: 0.8;
-                    @include Cormorant(10rem);
+                    @include Cormorant(12rem);
                     font-weight: 100;
 
-                    @media screen and(max-width:1450px) {
-                        @include Cormorant(2rem);
+                    @media screen and (max-width:1450px) {
+                        @include Cormorant(11rem);
                     }
-
-                    @media screen and(max-width:1350px) {
-                        @include Cormorant(1.5rem);
+                    @media screen and (max-width:1250px) {
+                        @include Cormorant(10rem);
                     }
-
-                    @media screen and(max-width:799px) {
+                    @media screen and (max-width:1050px) {
+                        @include Cormorant(8rem);
+                    }
+                    @media screen and (max-width:950px) {
+                        @include Cormorant(7rem);
+                    }
+                    @media screen and (max-width:799px) {
                         @include Cormorant(5rem);
                         letter-spacing: -3px;
+                    }
+                    @media screen and (max-width:550px) {
+                        @include Cormorant(4rem);
+                        width: 70%;
                     }
                 }
 
                 .text-ch {
                     line-height: 0.8;
                     margin-top: -10px;
-                    margin-bottom: 24px;
                     align-self: end;
-                    @include Noto-Serif-TC(1.5rem);
+                    @include Noto-Serif-TC(2rem);
                     text-align: start;
                     line-height: 2.5rem;
 
-                    @media screen and(max-width:1350px) {
-                        @include Noto-Serif-TC(1rem);
+                    @media screen and (max-width:1450px) {
+                        @include Noto-Serif-TC(1.5rem);
                         text-align: start;
+                    }
+                    @media screen and (max-width:950px) {
+                        @include Cormorant(1rem);
+                    }
+                    @media screen and (max-width:550px) {
+                        @include Cormorant(0.8rem);
                     }
                 }
             }
@@ -309,12 +351,18 @@ nav {
             a {
                 width: 4.125rem;
                 height: 4.125rem;
-                margin: 1rem;
+                margin: 2px;
 
-                @media screen and(max-width:799px) {
+                @media screen and (max-width:799px) {
                     width: 2.5rem;
                     height: auto;
                 }
+
+                img{ width: 50px;
+
+                    @media screen and (max-width:799px) {
+                        width: 40px;
+                    }}
             }
         }
     }
@@ -346,7 +394,7 @@ nav {
                 font-weight: 200;
                 margin-bottom: 400px;
 
-                @media screen and(max-width:799px) {
+                @media screen and (max-width:799px) {
                     font-size: 4rem;
                     font-weight: 500;
                     margin-bottom: 90px;
@@ -410,6 +458,7 @@ nav {
                         background-position: 0px 0px;
                         @include flex(column);
                         align-items: flex-start;
+
                         @media all and (max-width: 1599px) {
                             width: 70%;
                         }
@@ -433,6 +482,11 @@ nav {
                                     @include flex(row);
                                     cursor: pointer;
                                     color: #fafaef;
+
+                                    @media all and (max-width: 1599px) {
+                                        margin-left: 2rem;
+                                        margin-right: 2rem;
+                                    }
 
                                     .icon {
                                         height: 65px;
@@ -884,7 +938,7 @@ nav {
                                                     height: 2rem;
                                                     font-weight: 100;
 
-                                                    @media screen and(max-width:799px) {
+                                                    @media screen and (max-width:799px) {
                                                         font-size: 1.5rem;
                                                         font-weight: 100;
                                                         height: 1.5rem;
@@ -1056,7 +1110,7 @@ nav {
                     margin-left: auto;
                     padding-right: 50px;
 
-                    @media screen and(max-width:799px) {
+                    @media screen and (max-width:799px) {
                         display: none !important;
                     }
 
@@ -1240,7 +1294,7 @@ nav {
             justify-content: flex-start;
             overflow: hidden;
 
-            @media screen and(max-width:799px) {
+            @media screen and (max-width:799px) {
                 top: 100px;
                 height: calc(100vh - 110px);
             }
@@ -1466,7 +1520,7 @@ nav {
                 @include flex(column);
                 justify-content: start;
 
-                @media screen and(max-width:799px) {
+                @media screen and (max-width:799px) {
                     height: 2000px;
                 }
 
@@ -1476,7 +1530,7 @@ nav {
                     color: #6e4105;
                     margin-bottom: 350px;
 
-                    @media screen and(max-width:799px) {
+                    @media screen and (max-width:799px) {
                         margin-bottom: 110px;
 
                         font-size: 4rem;
@@ -1495,7 +1549,7 @@ nav {
                     justify-content: space-between;
                     align-items: flex-start;
 
-                    @media screen and(max-width:799px) {
+                    @media screen and (max-width:799px) {
                         flex-direction: column-reverse;
                         justify-content: flex-end;
                         align-items: center;
@@ -1508,7 +1562,7 @@ nav {
                         flex-direction: column;
                         justify-content: flex-start;
 
-                        @media screen and(max-width:799px) {
+                        @media screen and (max-width:799px) {
                             width: 90%;
                         }
 
@@ -1532,7 +1586,7 @@ nav {
                                 opacity: 0;
                                 left: 0px;
 
-                                @media screen and(max-width:1366px) {
+                                @media screen and (max-width:1366px) {
                                     padding: 10px 0px 20px 10px;
                                 }
 
@@ -1546,7 +1600,7 @@ nav {
                                     align-items: center;
                                     cursor: pointer;
 
-                                    @media screen and(max-width:799px) {
+                                    @media screen and (max-width:799px) {
                                         flex-direction: column;
                                         align-items: flex-start;
                                     }
@@ -1564,7 +1618,7 @@ nav {
                                         background-color: #40281b;
                                         transition: 0.5s ease;
 
-                                        @media screen and(max-width:799px) {
+                                        @media screen and (max-width:799px) {
                                             display: none;
                                         }
                                     }
@@ -1574,11 +1628,11 @@ nav {
                                         font-weight: 500;
 
 
-                                        @media screen and(max-width:1366px) {
+                                        @media screen and (max-width:1366px) {
                                             font-size: (2rem);
                                         }
 
-                                        @media screen and(max-width:799px) {
+                                        @media screen and (max-width:799px) {
                                             font-size: 1.5rem;
                                             margin-bottom: 0px;
                                         }
@@ -1590,18 +1644,18 @@ nav {
                                         font-weight: 400;
                                         margin-left: 20px;
 
-                                        @media screen and(max-width:1366px) {
+                                        @media screen and (max-width:1366px) {
                                             font-size: (1.3rem);
                                         }
 
-                                        @media screen and(max-width:799px) {
+                                        @media screen and (max-width:799px) {
                                             font-size: 1.2rem;
                                             margin-bottom: 10px;
                                         }
                                     }
 
                                     p {
-                                        @media screen and(max-width:799px) {
+                                        @media screen and (max-width:799px) {
                                             line-height: 1.15;
                                         }
                                     }
@@ -1621,11 +1675,11 @@ nav {
                                     line-height: 1.5;
 
 
-                                    @media screen and(max-width: 1366px) {
+                                    @media screen and (max-width: 1366px) {
                                         font-size: (1.2rem);
                                     }
 
-                                    @media screen and(max-width:799px) {
+                                    @media screen and (max-width:799px) {
                                         font-size: 1rem;
                                     }
 
@@ -1657,7 +1711,7 @@ nav {
                                 filter: grayscale(0%);
                             }
 
-                            @media screen and(max-width:1450px) {
+                            @media screen and (max-width:1450px) {
                                 display: none;
                             }
 
@@ -1677,7 +1731,7 @@ nav {
                         transition: 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                         z-index: 7;
 
-                        @media screen and(max-width:799px) {
+                        @media screen and (max-width:799px) {
                             display: none;
                         }
                     }
@@ -1705,25 +1759,22 @@ nav {
             .aboutus {
                 @include flex(column);
                 justify-content: flex-start;
-                height: 3570px;
+                height: 3800px;
                 width: 100%;
                 background-color: rgb(241, 233, 225);
                 position: fixed;
                 top: 2000px;
                 z-index: 5;
                 padding-top: 400px;
-                padding-bottom: 400px;
+                padding-bottom: 500px;
 
-                @media screen and(max-width:799px) {
+                // rwd未完成
+                @media screen and (max-width:799px) {
                     padding-top: 0px;
                     z-index: 9;
                 }
 
                 .aboutus-BG {
-                    // background-image: url(/img/門背景_工作區域\ 1.svg);
-                    // background-attachment: scroll;
-                    // background-position: top;
-                    // background-size: cover;
                     display: none;
                     position: fixed;
                     top: 0;
@@ -1755,14 +1806,13 @@ nav {
                         transition: 1s ease;
                         opacity: 0;
 
-                        @media all and (max-width: 1599px) {
-                            
-                        }
-                        @media screen and(max-width:1366px) {
+                        @media all and (max-width: 1599px) {}
+
+                        @media screen and (max-width:1366px) {
                             font-size: (3rem);
                         }
 
-                        @media screen and(max-width:799px) {
+                        @media screen and (max-width:799px) {
                             font-size: 2.5rem;
                             margin-bottom: 25px;
                         }
@@ -1775,7 +1825,11 @@ nav {
                         width: 62.8%;
                         margin-bottom: 3%;
 
-                        @media screen and(max-width:799px) {
+                        @media all and (max-width: 1599px) {
+                            width: 75%;
+                        }
+
+                        @media screen and (max-width:799px) {
                             margin-bottom: 25px;
                             width: 80%;
                         }
@@ -1794,15 +1848,16 @@ nav {
                             margin-right: 0.5rem;
 
                             @media all and (max-width: 1599px) {
-                                font-size: (1.7rem);
+                                font-size: (1.9rem);
                                 line-height: 1.2;
                             }
-                            @media screen and(max-width:1366px) {
-                                font-size: (1.5rem);
+
+                            @media screen and (max-width:1366px) {
+                                font-size: (1.8rem);
                                 margin-right: 0.3rem;
                             }
 
-                            @media screen and(max-width:799px) {
+                            @media screen and (max-width:799px) {
                                 margin-right: 0.3rem;
                                 font-size: 1.2rem;
                                 line-height: 1;
@@ -1816,7 +1871,11 @@ nav {
                         flex-flow: row wrap;
                         justify-content: center;
 
-                        @media screen and(max-width:799px) {
+                        @media all and (max-width: 1599px) {
+                            width: 75%;
+                        }
+
+                        @media screen and (max-width:799px) {
                             width: 80%;
                         }
 
@@ -1833,14 +1892,15 @@ nav {
                             margin-bottom: 4px;
 
                             @media all and (max-width: 1599px) {
-                                font-size: (1.4rem);
+                                font-size: (1.5rem);
                                 line-height: 1.2;
                             }
-                            @media screen and(max-width:1366px) {
-                                font-size: (1.2rem);
+
+                            @media screen and (max-width:1366px) {
+                                font-size: (1.4rem);
                             }
 
-                            @media screen and(max-width:799px) {
+                            @media screen and (max-width:799px) {
                                 font-size: 1rem;
                                 line-height: 1.15;
                             }
@@ -1850,6 +1910,188 @@ nav {
 
             }
 
+        }
+
+        footer {
+            width: 100%;
+            background-color: rgb(241, 233, 225);
+            padding: 20px 60px 20px 60px;
+            z-index: 15;
+            position: fixed;
+            bottom: -100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #5d412e;
+            transition: 1s ease;
+
+            @media screen and (max-width:799px) {
+                padding: 20px 40px;
+                border-top-left-radius: 50% 50%;
+                border-top-right-radius: 50% 50%;
+                border: #e5b89da0 1px solid;
+            }
+
+            .footer-top {
+                @include Cormorant(3rem);
+                width: 85%;
+                border-width: 1px 0px 1px 0px;
+                border-style: solid;
+                border-color: #52301a9a;
+
+                @media screen and (max-width:799px) {
+                    display: none;
+                }
+            }
+
+            .footer-bot {
+                width: 85%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+
+                @media screen and (max-width:799px) {
+                    width: 100%;
+                    flex-direction: column;
+                }
+
+                .footer-logo {
+                    @include flex(column);
+                    align-items: flex-end;
+                    padding: 20px 10px 20px 10px;
+                    width: 30%;
+
+                    @media screen and (max-width:799px) {
+                        width: 80%;
+                        align-items: center;
+                        padding: 10px 0px 10px 0px;
+                    }
+
+                    img {
+                        width: 50%;
+                    }
+                }
+
+                .footer-img {
+                    @include flex(column);
+                    padding: 20px 10px 20px 10px;
+                    width: 30%;
+
+                    @media screen and (max-width:799px) {
+                        display: none;
+                    }
+
+                    img {
+                        width: 90%;
+                    }
+                }
+
+
+                .footer-info {
+                    width: 30%;
+                    padding: 20px 10px 20px 10px;
+                    @include Cormorant(2rem);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+
+                    @media screen and (max-width:799px) {
+                        width: 100%;
+                        padding: 0;
+                    }
+
+                    .openhour {
+                        text-align: left;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        width: 100%;
+                        font-size: 2.5rem;
+                        margin-bottom: 10px;
+                        flex-wrap: nowrap;
+                        
+
+                        @media screen and (max-width:799px) {
+                            color: #b66e47;
+                            text-align: center;
+                        }
+
+                        h1 {
+                            margin: 0;
+                            line-height: 0.9;
+                            @media screen and (max-width:799px) {
+                                font-size: 1.8rem;
+                            }
+                        }
+
+                        span {
+                            display: inline-block;
+                            font-size: 1.5rem;
+                            line-height: 0.9;
+
+                            @media screen and (max-width:799px) {
+                                font-size: 1.1rem;
+                            }
+
+                            span {
+                                font-size: 2.5rem;
+                                font-weight: 300;
+
+                                @media screen and (max-width:799px) {
+                                    font-size: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .footer-bot-right {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+
+                        .address {
+                            text-align: left;
+                            font-size: 1.4rem;
+
+                            @media screen and (max-width:799px) {
+                                font-size: 1rem;
+                                margin-top: 10px;
+                                line-height: 1.1;
+                                margin-right: 10px;
+                            }
+
+                            span {
+                                text-align: left;
+                                font-size: 2rem;
+                                line-height: 0.9;
+
+                                @media screen and (max-width:799px) {
+                                    font-size: 1.2rem;
+                                }
+                            }
+                        }
+
+                        .socialmedia {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: flex-end;
+
+                            img {
+                                width: 50px;
+
+                                @media screen and (max-width:799px) {
+                                    width: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
     }
@@ -1863,7 +2105,7 @@ nav {
     width: 100%;
     height: 100%;
 
-    // @media all and (max-width: 599px) {
+    // @media all and  (max-width: 599px) {
     //     display: flex;
     // }
 

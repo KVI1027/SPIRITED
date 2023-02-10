@@ -2,8 +2,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 1200vh;
+  height: 1030vh;
   scroll-behavior: smooth;
+}
+@media screen and (max-width: 799px) {
+  body {
+    height: 900vh;
+  }
 }
 body .a,
 body a:hover {
@@ -178,11 +183,36 @@ nav .navBackground {
   transform: rotate(50deg);
   z-index: -10;
 }
+@media screen and (max-width: 1450px) {
+  nav .navBackground {
+    transform: scale(0.9) rotate(50deg);
+  }
+}
+@media screen and (max-width: 1050px) {
+  nav .navBackground {
+    transform: scale(0.8) rotate(50deg);
+  }
+}
+@media screen and (max-width: 950px) {
+  nav .navBackground {
+    transform: scale(0.7) rotate(50deg);
+  }
+}
+@media screen and (max-width: 799px) {
+  nav .navBackground {
+    transform: scale(0.6) rotate(50deg);
+  }
+}
+@media screen and (max-width: 550px) {
+  nav .navBackground {
+    transform: scale(0.5) rotate(50deg);
+  }
+}
 nav .nav-border {
   margin: auto;
   width: 1600px;
   height: 900px;
-  padding: 7% 0% 2%;
+  padding: 7% 5% 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -190,31 +220,44 @@ nav .nav-border {
 }
 @media screen and (max-width: 799px) {
   nav .nav-border {
-    width: 80%;
+    width: 100%;
     height: 100vh;
     justify-content: space-between;
   }
 }
 nav .nav-border .nav-content {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: space-between;
 }
 nav .nav-border .nav-content .list-a,
 nav .nav-border .nav-content a {
+  width: 100%;
   color: #eca97f;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: start;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   align-content: flex-end;
+  margin-bottom: 10px;
 }
 nav .nav-border .nav-content .list-a:hover,
 nav .nav-border .nav-content a:hover {
   filter: brightness(1.7);
 }
+@media screen and (max-width: 1050px) {
+  nav .nav-border .nav-content .list-a,
+  nav .nav-border .nav-content a {
+    margin-bottom: 20px;
+  }
+}
 nav .nav-border .nav-content .list-a .text-en,
 nav .nav-border .nav-content a .text-en {
   line-height: 0.8;
   font-family: "Cormorant Infant", serif;
-  font-size: 10rem;
+  font-size: 12rem;
   text-align: center;
   unicode-range: U+00-024F;
   -webkit-font-smoothing: antialiased;
@@ -222,19 +265,39 @@ nav .nav-border .nav-content a .text-en {
 }
 @media screen and (max-width: 1450px) {
   nav .nav-border .nav-content .list-a .text-en,
-nav .nav-border .nav-content a .text-en {
+  nav .nav-border .nav-content a .text-en {
     font-family: "Cormorant Infant", serif;
-    font-size: 2rem;
+    font-size: 11rem;
     text-align: center;
     unicode-range: U+00-024F;
     -webkit-font-smoothing: antialiased;
   }
 }
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1250px) {
   nav .nav-border .nav-content .list-a .text-en,
-nav .nav-border .nav-content a .text-en {
+  nav .nav-border .nav-content a .text-en {
     font-family: "Cormorant Infant", serif;
-    font-size: 1.5rem;
+    font-size: 10rem;
+    text-align: center;
+    unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+@media screen and (max-width: 1050px) {
+  nav .nav-border .nav-content .list-a .text-en,
+  nav .nav-border .nav-content a .text-en {
+    font-family: "Cormorant Infant", serif;
+    font-size: 8rem;
+    text-align: center;
+    unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+@media screen and (max-width: 950px) {
+  nav .nav-border .nav-content .list-a .text-en,
+  nav .nav-border .nav-content a .text-en {
+    font-family: "Cormorant Infant", serif;
+    font-size: 7rem;
     text-align: center;
     unicode-range: U+00-024F;
     -webkit-font-smoothing: antialiased;
@@ -242,7 +305,7 @@ nav .nav-border .nav-content a .text-en {
 }
 @media screen and (max-width: 799px) {
   nav .nav-border .nav-content .list-a .text-en,
-nav .nav-border .nav-content a .text-en {
+  nav .nav-border .nav-content a .text-en {
     font-family: "Cormorant Infant", serif;
     font-size: 5rem;
     text-align: center;
@@ -251,29 +314,59 @@ nav .nav-border .nav-content a .text-en {
     letter-spacing: -3px;
   }
 }
+@media screen and (max-width: 550px) {
+  nav .nav-border .nav-content .list-a .text-en,
+  nav .nav-border .nav-content a .text-en {
+    font-family: "Cormorant Infant", serif;
+    font-size: 4rem;
+    text-align: center;
+    unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
+    width: 70%;
+  }
+}
 nav .nav-border .nav-content .list-a .text-ch,
 nav .nav-border .nav-content a .text-ch {
   line-height: 0.8;
   margin-top: -10px;
-  margin-bottom: 24px;
   align-self: end;
   font-family: "Noto Serif TC", serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   unicode-range: -5FA5;
   -webkit-font-smoothing: antialiased;
   text-align: start;
   line-height: 2.5rem;
 }
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1450px) {
   nav .nav-border .nav-content .list-a .text-ch,
-nav .nav-border .nav-content a .text-ch {
+  nav .nav-border .nav-content a .text-ch {
     font-family: "Noto Serif TC", serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-align: center;
     unicode-range: -5FA5;
     -webkit-font-smoothing: antialiased;
     text-align: start;
+  }
+}
+@media screen and (max-width: 950px) {
+  nav .nav-border .nav-content .list-a .text-ch,
+  nav .nav-border .nav-content a .text-ch {
+    font-family: "Cormorant Infant", serif;
+    font-size: 1rem;
+    text-align: center;
+    unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+@media screen and (max-width: 550px) {
+  nav .nav-border .nav-content .list-a .text-ch,
+  nav .nav-border .nav-content a .text-ch {
+    font-family: "Cormorant Infant", serif;
+    font-size: 0.8rem;
+    text-align: center;
+    unicode-range: U+00-024F;
+    -webkit-font-smoothing: antialiased;
   }
 }
 nav .nav-border .nav-content .list-a {
@@ -286,12 +379,20 @@ nav .nav-border aside {
 nav .nav-border aside a {
   width: 4.125rem;
   height: 4.125rem;
-  margin: 1rem;
+  margin: 2px;
 }
 @media screen and (max-width: 799px) {
   nav .nav-border aside a {
     width: 2.5rem;
     height: auto;
+  }
+}
+nav .nav-border aside a img {
+  width: 50px;
+}
+@media screen and (max-width: 799px) {
+  nav .nav-border aside a img {
+    width: 40px;
   }
 }
 
@@ -425,6 +526,12 @@ nav .nav-border aside a {
   justify-content: center;
   cursor: pointer;
   color: #fafaef;
+}
+@media all and (max-width: 1599px) {
+  .web main .shop .shop-main .top .kanban-bg .kanban .types .type {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 .web main .shop .shop-main .top .kanban-bg .kanban .types .type .icon {
   height: 65px;
@@ -1749,14 +1856,14 @@ nav .nav-border aside a {
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
-  height: 3570px;
+  height: 3800px;
   width: 100%;
   background-color: rgb(241, 233, 225);
   position: fixed;
   top: 2000px;
   z-index: 5;
   padding-top: 400px;
-  padding-bottom: 400px;
+  padding-bottom: 500px;
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus {
@@ -1779,7 +1886,6 @@ nav .nav-border aside a {
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   border-radius: 0%;
@@ -1821,6 +1927,11 @@ nav .nav-border aside a {
   width: 62.8%;
   margin-bottom: 3%;
 }
+@media all and (max-width: 1599px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-En {
+    width: 75%;
+  }
+}
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En {
     margin-bottom: 25px;
@@ -1846,13 +1957,13 @@ nav .nav-border aside a {
 }
 @media all and (max-width: 1599px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     line-height: 1.2;
   }
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-right: 0.3rem;
   }
 }
@@ -1868,6 +1979,11 @@ nav .nav-border aside a {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+@media all and (max-width: 1599px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-Ch {
+    width: 75%;
+  }
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-Ch {
@@ -1892,19 +2008,210 @@ nav .nav-border aside a {
 }
 @media all and (max-width: 1599px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1.2;
   }
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-Ch .Ch-anim {
     font-size: 1rem;
     line-height: 1.15;
+  }
+}
+.web main footer {
+  width: 100%;
+  background-color: rgb(241, 233, 225);
+  padding: 20px 60px 20px 60px;
+  z-index: 15;
+  position: fixed;
+  bottom: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #5d412e;
+  transition: 1s ease;
+}
+@media screen and (max-width: 799px) {
+  .web main footer {
+    padding: 20px 40px;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border: rgba(229, 184, 157, 0.6274509804) 1px solid;
+  }
+}
+.web main footer .footer-top {
+  font-family: "Cormorant Infant", serif;
+  font-size: 3rem;
+  text-align: center;
+  unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
+  width: 85%;
+  border-width: 1px 0px 1px 0px;
+  border-style: solid;
+  border-color: rgba(82, 48, 26, 0.6039215686);
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-top {
+    display: none;
+  }
+}
+.web main footer .footer-bot {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+.web main footer .footer-bot .footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px 10px 20px 10px;
+  width: 30%;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-logo {
+    width: 80%;
+    align-items: center;
+    padding: 10px 0px 10px 0px;
+  }
+}
+.web main footer .footer-bot .footer-logo img {
+  width: 50%;
+}
+.web main footer .footer-bot .footer-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px 20px 10px;
+  width: 30%;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-img {
+    display: none;
+  }
+}
+.web main footer .footer-bot .footer-img img {
+  width: 90%;
+}
+.web main footer .footer-bot .footer-info {
+  width: 30%;
+  padding: 20px 10px 20px 10px;
+  font-family: "Cormorant Infant", serif;
+  font-size: 2rem;
+  text-align: center;
+  unicode-range: U+00-024F;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info {
+    width: 100%;
+    padding: 0;
+  }
+}
+.web main footer .footer-bot .footer-info .openhour {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  flex-wrap: nowrap;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .openhour {
+    color: #b66e47;
+    text-align: center;
+  }
+}
+.web main footer .footer-bot .footer-info .openhour h1 {
+  margin: 0;
+  line-height: 0.9;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .openhour h1 {
+    font-size: 1.8rem;
+  }
+}
+.web main footer .footer-bot .footer-info .openhour span {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 0.9;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .openhour span {
+    font-size: 1.1rem;
+  }
+}
+.web main footer .footer-bot .footer-info .openhour span span {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .openhour span span {
+    font-size: 1.8rem;
+  }
+}
+.web main footer .footer-bot .footer-info .footer-bot-right {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.web main footer .footer-bot .footer-info .footer-bot-right .address {
+  text-align: left;
+  font-size: 1.4rem;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right .address {
+    font-size: 1rem;
+    margin-top: 10px;
+    line-height: 1.1;
+    margin-right: 10px;
+  }
+}
+.web main footer .footer-bot .footer-info .footer-bot-right .address span {
+  text-align: left;
+  font-size: 2rem;
+  line-height: 0.9;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right .address span {
+    font-size: 1.2rem;
+  }
+}
+.web main footer .footer-bot .footer-info .footer-bot-right .socialmedia {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.web main footer .footer-bot .footer-info .footer-bot-right .socialmedia img {
+  width: 50px;
+}
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right .socialmedia img {
+    width: 40px;
   }
 }
 

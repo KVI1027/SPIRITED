@@ -2029,13 +2029,13 @@ nav .nav-border aside a img {
   padding: 20px 60px 20px 60px;
   z-index: 15;
   position: fixed;
-  bottom: -100%;
+  bottom: -50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #5d412e;
-  transition: 1s ease;
+  transition: 1s cubic-bezier(0.06, 0.87, 0.84, 1);
 }
 @media screen and (max-width: 799px) {
   .web main footer {
@@ -2140,7 +2140,7 @@ nav .nav-border aside a img {
 }
 @media screen and (max-width: 799px) {
   .web main footer .footer-bot .footer-info .openhour {
-    color: #b66e47;
+    color: #a05730;
     text-align: center;
   }
 }
@@ -2178,16 +2178,22 @@ nav .nav-border aside a img {
   flex-direction: row;
   justify-content: flex-start;
 }
+@media screen and (max-width: 799px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right {
+    justify-content: center;
+  }
+}
 .web main footer .footer-bot .footer-info .footer-bot-right .address {
   text-align: left;
   font-size: 1.4rem;
+  color: #b66e47;
 }
 @media screen and (max-width: 799px) {
   .web main footer .footer-bot .footer-info .footer-bot-right .address {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-top: 10px;
     line-height: 1.1;
-    margin-right: 10px;
+    margin-right: 8px;
   }
 }
 .web main footer .footer-bot .footer-info .footer-bot-right .address span {

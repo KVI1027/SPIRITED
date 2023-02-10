@@ -52,14 +52,14 @@ function updateFooter() {
         if (scroll > 8500) {
             Footer.style.bottom = `0px`
         } else if (scroll <= 8500) {
-            Footer.style.bottom = `-100%`
+            Footer.style.bottom = `-50%`
         }
     }
     function footermobile(scroll) {
         if (scroll > 4900) {
             Footer.style.bottom = `0px`
         } else if (scroll <= 4900) {
-            Footer.style.bottom = `-100%`
+            Footer.style.bottom = `-50%`
         }
     }
 

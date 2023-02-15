@@ -47,11 +47,15 @@
     // display: none;
 }
 
+.slow {
+    scroll-snap-align: end;
+}
+
 body {
     margin: 0;
-    padding: 0;
+    padding-top: 120vh;
     box-sizing: border-box;
-    height: 1030vh;
+    height: 9400px;
     scroll-behavior: smooth;
 
     @media screen and (max-width:799px) {
@@ -157,7 +161,7 @@ body {
         text-align: start;
         color: #f4d4bd;
         @include flex(row);
-        z-index: 10;
+        z-index: 5;
 
         @media screen and (max-width:799px) {
             font-size: 2rem;
@@ -169,7 +173,8 @@ body {
         width: 100%;
         height: 100vh;
         overflow: hidden;
-        position: absolute;
+        position: fixed;
+        top: 0;
         background-color: #40281b;
         z-index: 2;
         @include flex(row);
@@ -234,22 +239,27 @@ nav {
         border-radius: 161.8vh/100vh;
         transform: rotate(50deg);
         z-index: -10;
+
         @media screen and (max-width:1450px) {
             transform: scale(0.9) rotate(50deg);
         }
+
         @media screen and (max-width:1050px) {
             transform: scale(0.8) rotate(50deg);
         }
+
         @media screen and (max-width:950px) {
             transform: scale(0.7) rotate(50deg);
         }
+
         @media screen and (max-width:799px) {
             transform: scale(0.6) rotate(50deg);
         }
+
         @media screen and (max-width:550px) {
             transform: scale(0.5) rotate(50deg);
         }
-        
+
     }
 
     .nav-border {
@@ -282,9 +292,11 @@ nav {
                 justify-content: space-between;
                 align-content: flex-end;
                 margin-bottom: 10px;
+
                 &:hover {
                     filter: brightness(1.7);
                 }
+
                 @media screen and (max-width:1050px) {
                     margin-bottom: 20px;
                 }
@@ -297,19 +309,24 @@ nav {
                     @media screen and (max-width:1450px) {
                         @include Cormorant(11rem);
                     }
+
                     @media screen and (max-width:1250px) {
                         @include Cormorant(10rem);
                     }
+
                     @media screen and (max-width:1050px) {
                         @include Cormorant(8rem);
                     }
+
                     @media screen and (max-width:950px) {
                         @include Cormorant(7rem);
                     }
+
                     @media screen and (max-width:799px) {
                         @include Cormorant(5rem);
                         letter-spacing: -3px;
                     }
+
                     @media screen and (max-width:550px) {
                         @include Cormorant(4rem);
                         width: 70%;
@@ -328,9 +345,11 @@ nav {
                         @include Noto-Serif-TC(1.5rem);
                         text-align: start;
                     }
+
                     @media screen and (max-width:950px) {
                         @include Cormorant(1rem);
                     }
+
                     @media screen and (max-width:550px) {
                         @include Cormorant(0.8rem);
                     }
@@ -358,11 +377,13 @@ nav {
                     height: auto;
                 }
 
-                img{ width: 50px;
+                img {
+                    width: 50px;
 
                     @media screen and (max-width:799px) {
                         width: 40px;
-                    }}
+                    }
+                }
             }
         }
     }
@@ -372,21 +393,17 @@ nav {
 .web {
     display: block;
     width: 100%;
-    height: 4000px;
     background-color: #ffffe8;
     transition: 1s ease;
 
     main {
         .shop-frame {
-            position: fixed;
-            top: 1000px;
-            left: 50%;
-            margin-left: -45.5%;
-            height: 2400px;
-            width: 91%;
+            height: 2600px;
+            width: 100%;
             background-color: rgb(245, 240, 223);
-            z-index: 5;
             padding-top: 100px;
+            position: relative;
+            z-index: 15;
 
             h1 {
                 color: #805944;
@@ -401,583 +418,216 @@ nav {
                     color: #6e4105;
                 }
             }
-        }
 
-        //主要內容
-        .shop {
-            top: 0px;
-            transition: 1s ease;
-            width: 100%;
-            height: 160vh;
-            background-color: transparent;
-            overflow: hidden;
-            z-index: 4;
 
-            //共通swiper樣式更換
-            .swiper {
+            //主要內容
+            .shop {
+                top: 0px;
+                transition: 1s ease;
                 width: 100%;
-                height: 100%;
-            }
+                height: 160vh;
+                background-color: transparent;
+                overflow: hidden;
+                z-index: 4;
 
-            .swipermid-button-prev::after,
-            .swipermid-button-next::after,
-            .swipertop-button-prev::after,
-            .swipertop-button-next::after,
-            .swipermenu-button-prev::after,
-            .swipermenu-button-next::after {
-                display: none;
-            }
-
-            .swiper-button-prev {
-                background-image: url(../img/swiper-light-prev.svg);
-                @include bg-style();
-            }
-
-            .swiper-button-next {
-                background-image: url(../img/swiper-light-next.svg);
-                @include bg-style();
-            }
-
-            .shop-main {
-                width: 100%;
-                height: 100vh;
-
-
-                .top {
+                //共通swiper樣式更換
+                .swiper {
                     width: 100%;
-                    height: 30%;
-                    @include flex(row);
-                    justify-content: start;
+                    height: 100%;
+                }
 
-                    .kanban-bg {
-                        width: 55%;
-                        max-width: 1150px;
-                        background-image: url(../img/menu-board.png);
-                        @include bg-style();
-                        background-size: 100% 80%;
-                        background-position: 0px 0px;
-                        @include flex(column);
-                        align-items: flex-start;
+                .swipermid-button-prev::after,
+                .swipermid-button-next::after,
+                .swipertop-button-prev::after,
+                .swipertop-button-next::after,
+                .swipermenu-button-prev::after,
+                .swipermenu-button-next::after {
+                    display: none;
+                }
 
-                        @media all and (max-width: 1599px) {
-                            width: 70%;
-                        }
+                .swiper-button-prev {
+                    background-image: url(../img/swiper-light-prev.svg);
+                    @include bg-style();
+                }
 
-                        .kanban {
-                            width: 90%;
-                            height: 80%;
-                            margin-left: 1.5%;
+                .swiper-button-next {
+                    background-image: url(../img/swiper-light-next.svg);
+                    @include bg-style();
+                }
+
+                .shop-main {
+                    width: 100%;
+                    height: 100vh;
+
+
+                    .top {
+                        width: 100%;
+                        height: 30%;
+                        @include flex(row);
+                        justify-content: start;
+
+                        .kanban-bg {
+                            width: 55%;
+                            max-width: 1150px;
+                            background-image: url(../img/menu-board.png);
+                            @include bg-style();
+                            background-size: 100% 80%;
+                            background-position: 0px 0px;
                             @include flex(column);
-                            position: relative;
-                            top: -10px;
+                            align-items: flex-start;
 
-                            .types {
-                                @include flex(row);
-                                justify-content: space-between;
-                                margin-bottom: 15px;
+                            @media all and (max-width: 1599px) {
+                                width: 70%;
+                            }
 
-                                .type {
-                                    margin-left: 2rem;
-                                    margin-right: 2rem;
+                            .kanban {
+                                width: 90%;
+                                height: 80%;
+                                margin-left: 1.5%;
+                                @include flex(column);
+                                position: relative;
+                                top: -10px;
+
+                                .types {
                                     @include flex(row);
-                                    cursor: pointer;
-                                    color: #fafaef;
+                                    justify-content: space-between;
+                                    margin-bottom: 15px;
 
-                                    @media all and (max-width: 1599px) {
+                                    .type {
                                         margin-left: 2rem;
                                         margin-right: 2rem;
-                                    }
+                                        @include flex(row);
+                                        cursor: pointer;
+                                        color: #fafaef;
 
-                                    .icon {
-                                        height: 65px;
-                                        width: 65px;
-                                        @include flex(column);
-                                        margin-right: 0.5rem;
-                                    }
+                                        @media all and (max-width: 1599px) {
+                                            margin-left: 2rem;
+                                            margin-right: 2rem;
+                                        }
 
-                                    .title-en {
-                                        @include Lobster(1.875rem);
-                                    }
+                                        .icon {
+                                            height: 65px;
+                                            width: 65px;
+                                            @include flex(column);
+                                            margin-right: 0.5rem;
+                                        }
 
-                                    .title-ch {
-                                        @include Noto-Serif-TC(1rem);
+                                        .title-en {
+                                            @include Lobster(1.875rem);
+                                        }
+
+                                        .title-ch {
+                                            @include Noto-Serif-TC(1rem);
+                                        }
                                     }
                                 }
-                            }
 
-                            .items {
-                                .swiper-item {
-                                    width: 100%;
-                                    height: 100%;
-                                    position: relative;
-                                    color: #ffffe8;
+                                .items {
+                                    .swiper-item {
+                                        width: 100%;
+                                        height: 100%;
+                                        position: relative;
+                                        color: #ffffe8;
 
-                                    .mySwiper {
-                                        .swiper-wrapper {
-                                            .swiper-slide {
-                                                cursor: pointer;
+                                        .mySwiper {
+                                            .swiper-wrapper {
+                                                .swiper-slide {
+                                                    cursor: pointer;
 
-                                                .item-en {
-                                                    height: 1.875rem;
-                                                    @include Lobster(1.875rem);
-                                                }
+                                                    .item-en {
+                                                        height: 1.875rem;
+                                                        @include Lobster(1.875rem);
+                                                    }
 
-                                                .item-ch {
-                                                    @include Noto-Serif-TC(1rem);
-                                                }
+                                                    .item-ch {
+                                                        @include Noto-Serif-TC(1rem);
+                                                    }
 
-                                                .item-en-sp {
-                                                    height: 1.875rem;
-                                                    @include Lobster(1rem);
-                                                    @include flex(column);
+                                                    .item-en-sp {
+                                                        height: 1.875rem;
+                                                        @include Lobster(1rem);
+                                                        @include flex(column);
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
 
-                                    .swipertop-button-next {
-                                        right: -1.25rem;
-                                    }
+                                        .swipertop-button-next {
+                                            right: -1.25rem;
+                                        }
 
-                                    .swipertop-button-prev {
-                                        left: -1.25rem;
+                                        .swipertop-button-prev {
+                                            left: -1.25rem;
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    .light {
-                        width: 40%;
-                        background-image: url(../img/light.png);
-                        @include bg-style();
-                        background-position: top;
+                        .light {
+                            width: 40%;
+                            background-image: url(../img/light.png);
+                            @include bg-style();
+                            background-position: top;
+
+                            @media all and (max-width: 1599px) {
+                                display: none;
+                            }
+                        }
 
                         @media all and (max-width: 1599px) {
-                            display: none;
+                            justify-content: start;
                         }
                     }
 
-                    @media all and (max-width: 1599px) {
-                        justify-content: start;
-                    }
-                }
+                    .mid {
+                        .item-mid {
+                            .swipermid {
+                                width: 85%;
+                                height: 100%;
+                                margin: auto;
+                                overflow-x: clip;
 
-                .mid {
-                    .item-mid {
-                        .swipermid {
-                            width: 85%;
-                            height: 100%;
-                            margin: auto;
-                            overflow-x: clip;
-
-                            .swipermid-wrapper {
-
-                                .item-card {
-                                    @include flex(row);
-
-                                    .item-pic {
-                                        img {
-                                            width: 365px;
-                                            height: 365px;
-                                        }
-                                    }
-
-                                    .item-info {
-                                        width: 400px;
-                                        height: 365px;
-                                        margin-left: 30px;
-                                        margin-right: 60px;
-                                        @include flex(column);
-                                        justify-content: space-between;
-                                        position: relative;
-
-                                        .item-name {
-                                            margin-bottom: 20px;
-
-                                            .item-name-en {
-                                                @include Lobster(2.25rem);
-                                                line-height: 2rem;
-                                                text-align: start;
-                                                margin-bottom: 0.5rem;
-                                            }
-
-                                            .item-name-ch {
-                                                @include Noto-Serif-TC(1.5rem);
-                                                line-height: 2rem;
-                                                text-align: start;
-                                                margin-bottom: 1rem;
-                                            }
-
-                                            .item-sweet {
-                                                font-family: "Noto Serif TC", serif;
-
-                                                .sweet-round {
-                                                    width: 16px;
-                                                    height: 16px;
-                                                    margin: 0 2px;
-                                                }
-
-                                                .sweet-solid {
-                                                    background-color: #a67c52;
-                                                }
-
-                                                .sweet-hollow {
-                                                    background-color: #c6c5af;
-                                                }
-                                            }
-                                        }
-
-                                        .item-content {
-                                            .item-txt-ch-1 {
-                                                @include Noto-Serif-TC(1rem);
-                                                text-align: start;
-                                                width: 100%;
-                                            }
-
-                                            .item-txt-ch-2 {
-                                                @include Noto-Serif-TC(1rem);
-                                                text-align: start;
-                                                width: 100%;
-                                            }
-
-                                            .item-txt-en {
-                                                font-size: 1rem;
-                                                font-family: "Cormorant", serif;
-                                                font-style: italic;
-                                                width: 100%;
-                                                margin-bottom: 0.5rem;
-                                                margin-top: 0.3rem;
-                                            }
-
-                                            .composition-btn {
-                                                cursor: pointer;
-
-                                                .btn-ch {
-                                                    font-family: "Noto Serif TC", serif;
-                                                }
-
-                                                .btn-en {
-                                                    font-family: "Cormorant", serif;
-                                                }
-
-                                                &:hover {
-                                                    ~.composition-content {
-                                                        display: block;
-                                                    }
-                                                }
-                                            }
-
-                                            .composition-content {
-                                                display: none;
-                                                position: absolute;
-                                                padding: 15px;
-                                                top: 100%;
-                                                background: #fff;
-
-                                                .composition-content-ch {
-                                                    @include Noto-Serif-TC(1rem);
-                                                    text-align: start;
-                                                    width: 100%;
-                                                }
-
-                                                .composition-content-en {
-                                                    font-size: 1rem;
-                                                    font-family: "Cormorant", serif;
-                                                    font-style: italic;
-                                                }
-                                            }
-
-                                            .preservation-btn {
-                                                cursor: pointer;
-
-                                                .btn-ch {
-                                                    font-family: "Noto Serif TC", serif;
-                                                }
-
-                                                .btn-en {
-                                                    font-family: "Cormorant", serif;
-                                                }
-
-                                                &:hover {
-                                                    ~.preservation-content {
-                                                        display: block;
-                                                    }
-                                                }
-                                            }
-
-                                            .preservation-content {
-                                                display: none;
-                                                position: absolute;
-                                                padding: 15px;
-                                                top: 100%;
-                                                background: #fff;
-
-                                                .preservation-content-ch {
-                                                    @include Noto-Serif-TC(1rem);
-                                                    text-align: start;
-                                                    width: 100%;
-                                                }
-
-                                                .preservation-content-en {
-                                                    font-size: 1rem;
-                                                    font-family: "Cormorant", serif;
-                                                    font-style: italic;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .swipermid-button-next {
-                            width: 50px;
-                            height: 57px;
-                            right: 3rem;
-                            background-image: url(../img/swiper-dark-next.svg);
-                        }
-
-                        .swipermid-button-prev {
-                            width: 50px;
-                            height: 57px;
-                            left: 3rem;
-                            background-image: url(../img/swiper-dark-prev.svg);
-                        }
-
-                        .swipermid-slide img {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                }
-
-                .bot {
-                    height: 60px;
-                    @include flex(column);
-                    align-items: flex-end;
-
-                    .favor {
-                        margin-right: 50px;
-                        @include Noto-Serif-TC(1rem);
-                        text-align: start;
-                        top: -2.5rem;
-                        right: 0rem;
-                    }
-                }
-            }
-
-            .shop-bottom {
-                width: 100%;
-                height: 65vh;
-                padding-top: 20px;
-                background-image: url(../img/menu-bottom.png);
-                @include bg-style();
-                background-size: cover;
-                background-position: top;
-
-                display: flex;
-                justify-content: end;
-                align-items: flex-start;
-
-                .menu-btns {
-                    .shop-btn {
-                        width: 275px;
-                        height: 95px;
-                        @include bg-style();
-                        cursor: pointer;
-                    }
-
-                    .whole-menu-btn {
-                        margin-right: 5rem;
-
-                    }
-
-                    .how-to-buy-btn {
-                        margin-right: 10rem;
-                    }
-                }
-
-                .view-menu {
-                    background: rgba(0, 0, 0, 0.8);
-                    top: 0;
-                    z-index: 21;
-                    transition: all 1s;
-
-                    .view-menu-wrapper {
-                        width: 750px;
-                        height: 100%;
-
-                        .swiper-slide-menu {
-                            padding: 20px 0px;
-                            @include flex(column);
-                        }
-                    }
-                }
-            }
-
-            .shop-main-phone {
-                width: 100%;
-                height: 55vh;
-                padding-top: 20px;
-                transition: top 0.5s;
-                z-index: 10;
-                margin-bottom: -2vh;
-
-                .top {
-                    width: 100%;
-                    height: 22%;
-                    margin-bottom: 10px;
-                    @include flex(column);
-                    justify-content: end;
-
-                    .kanban {
-                        width: 100%;
-                        height: 100%;
-                        @include flex(column);
-                        justify-content: flex-end;
-
-                        .items {
-                            @include Cormorant(4.5rem);
-                            font-weight: 100;
-                            color: #b26c1740;
-                            margin-bottom: 7px;
-                            position: absolute;
-                            top: -22px;
-                        }
-
-                        .types {
-                            @include flex(row);
-                            width: 60%;
-                            position: relative;
-
-                            .swiper-slide {
-                                @include flex(column);
-                                justify-content: end;
-
-                                .type {
-                                    .icon {
-                                        img {
-                                            height: 30px;
-                                            width: 30px;
-                                            filter: grayscale(100%);
-                                        }
-                                    }
-                                }
-                            }
-
-                            .swiper-SELECTED-sm {
-                                .type {
-                                    .icon {
-                                        img {
-                                            height: 40px;
-                                            width: 40px;
-                                            filter: unset;
-                                        }
-                                    }
-                                }
-
-
-                            }
-
-                            .swiper-slide-active {
-                                .type {
-                                    .icon {
-                                        img {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .mid {
-                    width: 100%;
-                    height: 78%;
-
-                    .item-mid {
-                        height: 100%;
-
-                        .swipermid {
-                            width: 85%;
-                            height: 100%;
-                            margin: auto;
-                            overflow-x: clip;
-
-                            .swipermid-wrapper {
-
-                                .swiper-slide {
-                                    @include flex(column);
-                                    justify-content: flex-start;
+                                .swipermid-wrapper {
 
                                     .item-card {
-                                        @include flex(column);
+                                        @include flex(row);
 
                                         .item-pic {
-                                            margin-top: 3px;
-
                                             img {
-                                                width: 260px;
+                                                width: 365px;
+                                                height: 365px;
                                             }
                                         }
 
                                         .item-info {
                                             width: 400px;
-                                            margin-top: 5px;
+                                            height: 365px;
+                                            margin-left: 30px;
+                                            margin-right: 60px;
                                             @include flex(column);
+                                            justify-content: space-between;
+                                            position: relative;
 
                                             .item-name {
-                                                position: relative;
-                                                color: #633416;
+                                                margin-bottom: 20px;
 
                                                 .item-name-en {
-                                                    @include Lobster(1.75rem);
-                                                    @include flex(row);
-                                                    height: 2rem;
-                                                    font-weight: 100;
-
-                                                    @media screen and (max-width:799px) {
-                                                        font-size: 1.5rem;
-                                                        font-weight: 100;
-                                                        height: 1.5rem;
-                                                    }
-
-                                                    img {
-                                                        height: 25px;
-                                                        margin-left: 0.5rem;
-                                                        margin-right: 0.5rem;
-                                                    }
-                                                }
-
-                                                .item-name-en-s {
-                                                    @include Lobster(1.25rem);
-                                                    @include flex(row);
-                                                    height: 1.5rem;
-
-                                                    img {
-                                                        height: 25px;
-                                                        margin-left: 0.5rem;
-                                                        margin-right: 0.5rem;
-                                                    }
+                                                    @include Lobster(2.25rem);
+                                                    line-height: 2rem;
+                                                    text-align: start;
+                                                    margin-bottom: 0.5rem;
                                                 }
 
                                                 .item-name-ch {
-                                                    @include Noto-Serif-TC(1.15rem);
-
+                                                    @include Noto-Serif-TC(1.5rem);
+                                                    line-height: 2rem;
+                                                    text-align: start;
+                                                    margin-bottom: 1rem;
                                                 }
 
                                                 .item-sweet {
-                                                    position: absolute;
-                                                    top: 55px;
-                                                    left: calc(50% - 78px);
-                                                    border: 1px solid #80594469;
-                                                    border-radius: 14px;
-                                                    background-color: rgb(245, 240, 223);
-                                                    padding: 2px 8px 2px 8px;
-                                                    @include Noto-Serif-TC(1rem);
-                                                    @include flex(row);
+                                                    font-family: "Noto Serif TC", serif;
 
                                                     .sweet-round {
                                                         width: 16px;
@@ -994,95 +644,463 @@ nav {
                                                     }
                                                 }
                                             }
-                                        }
-                                    }
 
-                                    .menu-info {
-                                        width: 100%;
-                                        height: 650px;
-                                        position: absolute;
-                                        bottom: -693px;
-                                        @include flex(column);
-                                        justify-content: flex-start;
-                                        align-items: flex-start;
-                                        display: none;
+                                            .item-content {
+                                                .item-txt-ch-1 {
+                                                    @include Noto-Serif-TC(1rem);
+                                                    text-align: start;
+                                                    width: 100%;
+                                                }
 
-                                        .tips {
-                                            margin-bottom: 1.5rem;
-                                            line-height: 90%;
+                                                .item-txt-ch-2 {
+                                                    @include Noto-Serif-TC(1rem);
+                                                    text-align: start;
+                                                    width: 100%;
+                                                }
 
-                                            .tips-ch {
-                                                @include Noto-Serif-TC(0.75rem);
-                                                text-align: left;
+                                                .item-txt-en {
+                                                    font-size: 1rem;
+                                                    font-family: "Cormorant", serif;
+                                                    font-style: italic;
+                                                    width: 100%;
+                                                    margin-bottom: 0.5rem;
+                                                    margin-top: 0.3rem;
+                                                }
+
+                                                .composition-btn {
+                                                    cursor: pointer;
+
+                                                    .btn-ch {
+                                                        font-family: "Noto Serif TC", serif;
+                                                    }
+
+                                                    .btn-en {
+                                                        font-family: "Cormorant", serif;
+                                                    }
+
+                                                    &:hover {
+                                                        ~.composition-content {
+                                                            display: block;
+                                                        }
+                                                    }
+                                                }
+
+                                                .composition-content {
+                                                    display: none;
+                                                    position: absolute;
+                                                    padding: 15px;
+                                                    top: 100%;
+                                                    background: #fff;
+
+                                                    .composition-content-ch {
+                                                        @include Noto-Serif-TC(1rem);
+                                                        text-align: start;
+                                                        width: 100%;
+                                                    }
+
+                                                    .composition-content-en {
+                                                        font-size: 1rem;
+                                                        font-family: "Cormorant", serif;
+                                                        font-style: italic;
+                                                    }
+                                                }
+
+                                                .preservation-btn {
+                                                    cursor: pointer;
+
+                                                    .btn-ch {
+                                                        font-family: "Noto Serif TC", serif;
+                                                    }
+
+                                                    .btn-en {
+                                                        font-family: "Cormorant", serif;
+                                                    }
+
+                                                    &:hover {
+                                                        ~.preservation-content {
+                                                            display: block;
+                                                        }
+                                                    }
+                                                }
+
+                                                .preservation-content {
+                                                    display: none;
+                                                    position: absolute;
+                                                    padding: 15px;
+                                                    top: 100%;
+                                                    background: #fff;
+
+                                                    .preservation-content-ch {
+                                                        @include Noto-Serif-TC(1rem);
+                                                        text-align: start;
+                                                        width: 100%;
+                                                    }
+
+                                                    .preservation-content-en {
+                                                        font-size: 1rem;
+                                                        font-family: "Cormorant", serif;
+                                                        font-style: italic;
+                                                    }
+                                                }
                                             }
+                                        }
+                                    }
+                                }
+                            }
 
-                                            .tips-en {
-                                                @include Lobster(0.75rem);
-                                                text-align: left;
+                            .swipermid-button-next {
+                                width: 50px;
+                                height: 57px;
+                                right: 3rem;
+                                background-image: url(../img/swiper-dark-next.svg);
+                            }
+
+                            .swipermid-button-prev {
+                                width: 50px;
+                                height: 57px;
+                                left: 3rem;
+                                background-image: url(../img/swiper-dark-prev.svg);
+                            }
+
+                            .swipermid-slide img {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .bot {
+                        height: 60px;
+                        @include flex(column);
+                        align-items: flex-end;
+
+                        .favor {
+                            margin-right: 50px;
+                            @include Noto-Serif-TC(1rem);
+                            text-align: start;
+                            top: -2.5rem;
+                            right: 0rem;
+                        }
+                    }
+                }
+
+                .shop-bottom {
+                    width: 100%;
+                    height: 65vh;
+                    padding-top: 20px;
+                    background-image: url(../img/menu-bottom.png);
+                    @include bg-style();
+                    background-size: cover;
+                    background-position: top;
+
+                    display: flex;
+                    justify-content: end;
+                    align-items: flex-start;
+
+                    .menu-btns {
+                        .shop-btn {
+                            width: 275px;
+                            height: 95px;
+                            @include bg-style();
+                            cursor: pointer;
+                        }
+
+                        .whole-menu-btn {
+                            margin-right: 5rem;
+
+                        }
+
+                        .how-to-buy-btn {
+                            margin-right: 10rem;
+                        }
+                    }
+
+                    .view-menu {
+                        background: rgba(0, 0, 0, 0.8);
+                        top: 0;
+                        z-index: 21;
+                        transition: all 1s;
+
+                        .view-menu-wrapper {
+                            width: 750px;
+                            height: 100%;
+
+                            .swiper-slide-menu {
+                                padding: 20px 0px;
+                                @include flex(column);
+                            }
+                        }
+                    }
+                }
+
+                .shop-main-phone {
+                    width: 100%;
+                    height: 55vh;
+                    padding-top: 20px;
+                    transition: top 0.5s;
+                    z-index: 10;
+                    margin-bottom: -2vh;
+
+                    .top {
+                        width: 100%;
+                        height: 22%;
+                        margin-bottom: 10px;
+                        @include flex(column);
+                        justify-content: end;
+
+                        .kanban {
+                            width: 100%;
+                            height: 100%;
+                            @include flex(column);
+                            justify-content: flex-end;
+
+                            .items {
+                                @include Cormorant(4.5rem);
+                                font-weight: 100;
+                                color: #b26c1740;
+                                margin-bottom: 7px;
+                                position: absolute;
+                                top: -22px;
+                            }
+
+                            .types {
+                                @include flex(row);
+                                width: 60%;
+                                position: relative;
+
+                                .swiper-slide {
+                                    @include flex(column);
+                                    justify-content: end;
+
+                                    .type {
+                                        .icon {
+                                            img {
+                                                height: 30px;
+                                                width: 30px;
+                                                filter: grayscale(100%);
                                             }
                                         }
+                                    }
+                                }
 
-                                        .info-ch {
-                                            @include Noto-Serif-TC(0.9rem);
-                                            font-weight: 100;
-                                            opacity: 0.9;
-                                            text-align: left;
-                                            line-height: 120%;
-                                        }
-
-                                        .info-en {
-                                            @include Cormorant(1.1rem);
-                                            text-align: left;
-                                            line-height: 100%;
-                                        }
-
-                                        p {
-                                            margin-bottom: 8px;
-                                        }
-
-                                        .info-btn {
-                                            cursor: pointer;
-                                            padding: 0px 8px 0px 8px;
-                                            border: 1px solid rgb(245, 240, 223);
-                                            border-radius: 10px;
-
-                                            &:active {
-                                                background-color: rgb(245, 240, 223);
-                                                color: #553000;
+                                .swiper-SELECTED-sm {
+                                    .type {
+                                        .icon {
+                                            img {
+                                                height: 40px;
+                                                width: 40px;
+                                                filter: unset;
                                             }
                                         }
                                     }
 
-                                    .description-phone {
-                                        color: rgb(245, 240, 223);
-                                    }
 
-                                    .preservation-phone {
-                                        color: #ffffe8;
-                                    }
                                 }
 
                                 .swiper-slide-active {
-                                    .preservation-phone {
-                                        display: none;
-                                    }
-
-                                    .description-phone {
-                                        display: flex;
+                                    .type {
+                                        .icon {
+                                            img {}
+                                        }
                                     }
                                 }
+                            }
+                        }
+                    }
 
-                                input {
-                                    display: none;
+                    .mid {
+                        width: 100%;
+                        height: 78%;
 
-                                    &:checked {
-                                        &~.swiper-slide-active {
-                                            .preservation-phone {
-                                                display: flex;
+                        .item-mid {
+                            height: 100%;
+
+                            .swipermid {
+                                width: 85%;
+                                height: 100%;
+                                margin: auto;
+                                overflow-x: clip;
+
+                                .swipermid-wrapper {
+
+                                    .swiper-slide {
+                                        @include flex(column);
+                                        justify-content: flex-start;
+
+                                        .item-card {
+                                            @include flex(column);
+
+                                            .item-pic {
+                                                margin-top: 3px;
+
+                                                img {
+                                                    width: 260px;
+                                                }
                                             }
 
-                                            .description-phone {
-                                                display: none;
+                                            .item-info {
+                                                width: 400px;
+                                                margin-top: 5px;
+                                                @include flex(column);
+
+                                                .item-name {
+                                                    position: relative;
+                                                    color: #633416;
+
+                                                    .item-name-en {
+                                                        @include Lobster(1.75rem);
+                                                        @include flex(row);
+                                                        height: 2rem;
+                                                        font-weight: 100;
+
+                                                        @media screen and (max-width:799px) {
+                                                            font-size: 1.5rem;
+                                                            font-weight: 100;
+                                                            height: 1.5rem;
+                                                        }
+
+                                                        img {
+                                                            height: 25px;
+                                                            margin-left: 0.5rem;
+                                                            margin-right: 0.5rem;
+                                                        }
+                                                    }
+
+                                                    .item-name-en-s {
+                                                        @include Lobster(1.25rem);
+                                                        @include flex(row);
+                                                        height: 1.5rem;
+
+                                                        img {
+                                                            height: 25px;
+                                                            margin-left: 0.5rem;
+                                                            margin-right: 0.5rem;
+                                                        }
+                                                    }
+
+                                                    .item-name-ch {
+                                                        @include Noto-Serif-TC(1.15rem);
+
+                                                    }
+
+                                                    .item-sweet {
+                                                        position: absolute;
+                                                        top: 55px;
+                                                        left: calc(50% - 78px);
+                                                        border: 1px solid #80594469;
+                                                        border-radius: 14px;
+                                                        background-color: rgb(245, 240, 223);
+                                                        padding: 2px 8px 2px 8px;
+                                                        @include Noto-Serif-TC(1rem);
+                                                        @include flex(row);
+
+                                                        .sweet-round {
+                                                            width: 16px;
+                                                            height: 16px;
+                                                            margin: 0 2px;
+                                                        }
+
+                                                        .sweet-solid {
+                                                            background-color: #a67c52;
+                                                        }
+
+                                                        .sweet-hollow {
+                                                            background-color: #c6c5af;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .menu-info {
+                                            width: 100%;
+                                            height: 650px;
+                                            position: absolute;
+                                            bottom: -693px;
+                                            @include flex(column);
+                                            justify-content: flex-start;
+                                            align-items: flex-start;
+                                            display: none;
+
+                                            .tips {
+                                                margin-bottom: 1.5rem;
+                                                line-height: 90%;
+
+                                                .tips-ch {
+                                                    @include Noto-Serif-TC(0.75rem);
+                                                    text-align: left;
+                                                }
+
+                                                .tips-en {
+                                                    @include Lobster(0.75rem);
+                                                    text-align: left;
+                                                }
+                                            }
+
+                                            .info-ch {
+                                                @include Noto-Serif-TC(0.9rem);
+                                                font-weight: 100;
+                                                opacity: 0.9;
+                                                text-align: left;
+                                                line-height: 120%;
+                                            }
+
+                                            .info-en {
+                                                @include Cormorant(1.1rem);
+                                                text-align: left;
+                                                line-height: 100%;
+                                            }
+
+                                            p {
+                                                margin-bottom: 8px;
+                                            }
+
+                                            .info-btn {
+                                                cursor: pointer;
+                                                padding: 0px 8px 0px 8px;
+                                                border: 1px solid rgb(245, 240, 223);
+                                                border-radius: 10px;
+
+                                                &:active {
+                                                    background-color: rgb(245, 240, 223);
+                                                    color: #553000;
+                                                }
+                                            }
+                                        }
+
+                                        .description-phone {
+                                            color: rgb(245, 240, 223);
+                                        }
+
+                                        .preservation-phone {
+                                            color: #ffffe8;
+                                        }
+                                    }
+
+                                    .swiper-slide-active {
+                                        .preservation-phone {
+                                            display: none;
+                                        }
+
+                                        .description-phone {
+                                            display: flex;
+                                        }
+                                    }
+
+                                    input {
+                                        display: none;
+
+                                        &:checked {
+                                            &~.swiper-slide-active {
+                                                .preservation-phone {
+                                                    display: flex;
+                                                }
+
+                                                .description-phone {
+                                                    display: none;
+                                                }
                                             }
                                         }
                                     }
@@ -1091,71 +1109,70 @@ nav {
                         }
                     }
                 }
-            }
 
-            .shop-bottom-phone {
-                width: 100%;
-                height: 67vh;
-                padding-top: 5px;
-                background-image: url(../img/menu-bottom.png);
-                @include bg-style();
-                background-size: cover;
-                background-position: top;
-                transition: top 0.5s;
+                .shop-bottom-phone {
+                    width: 100%;
+                    height: 67vh;
+                    padding-top: 5px;
+                    background-image: url(../img/menu-bottom.png);
+                    @include bg-style();
+                    background-size: cover;
+                    background-position: top;
+                    transition: top 0.5s;
 
-                @include flex(column);
-                justify-content: flex-start;
-
-                .menu-btns {
-                    margin-left: auto;
-                    padding-right: 50px;
-
-                    @media screen and (max-width:799px) {
-                        display: none !important;
-                    }
-
-                    .shop-btn {
-                        width: 150px;
-                        height: 40px;
-                        @include bg-style();
-                        cursor: pointer;
-                    }
-
-                    .whole-menu-btn {
-                        background-image: url(../img/btn-whole-menu.svg);
-                    }
-                }
-
-                .view-menu-phone {
-                    background: rgba(0, 0, 0, 0.8);
-                    top: 0;
-                    z-index: 21;
-                    transition: all 1s;
                     @include flex(column);
+                    justify-content: flex-start;
 
-                    .view-menu-wrapper {
-                        width: 60%;
-                        height: 80%;
+                    .menu-btns {
+                        margin-left: auto;
+                        padding-right: 50px;
 
-                        .swiper-slide-menu {
-                            padding: 20px 0px;
-                            @include flex(column);
+                        @media screen and (max-width:799px) {
+                            display: none !important;
+                        }
 
-                            img {
-                                height: 100%;
+                        .shop-btn {
+                            width: 150px;
+                            height: 40px;
+                            @include bg-style();
+                            cursor: pointer;
+                        }
+
+                        .whole-menu-btn {
+                            background-image: url(../img/btn-whole-menu.svg);
+                        }
+                    }
+
+                    .view-menu-phone {
+                        background: rgba(0, 0, 0, 0.8);
+                        top: 0;
+                        z-index: 21;
+                        transition: all 1s;
+                        @include flex(column);
+
+                        .view-menu-wrapper {
+                            width: 60%;
+                            height: 80%;
+
+                            .swiper-slide-menu {
+                                padding: 20px 0px;
+                                @include flex(column);
+
+                                img {
+                                    height: 100%;
+                                }
                             }
                         }
                     }
-                }
 
-                .info-bg {
-                    @include bg-style();
-                    width: 450px;
-                    height: 650px;
+                    .info-bg {
+                        @include bg-style();
+                        width: 450px;
+                        height: 650px;
+                    }
                 }
             }
         }
-
 
         .news {
             width: 100%;
@@ -1503,19 +1520,16 @@ nav {
 
         .how-about {
             height: 4000px;
-
-
+            position: relative;
+            top: -700px;
+            z-index: 16;
 
             .how-to-buy {
-                position: fixed;
-                top: 3000px;
-                left: 50%;
-                margin-left: -50%;
                 height: 2500px;
                 width: 100%;
                 background-color: #f1e9e1;
                 border-radius: 100px;
-                z-index: 6;
+                z-index: 16;
                 padding-top: 100px;
                 @include flex(column);
                 justify-content: start;
@@ -1918,13 +1932,13 @@ nav {
             padding: 20px 60px 20px 60px;
             z-index: 15;
             position: fixed;
-            bottom: -50%;
+            bottom: -100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: #5d412e;
-            transition: 1s cubic-bezier(.06,.87,.84,1);
+            transition: 1s cubic-bezier(.06, .87, .84, 1);
 
             @media screen and (max-width:799px) {
                 padding: 20px 40px;
@@ -2012,7 +2026,7 @@ nav {
                         font-size: 2.5rem;
                         margin-bottom: 10px;
                         flex-wrap: nowrap;
-                        
+
 
                         @media screen and (max-width:799px) {
                             color: #a05730;
@@ -2022,6 +2036,7 @@ nav {
                         h1 {
                             margin: 0;
                             line-height: 0.9;
+
                             @media screen and (max-width:799px) {
                                 font-size: 1.8rem;
                             }
@@ -2052,6 +2067,7 @@ nav {
                         display: flex;
                         flex-direction: row;
                         justify-content: flex-start;
+
                         @media screen and (max-width:799px) {
                             justify-content: center;
                         }

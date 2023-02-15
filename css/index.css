@@ -1,8 +1,12 @@
+.slow {
+  scroll-snap-align: end;
+}
+
 body {
   margin: 0;
-  padding: 0;
+  padding-top: 120vh;
   box-sizing: border-box;
-  height: 1030vh;
+  height: 9400px;
   scroll-behavior: smooth;
 }
 @media screen and (max-width: 799px) {
@@ -107,7 +111,7 @@ body a:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 5;
 }
 @media screen and (max-width: 799px) {
   .web-background .web-title {
@@ -119,7 +123,8 @@ body a:hover {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
+  top: 0;
   background-color: #40281b;
   z-index: 2;
   display: flex;
@@ -399,20 +404,16 @@ nav .nav-border aside a img {
 .web {
   display: block;
   width: 100%;
-  height: 4000px;
   background-color: #ffffe8;
   transition: 1s ease;
 }
 .web main .shop-frame {
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -45.5%;
-  height: 2400px;
-  width: 91%;
+  height: 2600px;
+  width: 100%;
   background-color: rgb(245, 240, 223);
-  z-index: 5;
   padding-top: 100px;
+  position: relative;
+  z-index: 15;
 }
 .web main .shop-frame h1 {
   color: #805944;
@@ -432,7 +433,7 @@ nav .nav-border aside a img {
     color: #6e4105;
   }
 }
-.web main .shop {
+.web main .shop-frame .shop {
   top: 0px;
   transition: 1s ease;
   width: 100%;
@@ -441,35 +442,35 @@ nav .nav-border aside a img {
   overflow: hidden;
   z-index: 4;
 }
-.web main .shop .swiper {
+.web main .shop-frame .shop .swiper {
   width: 100%;
   height: 100%;
 }
-.web main .shop .swipermid-button-prev::after,
-.web main .shop .swipermid-button-next::after,
-.web main .shop .swipertop-button-prev::after,
-.web main .shop .swipertop-button-next::after,
-.web main .shop .swipermenu-button-prev::after,
-.web main .shop .swipermenu-button-next::after {
+.web main .shop-frame .shop .swipermid-button-prev::after,
+.web main .shop-frame .shop .swipermid-button-next::after,
+.web main .shop-frame .shop .swipertop-button-prev::after,
+.web main .shop-frame .shop .swipertop-button-next::after,
+.web main .shop-frame .shop .swipermenu-button-prev::after,
+.web main .shop-frame .shop .swipermenu-button-next::after {
   display: none;
 }
-.web main .shop .swiper-button-prev {
+.web main .shop-frame .shop .swiper-button-prev {
   background-image: url(../img/swiper-light-prev.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
-.web main .shop .swiper-button-next {
+.web main .shop-frame .shop .swiper-button-next {
   background-image: url(../img/swiper-light-next.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
-.web main .shop .shop-main {
+.web main .shop-frame .shop .shop-main {
   width: 100%;
   height: 100vh;
 }
-.web main .shop .shop-main .top {
+.web main .shop-frame .shop .shop-main .top {
   width: 100%;
   height: 30%;
   display: flex;
@@ -478,7 +479,7 @@ nav .nav-border aside a img {
   justify-content: center;
   justify-content: start;
 }
-.web main .shop .shop-main .top .kanban-bg {
+.web main .shop-frame .shop .shop-main .top .kanban-bg {
   width: 55%;
   max-width: 1150px;
   background-image: url(../img/menu-board.png);
@@ -494,11 +495,11 @@ nav .nav-border aside a img {
   align-items: flex-start;
 }
 @media all and (max-width: 1599px) {
-  .web main .shop .shop-main .top .kanban-bg {
+  .web main .shop-frame .shop .shop-main .top .kanban-bg {
     width: 70%;
   }
 }
-.web main .shop .shop-main .top .kanban-bg .kanban {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban {
   width: 90%;
   height: 80%;
   margin-left: 1.5%;
@@ -509,7 +510,7 @@ nav .nav-border aside a img {
   position: relative;
   top: -10px;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .types {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .types {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -517,7 +518,7 @@ nav .nav-border aside a img {
   justify-content: space-between;
   margin-bottom: 15px;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .types .type {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .types .type {
   margin-left: 2rem;
   margin-right: 2rem;
   display: flex;
@@ -528,12 +529,12 @@ nav .nav-border aside a img {
   color: #fafaef;
 }
 @media all and (max-width: 1599px) {
-  .web main .shop .shop-main .top .kanban-bg .kanban .types .type {
+  .web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .types .type {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .types .type .icon {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .types .type .icon {
   height: 65px;
   width: 65px;
   display: flex;
@@ -542,30 +543,30 @@ nav .nav-border aside a img {
   justify-content: center;
   margin-right: 0.5rem;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .types .type .title-en {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .types .type .title-en {
   font-family: "Lobster", cursive;
   font-size: 1.875rem;
   text-align: center;
   unicode-range: U+00-024F;
   -webkit-font-smoothing: antialiased;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .types .type .title-ch {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .types .type .title-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
   -webkit-font-smoothing: antialiased;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item {
   width: 100%;
   height: 100%;
   position: relative;
   color: #ffffe8;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide {
   cursor: pointer;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-en {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-en {
   height: 1.875rem;
   font-family: "Lobster", cursive;
   font-size: 1.875rem;
@@ -573,14 +574,14 @@ nav .nav-border aside a img {
   unicode-range: U+00-024F;
   -webkit-font-smoothing: antialiased;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-ch {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
   unicode-range: -5FA5;
   -webkit-font-smoothing: antialiased;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-en-sp {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .mySwiper .swiper-wrapper .swiper-slide .item-en-sp {
   height: 1.875rem;
   font-family: "Lobster", cursive;
   font-size: 1rem;
@@ -592,13 +593,13 @@ nav .nav-border aside a img {
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .swipertop-button-next {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .swipertop-button-next {
   right: -1.25rem;
 }
-.web main .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .swipertop-button-prev {
+.web main .shop-frame .shop .shop-main .top .kanban-bg .kanban .items .swiper-item .swipertop-button-prev {
   left: -1.25rem;
 }
-.web main .shop .shop-main .top .light {
+.web main .shop-frame .shop .shop-main .top .light {
   width: 40%;
   background-image: url(../img/light.png);
   background-position: center;
@@ -607,32 +608,32 @@ nav .nav-border aside a img {
   background-position: top;
 }
 @media all and (max-width: 1599px) {
-  .web main .shop .shop-main .top .light {
+  .web main .shop-frame .shop .shop-main .top .light {
     display: none;
   }
 }
 @media all and (max-width: 1599px) {
-  .web main .shop .shop-main .top {
+  .web main .shop-frame .shop .shop-main .top {
     justify-content: start;
   }
 }
-.web main .shop .shop-main .mid .item-mid .swipermid {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid {
   width: 85%;
   height: 100%;
   margin: auto;
   overflow-x: clip;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-pic img {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-pic img {
   width: 365px;
   height: 365px;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info {
   width: 400px;
   height: 365px;
   margin-left: 30px;
@@ -644,10 +645,10 @@ nav .nav-border aside a img {
   justify-content: space-between;
   position: relative;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name {
   margin-bottom: 20px;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-name-en {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-name-en {
   font-family: "Lobster", cursive;
   font-size: 2.25rem;
   text-align: center;
@@ -657,7 +658,7 @@ nav .nav-border aside a img {
   text-align: start;
   margin-bottom: 0.5rem;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-name-ch {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-name-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1.5rem;
   text-align: center;
@@ -667,21 +668,21 @@ nav .nav-border aside a img {
   text-align: start;
   margin-bottom: 1rem;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet {
   font-family: "Noto Serif TC", serif;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet .sweet-round {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet .sweet-round {
   width: 16px;
   height: 16px;
   margin: 0 2px;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet .sweet-solid {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet .sweet-solid {
   background-color: #a67c52;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet .sweet-hollow {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name .item-sweet .sweet-hollow {
   background-color: #c6c5af;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .item-txt-ch-1 {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .item-txt-ch-1 {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
@@ -690,7 +691,7 @@ nav .nav-border aside a img {
   text-align: start;
   width: 100%;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .item-txt-ch-2 {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .item-txt-ch-2 {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
@@ -699,7 +700,7 @@ nav .nav-border aside a img {
   text-align: start;
   width: 100%;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .item-txt-en {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .item-txt-en {
   font-size: 1rem;
   font-family: "Cormorant", serif;
   font-style: italic;
@@ -707,26 +708,26 @@ nav .nav-border aside a img {
   margin-bottom: 0.5rem;
   margin-top: 0.3rem;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn {
   cursor: pointer;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn .btn-ch {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn .btn-ch {
   font-family: "Noto Serif TC", serif;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn .btn-en {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn .btn-en {
   font-family: "Cormorant", serif;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn:hover ~ .composition-content {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn:hover ~ .composition-content {
   display: block;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-content {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-content {
   display: none;
   position: absolute;
   padding: 15px;
   top: 100%;
   background: #fff;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-content .composition-content-ch {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-content .composition-content-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
@@ -735,31 +736,31 @@ nav .nav-border aside a img {
   text-align: start;
   width: 100%;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-content .composition-content-en {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-content .composition-content-en {
   font-size: 1rem;
   font-family: "Cormorant", serif;
   font-style: italic;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn {
   cursor: pointer;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn .btn-ch {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn .btn-ch {
   font-family: "Noto Serif TC", serif;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn .btn-en {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn .btn-en {
   font-family: "Cormorant", serif;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn:hover ~ .preservation-content {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-btn:hover ~ .preservation-content {
   display: block;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-content {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-content {
   display: none;
   position: absolute;
   padding: 15px;
   top: 100%;
   background: #fff;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-content .preservation-content-ch {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-content .preservation-content-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
   text-align: center;
@@ -768,31 +769,31 @@ nav .nav-border aside a img {
   text-align: start;
   width: 100%;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-content .preservation-content-en {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .preservation-content .preservation-content-en {
   font-size: 1rem;
   font-family: "Cormorant", serif;
   font-style: italic;
 }
-.web main .shop .shop-main .mid .item-mid .swipermid-button-next {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid-button-next {
   width: 50px;
   height: 57px;
   right: 3rem;
   background-image: url(../img/swiper-dark-next.svg);
 }
-.web main .shop .shop-main .mid .item-mid .swipermid-button-prev {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid-button-prev {
   width: 50px;
   height: 57px;
   left: 3rem;
   background-image: url(../img/swiper-dark-prev.svg);
 }
-.web main .shop .shop-main .mid .item-mid .swipermid-slide img {
+.web main .shop-frame .shop .shop-main .mid .item-mid .swipermid-slide img {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.web main .shop .shop-main .bot {
+.web main .shop-frame .shop .shop-main .bot {
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -800,7 +801,7 @@ nav .nav-border aside a img {
   justify-content: center;
   align-items: flex-end;
 }
-.web main .shop .shop-main .bot .favor {
+.web main .shop-frame .shop .shop-main .bot .favor {
   margin-right: 50px;
   font-family: "Noto Serif TC", serif;
   font-size: 1rem;
@@ -811,7 +812,7 @@ nav .nav-border aside a img {
   top: -2.5rem;
   right: 0rem;
 }
-.web main .shop .shop-bottom {
+.web main .shop-frame .shop .shop-bottom {
   width: 100%;
   height: 65vh;
   padding-top: 20px;
@@ -825,7 +826,7 @@ nav .nav-border aside a img {
   justify-content: end;
   align-items: flex-start;
 }
-.web main .shop .shop-bottom .menu-btns .shop-btn {
+.web main .shop-frame .shop .shop-bottom .menu-btns .shop-btn {
   width: 275px;
   height: 95px;
   background-position: center;
@@ -833,30 +834,30 @@ nav .nav-border aside a img {
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.web main .shop .shop-bottom .menu-btns .whole-menu-btn {
+.web main .shop-frame .shop .shop-bottom .menu-btns .whole-menu-btn {
   margin-right: 5rem;
 }
-.web main .shop .shop-bottom .menu-btns .how-to-buy-btn {
+.web main .shop-frame .shop .shop-bottom .menu-btns .how-to-buy-btn {
   margin-right: 10rem;
 }
-.web main .shop .shop-bottom .view-menu {
+.web main .shop-frame .shop .shop-bottom .view-menu {
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   z-index: 21;
   transition: all 1s;
 }
-.web main .shop .shop-bottom .view-menu .view-menu-wrapper {
+.web main .shop-frame .shop .shop-bottom .view-menu .view-menu-wrapper {
   width: 750px;
   height: 100%;
 }
-.web main .shop .shop-bottom .view-menu .view-menu-wrapper .swiper-slide-menu {
+.web main .shop-frame .shop .shop-bottom .view-menu .view-menu-wrapper .swiper-slide-menu {
   padding: 20px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-main-phone {
+.web main .shop-frame .shop .shop-main-phone {
   width: 100%;
   height: 55vh;
   padding-top: 20px;
@@ -864,7 +865,7 @@ nav .nav-border aside a img {
   z-index: 10;
   margin-bottom: -2vh;
 }
-.web main .shop .shop-main-phone .top {
+.web main .shop-frame .shop .shop-main-phone .top {
   width: 100%;
   height: 22%;
   margin-bottom: 10px;
@@ -874,7 +875,7 @@ nav .nav-border aside a img {
   justify-content: center;
   justify-content: end;
 }
-.web main .shop .shop-main-phone .top .kanban {
+.web main .shop-frame .shop .shop-main-phone .top .kanban {
   width: 100%;
   height: 100%;
   display: flex;
@@ -883,7 +884,7 @@ nav .nav-border aside a img {
   justify-content: center;
   justify-content: flex-end;
 }
-.web main .shop .shop-main-phone .top .kanban .items {
+.web main .shop-frame .shop .shop-main-phone .top .kanban .items {
   font-family: "Cormorant Infant", serif;
   font-size: 4.5rem;
   text-align: center;
@@ -895,7 +896,7 @@ nav .nav-border aside a img {
   position: absolute;
   top: -22px;
 }
-.web main .shop .shop-main-phone .top .kanban .types {
+.web main .shop-frame .shop .shop-main-phone .top .kanban .types {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -903,56 +904,56 @@ nav .nav-border aside a img {
   width: 60%;
   position: relative;
 }
-.web main .shop .shop-main-phone .top .kanban .types .swiper-slide {
+.web main .shop-frame .shop .shop-main-phone .top .kanban .types .swiper-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-content: end;
 }
-.web main .shop .shop-main-phone .top .kanban .types .swiper-slide .type .icon img {
+.web main .shop-frame .shop .shop-main-phone .top .kanban .types .swiper-slide .type .icon img {
   height: 30px;
   width: 30px;
   filter: grayscale(100%);
 }
-.web main .shop .shop-main-phone .top .kanban .types .swiper-SELECTED-sm .type .icon img {
+.web main .shop-frame .shop .shop-main-phone .top .kanban .types .swiper-SELECTED-sm .type .icon img {
   height: 40px;
   width: 40px;
   filter: unset;
 }
-.web main .shop .shop-main-phone .mid {
+.web main .shop-frame .shop .shop-main-phone .mid {
   width: 100%;
   height: 78%;
 }
-.web main .shop .shop-main-phone .mid .item-mid {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid {
   height: 100%;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid {
   width: 85%;
   height: 100%;
   margin: auto;
   overflow-x: clip;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-pic {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-pic {
   margin-top: 3px;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-pic img {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-pic img {
   width: 260px;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info {
   width: 400px;
   margin-top: 5px;
   display: flex;
@@ -960,11 +961,11 @@ nav .nav-border aside a img {
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name {
   position: relative;
   color: #633416;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en {
   font-family: "Lobster", cursive;
   font-size: 1.75rem;
   text-align: center;
@@ -978,18 +979,18 @@ nav .nav-border aside a img {
   font-weight: 100;
 }
 @media screen and (max-width: 799px) {
-  .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en {
+  .web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en {
     font-size: 1.5rem;
     font-weight: 100;
     height: 1.5rem;
   }
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en img {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en img {
   height: 25px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en-s {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en-s {
   font-family: "Lobster", cursive;
   font-size: 1.25rem;
   text-align: center;
@@ -1001,19 +1002,19 @@ nav .nav-border aside a img {
   justify-content: center;
   height: 1.5rem;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en-s img {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-en-s img {
   height: 25px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-ch {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-name-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 1.15rem;
   text-align: center;
   unicode-range: -5FA5;
   -webkit-font-smoothing: antialiased;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet {
   position: absolute;
   top: 55px;
   left: calc(50% - 78px);
@@ -1031,18 +1032,18 @@ nav .nav-border aside a img {
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-round {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-round {
   width: 16px;
   height: 16px;
   margin: 0 2px;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-solid {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-solid {
   background-color: #a67c52;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-hollow {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-hollow {
   background-color: #c6c5af;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info {
   width: 100%;
   height: 650px;
   position: absolute;
@@ -1055,11 +1056,11 @@ nav .nav-border aside a img {
   align-items: flex-start;
   display: none;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips {
   margin-bottom: 1.5rem;
   line-height: 90%;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips .tips-ch {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips .tips-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 0.75rem;
   text-align: center;
@@ -1067,7 +1068,7 @@ nav .nav-border aside a img {
   -webkit-font-smoothing: antialiased;
   text-align: left;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips .tips-en {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .tips .tips-en {
   font-family: "Lobster", cursive;
   font-size: 0.75rem;
   text-align: center;
@@ -1075,7 +1076,7 @@ nav .nav-border aside a img {
   -webkit-font-smoothing: antialiased;
   text-align: left;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-ch {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-ch {
   font-family: "Noto Serif TC", serif;
   font-size: 0.9rem;
   text-align: center;
@@ -1086,7 +1087,7 @@ nav .nav-border aside a img {
   text-align: left;
   line-height: 120%;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-en {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-en {
   font-family: "Cormorant Infant", serif;
   font-size: 1.1rem;
   text-align: center;
@@ -1095,41 +1096,41 @@ nav .nav-border aside a img {
   text-align: left;
   line-height: 100%;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info p {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info p {
   margin-bottom: 8px;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-btn {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-btn {
   cursor: pointer;
   padding: 0px 8px 0px 8px;
   border: 1px solid rgb(245, 240, 223);
   border-radius: 10px;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-btn:active {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .menu-info .info-btn:active {
   background-color: rgb(245, 240, 223);
   color: #553000;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .description-phone {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .description-phone {
   color: rgb(245, 240, 223);
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .preservation-phone {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .preservation-phone {
   color: #ffffe8;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide-active .preservation-phone {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide-active .preservation-phone {
   display: none;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide-active .description-phone {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide-active .description-phone {
   display: flex;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper input {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper input {
   display: none;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper input:checked ~ .swiper-slide-active .preservation-phone {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper input:checked ~ .swiper-slide-active .preservation-phone {
   display: flex;
 }
-.web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper input:checked ~ .swiper-slide-active .description-phone {
+.web main .shop-frame .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper input:checked ~ .swiper-slide-active .description-phone {
   display: none;
 }
-.web main .shop .shop-bottom-phone {
+.web main .shop-frame .shop .shop-bottom-phone {
   width: 100%;
   height: 67vh;
   padding-top: 5px;
@@ -1146,16 +1147,16 @@ nav .nav-border aside a img {
   justify-content: center;
   justify-content: flex-start;
 }
-.web main .shop .shop-bottom-phone .menu-btns {
+.web main .shop-frame .shop .shop-bottom-phone .menu-btns {
   margin-left: auto;
   padding-right: 50px;
 }
 @media screen and (max-width: 799px) {
-  .web main .shop .shop-bottom-phone .menu-btns {
+  .web main .shop-frame .shop .shop-bottom-phone .menu-btns {
     display: none !important;
   }
 }
-.web main .shop .shop-bottom-phone .menu-btns .shop-btn {
+.web main .shop-frame .shop .shop-bottom-phone .menu-btns .shop-btn {
   width: 150px;
   height: 40px;
   background-position: center;
@@ -1163,10 +1164,10 @@ nav .nav-border aside a img {
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.web main .shop .shop-bottom-phone .menu-btns .whole-menu-btn {
+.web main .shop-frame .shop .shop-bottom-phone .menu-btns .whole-menu-btn {
   background-image: url(../img/btn-whole-menu.svg);
 }
-.web main .shop .shop-bottom-phone .view-menu-phone {
+.web main .shop-frame .shop .shop-bottom-phone .view-menu-phone {
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   z-index: 21;
@@ -1176,21 +1177,21 @@ nav .nav-border aside a img {
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-bottom-phone .view-menu-phone .view-menu-wrapper {
+.web main .shop-frame .shop .shop-bottom-phone .view-menu-phone .view-menu-wrapper {
   width: 60%;
   height: 80%;
 }
-.web main .shop .shop-bottom-phone .view-menu-phone .view-menu-wrapper .swiper-slide-menu {
+.web main .shop-frame .shop .shop-bottom-phone .view-menu-phone .view-menu-wrapper .swiper-slide-menu {
   padding: 20px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.web main .shop .shop-bottom-phone .view-menu-phone .view-menu-wrapper .swiper-slide-menu img {
+.web main .shop-frame .shop .shop-bottom-phone .view-menu-phone .view-menu-wrapper .swiper-slide-menu img {
   height: 100%;
 }
-.web main .shop .shop-bottom-phone .info-bg {
+.web main .shop-frame .shop .shop-bottom-phone .info-bg {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1605,17 +1606,16 @@ nav .nav-border aside a img {
 }
 .web main .how-about {
   height: 4000px;
+  position: relative;
+  top: -700px;
+  z-index: 16;
 }
 .web main .how-about .how-to-buy {
-  position: fixed;
-  top: 3000px;
-  left: 50%;
-  margin-left: -50%;
   height: 2500px;
   width: 100%;
   background-color: #f1e9e1;
   border-radius: 100px;
-  z-index: 6;
+  z-index: 16;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
@@ -2029,7 +2029,7 @@ nav .nav-border aside a img {
   padding: 20px 60px 20px 60px;
   z-index: 15;
   position: fixed;
-  bottom: -50%;
+  bottom: -100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

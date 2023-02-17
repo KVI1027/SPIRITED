@@ -471,6 +471,7 @@ function updateAboutUs() {
             about_card.style.height = `85.4vh`
             aboutus_BG.style.display = 'block'
             aboutus_BG.style.opacity = `1`
+            about_card.style.borderRadius = `0 0 ${about_card.clientWidth / 2}px ${about_card.clientWidth / 2}px`
 
             //Aboutus 文字動畫
             for (let index = 0; index < En_anim.length; index++) {

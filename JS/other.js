@@ -735,7 +735,7 @@ function clicklinkEvent(index) {
         } else if (index === 2) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 3200);
+            window.scrollTo(0, 3300);
         }
     } else {
         if (index === 0) {

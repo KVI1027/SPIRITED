@@ -41,25 +41,34 @@ const En_anim = document.querySelectorAll('.En-anim')
 const Ch_anim = document.querySelectorAll('.Ch-anim')
 const Footer = document.querySelector("footer")
 
+const h = window.innerHeight;
+const y = document.documentElement.scrollHeight - h;
+
 function updateFooter() {
-    const scroll = window.pageYOffset;
-    if (document.body.clientWidth < 800) {
+    //原本數值未考慮視窗高度改變後對文檔高度產生的影響，因此再不改動原先數據下使其自適應螢幕寬度改變數值，以達等比例觸發變動的效果。
+    const scroll = (window.pageYOffset * 8714 / y);
+    if (document.body.clientWidth < 800) { 
+        const scroll = (window.pageYOffset * 5300 / y);
         footermobile(scroll);
     } else {
+       
         footerpc(scroll);
     }
     function footerpc(scroll) {
+
+
         if (scroll > 8500) {
             Footer.style.bottom = `0px`
         } else if (scroll <= 8500) {
-            Footer.style.bottom = `-50%`
+            Footer.style.bottom = `-100%`
         }
     }
     function footermobile(scroll) {
-        if (scroll > 4900) {
+        if (scroll > 5200) {
             Footer.style.bottom = `0px`
-        } else if (scroll <= 4900) {
-            Footer.style.bottom = `-50%`
+        } else if (scroll <= 5200) {
+            Footer.style.bottom = `-100%`
+            Footer.style.transition = '1s ease'
         }
     }
 
@@ -67,7 +76,7 @@ function updateFooter() {
 }
 // nav變色
 function updateNav() {
-    const scroll = window.pageYOffset;
+    const scroll = (window.pageYOffset * 8714 / y);
     if (scroll < 800) {
         navHamburger.forEach(e => {
             e.classList.remove('menu-btn-line-dark');
@@ -84,7 +93,7 @@ function updateNav() {
 
 // banner區塊
 function updateBanner() {
-    const scroll = window.pageYOffset;
+    const scroll = (window.pageYOffset * 8714 / y);
     if (scroll < 200) {
         // 初始
         bg_color.style.backgroundColor = '#ffffe8';
@@ -94,7 +103,7 @@ function updateBanner() {
     banner_title.style.left = `-${2.5 * scroll}px`
 }
 // function updateShopFrame() {
-//     const scroll = window.pageYOffset;
+//     const scroll = (window.pageYOffset * 8714 / y);
 //     if (scroll < 1600) {
 //         shop_frame.style.width = '91%'
 //         shop_frame.style.margin = `0 0 0 -45.5%`
@@ -117,10 +126,11 @@ function updateBanner() {
 // MENU區塊 動畫
 function updateShopFrame() {
 
-    const scroll = window.pageYOffset;
+    const scroll = (window.pageYOffset * 8714 / y);
 
     // 根據螢幕寬度切換
     if (document.body.clientWidth < 800) {
+        const scroll = (window.pageYOffset * 5300 / y);
         updateStylesShopFrameSmallScreens(scroll);
     } else {
         updateStylesShopFrameLargeScreens(scroll);
@@ -148,7 +158,7 @@ function updateShopFrame() {
             margin = '0 0 0 -50%';
         }
         else if (scroll >= 1600 && scroll < 2400) {
-            top = -1750 + 1.25 * vh - (scroll) / 4;
+            top = -1750 + 1.27 * vh - (scroll) / 4;
             display = 'block'
         } else if (scroll >= 2400) {
             display = 'none'
@@ -176,7 +186,7 @@ function updateShopFrame() {
 
         if (scroll < 1800) {
             top = 1100 - (scroll);
-            borderRadius = 2000 - 1.5 * (scroll);
+            borderRadius = 2000 - 1.8 * (scroll);
             display = 'block'
         } else if (scroll >= 1800 && scroll <= 4200) {
             display = 'block'
@@ -269,8 +279,9 @@ function updateShopFrame() {
 
 // 如何購買區塊
 function updateHowToBuy() {
-    const scroll = window.pageYOffset;
+    const scroll = (window.pageYOffset * 8714 / y);
     if (document.body.clientWidth < 800) {
+        const scroll = (window.pageYOffset * 5300 / y);
         updateStylesHowToBuySmallScreens(scroll);
     } else {
         updateStylesHowToBuyLargeScreens(scroll);
@@ -279,7 +290,7 @@ function updateHowToBuy() {
     function updateStylesHowToBuyLargeScreens(scroll) {
         let how_to_buy_top, how_to_buy_borderRadius, how_left_width, how_right_width, how_right_top, how_dscp_height, how_midline_height;
         if (scroll >= 2500) {
-            how_to_buy_borderRadius = 1600 - (scroll - 2700)
+            how_to_buy_borderRadius = 1600 - (scroll - 2500)
         }
         if (scroll >= 2500 && scroll <= 3800) {
             how_to_buy_top = 1000 - (scroll - 2500) / 2
@@ -404,11 +415,11 @@ function updateHowToBuy() {
 
 // 關於我們區塊
 function updateAboutUs() {
-    const scroll = window.pageYOffset;
+    const scroll = (window.pageYOffset * 8714 / y);
 
 
     if (document.body.clientWidth < 800) {
-        const scroll = window.pageYOffset;
+        const scroll = (window.pageYOffset * 5300 / y);
         if (scroll < 3500) {
             aboutus.style.top = `${800 - (scroll - 3300) / 1}px`
             aboutus_BG.style.display = 'none'
@@ -458,7 +469,6 @@ function updateAboutUs() {
             about_card.style.backgroundColor = `rgb(68, 47, 33)`
             about_card.style.width = `70%`
             about_card.style.height = `85.4vh`
-            about_card.style.borderRadius = `0 0 125.5px 125.5px`
             aboutus_BG.style.display = 'block'
             aboutus_BG.style.opacity = `1`
 
@@ -499,8 +509,8 @@ function updateAboutUs() {
             aboutus_BG.style.top = `-700px`
         }
 
-    }else {
-        const scroll = window.pageYOffset;
+    } else {
+        const scroll = (window.pageYOffset * 8714 / y);
         if (scroll < 5600) {
             aboutus.style.top = `${1000 - (scroll - 5600) / 1}px`
         } else if (scroll >= 5600 & scroll <= 8300) {
@@ -596,8 +606,9 @@ function updateAboutUs() {
 
 
 window.addEventListener('scroll', function () {
-    const scroll = window.pageYOffset;
-    console.log(scroll);
+    const scroll = (window.pageYOffset * 8714 / y);
+    console.log(window.pageYOffset);
+    console.log(window.innerHeight);
     window.requestAnimationFrame(updateNav);
     window.requestAnimationFrame(updateBanner);
     window.requestAnimationFrame(updateShopFrame);
@@ -716,29 +727,29 @@ function clicklinkEvent(index) {
         if (index === 0) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 1100);
+            window.scrollTo(0, 800);
         } else if (index === 1) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 2300);
+            window.scrollTo(0, 1900);
         } else if (index === 2) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 4800);
+            window.scrollTo(0, 3100);
         }
     } else {
         if (index === 0) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 1700);
+            window.scrollTo(0, 1200);
         } else if (index === 1) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 4900);
+            window.scrollTo(0, 3400);
         } else if (index === 2) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 7800);
+            window.scrollTo(0, 5400);
         }
     }
 }

@@ -1,13 +1,17 @@
+@charset "UTF-8";
 body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 1030vh;
+  height: 6790px;
   scroll-behavior: smooth;
 }
 @media screen and (max-width: 799px) {
   body {
-    height: 900vh;
+    height: 4300px;
   }
 }
 body .a,
@@ -399,7 +403,6 @@ nav .nav-border aside a img {
 .web {
   display: block;
   width: 100%;
-  height: 4000px;
   background-color: #ffffe8;
   transition: 1s ease;
 }
@@ -526,6 +529,14 @@ nav .nav-border aside a img {
   justify-content: center;
   cursor: pointer;
   color: #fafaef;
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: brightness(1.4) contrast(1.9) hue-rotate(-40deg);
+}
+.web main .shop .shop-main .top .kanban-bg .kanban .types .type:hover {
+  filter: brightness(1) contrast(1);
+}
+.web main .shop .shop-main .top .kanban-bg .kanban .types .type:visited {
+  filter: brightness(1) contrast(1);
 }
 @media all and (max-width: 1599px) {
   .web main .shop .shop-main .top .kanban-bg .kanban .types .type {
@@ -599,6 +610,7 @@ nav .nav-border aside a img {
   left: -1.25rem;
 }
 .web main .shop .shop-main .top .light {
+  position: relative;
   width: 40%;
   background-image: url(../img/light.png);
   background-position: center;
@@ -609,6 +621,36 @@ nav .nav-border aside a img {
 @media all and (max-width: 1599px) {
   .web main .shop .shop-main .top .light {
     display: none;
+  }
+}
+.web main .shop .shop-main .top .light span {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  filter: blur(60px);
+  background-color: #ffaa00;
+  animation: blink 4s ease-in-out infinite;
+}
+.web main .shop .shop-main .top .light .lightEffect1 {
+  top: 63%;
+  right: 35%;
+}
+.web main .shop .shop-main .top .light .lightEffect2 {
+  top: 63%;
+  right: 64.7%;
+}
+@keyframes blink {
+  0% {
+    opacity: 1; /* 0%時不透明度為0.2 */
+  }
+  2% {
+    opacity: 0.2; /* 50%時不透明度為1 */
+  }
+  5% {
+    opacity: 1; /* 50%時不透明度為1 */
+  }
+  100% {
+    opacity: 1; /* 100%時不透明度為0.2 */
   }
 }
 @media all and (max-width: 1599px) {
@@ -641,7 +683,6 @@ nav .nav-border aside a img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  justify-content: space-between;
   position: relative;
 }
 .web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-name {
@@ -706,6 +747,7 @@ nav .nav-border aside a img {
   width: 100%;
   margin-bottom: 0.5rem;
   margin-top: 0.3rem;
+  line-height: 1.2;
 }
 .web main .shop .shop-main .mid .item-mid .swipermid .swipermid-wrapper .item-card .item-info .item-content .composition-btn {
   cursor: pointer;
@@ -910,6 +952,9 @@ nav .nav-border aside a img {
   justify-content: center;
   justify-content: end;
 }
+.web main .shop .shop-main-phone .top .kanban .types .swiper-slide .type {
+  cursor: pointer;
+}
 .web main .shop .shop-main-phone .top .kanban .types .swiper-slide .type .icon img {
   height: 30px;
   width: 30px;
@@ -1031,6 +1076,11 @@ nav .nav-border aside a img {
   align-items: center;
   justify-content: center;
 }
+@media screen and (min-width: 799px) {
+  .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet {
+    top: 60px;
+  }
+}
 .web main .shop .shop-main-phone .mid .item-mid .swipermid .swipermid-wrapper .swiper-slide .item-card .item-info .item-name .item-sweet .sweet-round {
   width: 16px;
   height: 16px;
@@ -1147,6 +1197,7 @@ nav .nav-border aside a img {
   justify-content: flex-start;
 }
 .web main .shop .shop-bottom-phone .menu-btns {
+  display: none !important;
   margin-left: auto;
   padding-right: 50px;
 }
@@ -1376,12 +1427,12 @@ nav .nav-border aside a img {
 }
 .web main .banner {
   position: fixed;
-  top: 160px;
+  top: 17%;
   left: 50%;
-  margin-left: calc((-95% + 40px) / 2);
+  margin-left: -47%;
   z-index: 4;
-  width: calc(95% - 40px);
-  height: calc(100vh - 170px);
+  width: 94%;
+  height: calc(100vh - 18%);
   background-color: rgba(245, 238, 229, 0);
   display: flex;
   flex-direction: column;
@@ -1394,6 +1445,8 @@ nav .nav-border aside a img {
   .web main .banner {
     top: 100px;
     height: calc(100vh - 110px);
+    width: 90%;
+    margin-left: -45%;
   }
 }
 .web main .banner .decor {
@@ -1440,7 +1493,9 @@ nav .nav-border aside a img {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 @media (max-width: 900px) {
   .web main .banner .banner-animate {
@@ -1496,13 +1551,16 @@ nav .nav-border aside a img {
   background-repeat: no-repeat;
   position: absolute;
   left: calc(50% - 250px);
-  bottom: 3%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 @media (max-width: 900px) {
   .web main .banner .banner-animate .animate-4 {
     width: 350px;
     height: 360px;
     left: calc(50% - 175px);
+    top: 0%;
+    transform: translateY(-60%);
   }
 }
 .web main .banner .banner-title {
@@ -1606,6 +1664,11 @@ nav .nav-border aside a img {
 .web main .how-about {
   height: 4000px;
 }
+@media screen and (max-width: 799px) {
+  .web main .how-about {
+    height: 2000px;
+  }
+}
 .web main .how-about .how-to-buy {
   position: fixed;
   top: 3000px;
@@ -1625,7 +1688,8 @@ nav .nav-border aside a img {
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .how-to-buy {
-    height: 2000px;
+    height: 2500px;
+    padding-bottom: 400px;
   }
 }
 .web main .how-about .how-to-buy h1 {
@@ -1856,7 +1920,7 @@ nav .nav-border aside a img {
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
-  height: 3800px;
+  height: 3900px;
   width: 100%;
   background-color: rgb(241, 233, 225);
   position: fixed;
@@ -1867,15 +1931,22 @@ nav .nav-border aside a img {
 }
 @media screen and (max-width: 799px) {
   .web main .how-about .aboutus {
+    height: 2100px;
+    padding-bottom: 0;
     padding-top: 0px;
     z-index: 9;
   }
 }
 .web main .how-about .aboutus .aboutus-BG {
+  background-image: url(/img/門背景_工作區域\ 1.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: none;
   position: fixed;
   top: 0;
   width: 100%;
+  height: 100%;
   opacity: 0;
   filter: brightness(2);
   transition: 0.2s ease-out;
@@ -1895,10 +1966,11 @@ nav .nav-border aside a img {
   padding-top: 5vh;
   opacity: 0.95;
   transition: 0.2s ease-out;
+  padding-bottom: 20px;
 }
 .web main .how-about .aboutus .aboutus-card .aboutus-h1 {
   font-family: "Cormorant Infant", serif;
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
   unicode-range: U+00-024F;
   -webkit-font-smoothing: antialiased;
@@ -1908,6 +1980,11 @@ nav .nav-border aside a img {
   margin-bottom: 4%;
   transition: 1s ease;
   opacity: 0;
+}
+@media all and (max-width: 1599px) {
+  .web main .how-about .aboutus .aboutus-card .aboutus-h1 {
+    font-size: 3.4rem;
+  }
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-h1 {
@@ -1929,7 +2006,7 @@ nav .nav-border aside a img {
 }
 @media all and (max-width: 1599px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En {
-    width: 75%;
+    width: 70%;
   }
 }
 @media screen and (max-width: 799px) {
@@ -1949,7 +2026,7 @@ nav .nav-border aside a img {
   font-weight: 200;
   text-align: center;
   line-height: 1.4;
-  color: rgb(224, 218, 211);
+  color: rgb(239, 232, 224);
   display: inline;
   opacity: 0;
   margin-bottom: 0;
@@ -1958,13 +2035,13 @@ nav .nav-border aside a img {
 @media all and (max-width: 1599px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
     font-size: 1.9rem;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 }
 @media screen and (max-width: 1366px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-En .En-anim {
     font-size: 1.8rem;
-    margin-right: 0.3rem;
+    margin-right: 0.4rem;
   }
 }
 @media screen and (max-width: 799px) {
@@ -1982,7 +2059,7 @@ nav .nav-border aside a img {
 }
 @media all and (max-width: 1599px) {
   .web main .how-about .aboutus .aboutus-card .aboutus-Ch {
-    width: 75%;
+    width: 70%;
   }
 }
 @media screen and (max-width: 799px) {
@@ -2001,7 +2078,7 @@ nav .nav-border aside a img {
   text-align: center;
   line-height: 1.4;
   font-weight: 100;
-  color: rgba(224, 218, 211, 0.836);
+  color: rgb(239, 232, 224);
   display: inline;
   opacity: 0;
   margin-bottom: 4px;
@@ -2023,13 +2100,36 @@ nav .nav-border aside a img {
     line-height: 1.15;
   }
 }
+.web main .how-about .aboutus .aboutus-card .phoneCookie {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 30%;
+  padding-top: 3vh;
+}
+.web main .how-about .aboutus .aboutus-card .phoneCookie img {
+  height: 60%;
+  animation: rotate 6s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    /* 開始時旋轉角度為 0 度 */
+  }
+  to {
+    transform: rotate(360deg);
+    /* 結束時旋轉角度為 360 度 */
+  }
+}
 .web main footer {
   width: 100%;
   background-color: rgb(241, 233, 225);
   padding: 20px 60px 20px 60px;
   z-index: 15;
   position: fixed;
-  bottom: -50%;
+  bottom: -100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2040,6 +2140,7 @@ nav .nav-border aside a img {
 @media screen and (max-width: 799px) {
   .web main footer {
     padding: 20px 40px;
+    max-height: 300px;
     border-top-left-radius: 50% 50%;
     border-top-right-radius: 50% 50%;
     border: rgba(229, 184, 157, 0.6274509804) 1px solid;
@@ -2065,13 +2166,15 @@ nav .nav-border aside a img {
   width: 85%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  transform: translateX(5%);
 }
 @media screen and (max-width: 799px) {
   .web main footer .footer-bot {
     width: 100%;
     flex-direction: column;
+    transform: translateX(0%);
   }
 }
 .web main footer .footer-bot .footer-logo {
@@ -2088,6 +2191,7 @@ nav .nav-border aside a img {
     width: 80%;
     align-items: center;
     padding: 10px 0px 10px 0px;
+    max-width: 300px;
   }
 }
 .web main footer .footer-bot .footer-logo img {
@@ -2110,7 +2214,7 @@ nav .nav-border aside a img {
   width: 90%;
 }
 .web main footer .footer-bot .footer-info {
-  width: 30%;
+  width: 40%;
   padding: 20px 10px 20px 10px;
   font-family: "Cormorant Infant", serif;
   font-size: 2rem;
@@ -2148,7 +2252,12 @@ nav .nav-border aside a img {
   margin: 0;
   line-height: 0.9;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 1599px) {
+  .web main footer .footer-bot .footer-info .openhour h1 {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 1399px) {
   .web main footer .footer-bot .footer-info .openhour h1 {
     font-size: 1.8rem;
   }
@@ -2158,7 +2267,12 @@ nav .nav-border aside a img {
   font-size: 1.5rem;
   line-height: 0.9;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 1599px) {
+  .web main footer .footer-bot .footer-info .openhour span {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 1399px) {
   .web main footer .footer-bot .footer-info .openhour span {
     font-size: 1.1rem;
   }
@@ -2167,7 +2281,12 @@ nav .nav-border aside a img {
   font-size: 2.5rem;
   font-weight: 300;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 1599px) {
+  .web main footer .footer-bot .footer-info .openhour span span {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 1399px) {
   .web main footer .footer-bot .footer-info .openhour span span {
     font-size: 1.8rem;
   }
@@ -2188,7 +2307,12 @@ nav .nav-border aside a img {
   font-size: 1.4rem;
   color: #b66e47;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 1599px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right .address {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 1399px) {
   .web main footer .footer-bot .footer-info .footer-bot-right .address {
     font-size: 0.9rem;
     margin-top: 10px;
@@ -2201,7 +2325,12 @@ nav .nav-border aside a img {
   font-size: 2rem;
   line-height: 0.9;
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 1599px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right .address span {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 1399px) {
   .web main footer .footer-bot .footer-info .footer-bot-right .address span {
     font-size: 1.2rem;
   }
@@ -2214,6 +2343,11 @@ nav .nav-border aside a img {
 }
 .web main footer .footer-bot .footer-info .footer-bot-right .socialmedia img {
   width: 50px;
+}
+@media screen and (max-width: 1599px) {
+  .web main footer .footer-bot .footer-info .footer-bot-right .socialmedia img {
+    width: 40px;
+  }
 }
 @media screen and (max-width: 799px) {
   .web main footer .footer-bot .footer-info .footer-bot-right .socialmedia img {

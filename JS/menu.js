@@ -147,7 +147,10 @@ function Create(item) {
                 </div>
                 <!-- 右上的燈 -->
                 <div class="light h-100">
+                    <span class="lightEffect1"></span>
+                    <span class="lightEffect2"></span>
                 </div>
+                
             </div>
 
             <!-- 中間的swiper -->

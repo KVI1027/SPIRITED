@@ -2324,6 +2324,7 @@ nav .nav-border aside a img {
   text-align: left;
   font-size: 2rem;
   line-height: 0.9;
+  text-decoration: none;
 }
 @media screen and (max-width: 1599px) {
   .web main footer .footer-bot .footer-info .footer-bot-right .address span {

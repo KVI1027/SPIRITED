@@ -735,7 +735,7 @@ function clicklinkEvent(index) {
         } else if (index === 2) {
             closeList();
             document.querySelector('input').checked = false;
-            window.scrollTo(0, 3100);
+            window.scrollTo(0, 3200);
         }
     } else {
         if (index === 0) {
@@ -812,21 +812,5 @@ news_phone.addEventListener('click', event => {
     }
 });
 
-// 跳轉至HOW TO BUY
-function to_how_to_buy() {
-    if (document.body.clientWidth > 799) {
-        window.scrollTo(0, 4500)
-        console.log('how');
-    }
-    else {
-        window.scrollTo(0, 2300)
-    }
 
-}
-
-// 跳轉至ABOUT US
-function to_about_us() {
-    window.scrollTo(0, 7000)
-
-}
 

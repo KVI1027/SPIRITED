@@ -1042,6 +1042,7 @@ nav {
                                                     padding: 2px 8px 2px 8px;
                                                     @include Noto-Serif-TC(1rem);
                                                     @include flex(row);
+                                                    flex-flow: row nowrap;
 
                                                     @media screen and (min-width:799px) {
                                                         top: 60px;

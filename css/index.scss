@@ -59,994 +59,628 @@ body {
         height: 4300px;
     }
 
+    #loading {
+        width: 100%;
+        height: 100vh;
+        background-color: blue;
+    }
+
     .a,
     a:hover {
         text-decoration: none;
         color: black;
     }
-}
 
-#loading {
-    width: 100%;
-    height: 100vh;
-    background-color: blue;
-}
-
-// 漢堡條
-.menu-btn {
-    width: 4rem;
-    height: 4rem;
-    top: 1rem;
-    right: 1rem;
-    z-index: 21;
-    position: fixed;
-    @include flex(column);
-    align-items: flex-end;
-    cursor: pointer;
-
-    @media screen and (max-width:799px) {
-        transform: scale(0.7);
-        top: 0;
-    }
-
-    .menu-btn-line {
-        width: 2.5rem;
-        height: 0.25rem;
-        transition: all 1s;
-        position: absolute;
-    }
-
-    .menu-btn-line-light {
-        background: #f4d4bd;
-    }
-
-    .menu-btn-line-dark {
-        background: #5d412e;
-    }
-
-    .menu-btn-line-top {
-        transform: translateY(-0.5rem);
-        width: 3rem;
-    }
-
-    .menu-btn-line-bottom {
-        transform: translateY(0.5rem);
-        width: 2rem;
-    }
-}
-
-#menu-btn {
-    &:checked {
-        ~.menu-btn {
-            .menu-btn-line-top {
-                width: 2rem;
-                transform: rotate(45deg);
-            }
-
-            .menu-btn-line-center {
-                width: 2rem;
-                opacity: 0;
-            }
-
-            .menu-btn-line-bottom {
-                width: 2rem;
-                transform: rotate(-45deg);
-            }
-        }
-    }
-}
-
-
-.web-background {
-    transition: 1s ease;
-    width: 100%;
-    height: 100vh;
-    z-index: 4;
-    background-color: transparent;
-    position: fixed;
-    @include flex(column);
-    justify-content: flex-start;
-
-    .web-title {
+    // 漢堡條
+    .menu-btn {
+        width: 4rem;
+        height: 4rem;
+        top: 1rem;
+        right: 1rem;
+        z-index: 21;
         position: fixed;
-        top: 0;
-        transition: 0.2s ease;
-        width: 100%;
-        height: 15%;
-        @include Cormorant(4rem);
-        font-weight: 400;
-        text-align: start;
-        color: #f4d4bd;
-        @include flex(row);
-        z-index: 10;
-
-        @media screen and (max-width:799px) {
-            font-size: 2rem;
-            height: 10%;
-        }
-    }
-
-    .web-border {
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        position: absolute;
-        background-color: #40281b;
-        z-index: 2;
-        @include flex(row);
-
-        .web-border-0 {
-            transition: 1s;
-            width: 110%;
-            height: 130vh;
-            border-radius: 250px;
-            position: absolute;
-            top: 0;
-            z-index: 2;
-        }
-    }
-
-    .web-border-1 {
-        transition: 0.2s ease;
-        width: 95%;
-        height: 85%;
-        border: #f4d4bd solid 2px;
-        border-bottom: 0px;
-        padding: 5px 5px 0px 5px;
-        z-index: 3;
-        position: fixed;
-        top: 15%;
-
-        @media screen and (max-width:799px) {
-            top: 80px;
-            height: 100%;
-        }
-
-        .web-border-2 {
-            transition: 0.2s ease;
-            z-index: 3;
-            width: 100%;
-            height: 100%;
-            border: #f4d4bd solid 1px;
-            border-bottom: 0px;
-            padding: 25px 25px 0px 25px;
-
-        }
-    }
-}
-
-// 選單
-nav {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    display: none;
-    z-index: 20;
-    top: 0;
-    opacity: 0;
-    background: #271e18;
-    transition: all 1s;
-
-    .navBackground {
-        position: fixed;
-        width: 161.8vh;
-        height: 100vh;
-        border: 1px solid rgba(252, 240, 204, 0.623);
-        border-radius: 161.8vh/100vh;
-        transform: rotate(50deg);
-        z-index: -10;
-
-        @media screen and (max-width:1450px) {
-            transform: scale(0.9) rotate(50deg);
-        }
-
-        @media screen and (max-width:1050px) {
-            transform: scale(0.8) rotate(50deg);
-        }
-
-        @media screen and (max-width:950px) {
-            transform: scale(0.7) rotate(50deg);
-        }
-
-        @media screen and (max-width:799px) {
-            transform: scale(0.6) rotate(50deg);
-        }
-
-        @media screen and (max-width:550px) {
-            transform: scale(0.5) rotate(50deg);
-        }
-
-    }
-
-    .nav-border {
-        margin: auto;
-        width: 1600px;
-        height: 900px;
-        padding: 7% 5% 2%;
         @include flex(column);
+        align-items: flex-end;
+        cursor: pointer;
 
         @media screen and (max-width:799px) {
+            transform: scale(0.7);
+            top: 0;
+        }
+
+        .menu-btn-line {
+            width: 2.5rem;
+            height: 0.25rem;
+            transition: all 1s;
+            position: absolute;
+        }
+
+        .menu-btn-line-light {
+            background: #f4d4bd;
+        }
+
+        .menu-btn-line-dark {
+            background: #5d412e;
+        }
+
+        .menu-btn-line-top {
+            transform: translateY(-0.5rem);
+            width: 3rem;
+        }
+
+        .menu-btn-line-bottom {
+            transform: translateY(0.5rem);
+            width: 2rem;
+        }
+    }
+
+    #menu-btn {
+        &:checked {
+            ~.menu-btn {
+                .menu-btn-line-top {
+                    width: 2rem;
+                    transform: rotate(45deg);
+                }
+
+                .menu-btn-line-center {
+                    width: 2rem;
+                    opacity: 0;
+                }
+
+                .menu-btn-line-bottom {
+                    width: 2rem;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+
+    .web-background {
+        transition: 1s ease;
+        width: 100%;
+        height: 100vh;
+        z-index: 4;
+        background-color: transparent;
+        position: fixed;
+        @include flex(column);
+        justify-content: flex-start;
+
+        .web-title {
+            position: fixed;
+            top: 0;
+            transition: 0.2s ease;
+            width: 100%;
+            height: 15%;
+            @include Cormorant(4rem);
+            font-weight: 400;
+            text-align: start;
+            color: #f4d4bd;
+            @include flex(row);
+            z-index: 10;
+
+            @media screen and (max-width:799px) {
+                font-size: 2rem;
+                height: 10%;
+            }
+        }
+
+        .web-border {
             width: 100%;
             height: 100vh;
-            justify-content: space-between;
-        }
-
-        .nav-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            align-content: space-between;
-
-            .list-a,
-            a {
-                width: 100%;
-                color: #eca97f;
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: space-between;
-                align-content: flex-end;
-                margin-bottom: 10px;
-
-                &:hover {
-                    filter: brightness(1.7);
-                }
-
-                @media screen and (max-width:1050px) {
-                    margin-bottom: 20px;
-                }
-
-                .text-en {
-                    line-height: 0.8;
-                    @include Cormorant(12rem);
-                    font-weight: 100;
-
-                    @media screen and (max-width:1450px) {
-                        @include Cormorant(11rem);
-                    }
-
-                    @media screen and (max-width:1250px) {
-                        @include Cormorant(10rem);
-                    }
-
-                    @media screen and (max-width:1050px) {
-                        @include Cormorant(8rem);
-                    }
-
-                    @media screen and (max-width:950px) {
-                        @include Cormorant(7rem);
-                    }
-
-                    @media screen and (max-width:799px) {
-                        @include Cormorant(5rem);
-                        letter-spacing: -3px;
-                    }
-
-                    @media screen and (max-width:550px) {
-                        @include Cormorant(4rem);
-                        width: 70%;
-                    }
-                }
-
-                .text-ch {
-                    line-height: 0.8;
-                    margin-top: -10px;
-                    align-self: end;
-                    @include Noto-Serif-TC(2rem);
-                    text-align: start;
-                    line-height: 2.5rem;
-
-                    @media screen and (max-width:1450px) {
-                        @include Noto-Serif-TC(1.5rem);
-                        text-align: start;
-                    }
-
-                    @media screen and (max-width:950px) {
-                        @include Cormorant(1rem);
-                    }
-
-                    @media screen and (max-width:550px) {
-                        @include Cormorant(0.8rem);
-                    }
-                }
-            }
-
-            .list-a {
-                cursor: pointer;
-            }
-
-
-        }
-
-        aside {
-            justify-self: end;
-            align-self: flex-end;
-
-            a {
-                width: 4.125rem;
-                height: 4.125rem;
-                margin: 2px;
-
-                @media screen and (max-width:799px) {
-                    width: 2.5rem;
-                    height: auto;
-                }
-
-                img {
-                    width: 50px;
-
-                    @media screen and (max-width:799px) {
-                        width: 40px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-// 1920*969
-.web {
-    display: block;
-    width: 100%;
-    background-color: #ffffe8;
-    transition: 1s ease;
-
-
-    main {
-        .shop-frame {
-            position: fixed;
-            top: 1000px;
-            left: 50%;
-            margin-left: -45.5%;
-            height: 2400px;
-            width: 91%;
-            background-color: rgb(245, 240, 223);
-            z-index: 5;
-            padding-top: 100px;
-
-            h1 {
-                color: #805944;
-                @include Cormorant(5rem);
-                font-weight: 200;
-                margin-bottom: 400px;
-
-                @media screen and (max-width:799px) {
-                    font-size: 4rem;
-                    font-weight: 500;
-                    margin-bottom: 90px;
-                    color: #6e4105;
-                }
-            }
-        }
-
-        //主要內容
-        .shop {
-            top: 0px;
-            transition: 1s ease;
-            width: 100%;
-            height: 160vh;
-            background-color: transparent;
             overflow: hidden;
-            z-index: 4;
+            position: absolute;
+            background-color: #40281b;
+            z-index: 2;
+            @include flex(row);
 
-            //共通swiper樣式更換
-            .swiper {
-                width: 100%;
+            .web-border-0 {
+                transition: 1s;
+                width: 110%;
+                height: 130vh;
+                border-radius: 250px;
+                position: absolute;
+                top: 0;
+                z-index: 2;
+            }
+        }
+
+        .web-border-1 {
+            transition: 0.2s ease;
+            width: 95%;
+            height: 85%;
+            border: #f4d4bd solid 2px;
+            border-bottom: 0px;
+            padding: 5px 5px 0px 5px;
+            z-index: 3;
+            position: fixed;
+            top: 15%;
+
+            @media screen and (max-width:799px) {
+                top: 80px;
                 height: 100%;
             }
 
-            .swipermid-button-prev::after,
-            .swipermid-button-next::after,
-            .swipertop-button-prev::after,
-            .swipertop-button-next::after,
-            .swipermenu-button-prev::after,
-            .swipermenu-button-next::after {
-                display: none;
+            .web-border-2 {
+                transition: 0.2s ease;
+                z-index: 3;
+                width: 100%;
+                height: 100%;
+                border: #f4d4bd solid 1px;
+                border-bottom: 0px;
+                padding: 25px 25px 0px 25px;
+
+            }
+        }
+    }
+
+    // 選單
+    nav {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        display: none;
+        z-index: 20;
+        top: 0;
+        opacity: 0;
+        background: #271e18;
+        transition: all 1s;
+
+        .navBackground {
+            position: fixed;
+            width: 161.8vh;
+            height: 100vh;
+            border: 1px solid rgba(252, 240, 204, 0.623);
+            border-radius: 161.8vh/100vh;
+            transform: rotate(50deg);
+            z-index: -10;
+
+            @media screen and (max-width:1450px) {
+                transform: scale(0.9) rotate(50deg);
             }
 
-            .swiper-button-prev {
-                background-image: url(../img/swiper-light-prev.svg);
-                @include bg-style();
+            @media screen and (max-width:1050px) {
+                transform: scale(0.8) rotate(50deg);
             }
 
-            .swiper-button-next {
-                background-image: url(../img/swiper-light-next.svg);
-                @include bg-style();
+            @media screen and (max-width:950px) {
+                transform: scale(0.7) rotate(50deg);
             }
 
-            .shop-main {
+            @media screen and (max-width:799px) {
+                transform: scale(0.6) rotate(50deg);
+            }
+
+            @media screen and (max-width:550px) {
+                transform: scale(0.5) rotate(50deg);
+            }
+
+        }
+
+        .nav-border {
+            margin: auto;
+            width: 1600px;
+            height: 900px;
+            padding: 7% 5% 2%;
+            @include flex(column);
+
+            @media screen and (max-width:799px) {
                 width: 100%;
                 height: 100vh;
+                justify-content: space-between;
+            }
 
+            .nav-content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+                align-content: space-between;
 
-                .top {
+                .list-a,
+                a {
                     width: 100%;
-                    height: 30%;
-                    @include flex(row);
-                    justify-content: start;
+                    color: #eca97f;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+                    align-content: flex-end;
+                    margin-bottom: 10px;
 
-                    .kanban-bg {
-                        width: 55%;
-                        max-width: 1150px;
-                        background-image: url(../img/menu-board.png);
-                        @include bg-style();
-                        background-size: 100% 80%;
-                        background-position: 0px 0px;
-                        @include flex(column);
-                        align-items: flex-start;
+                    &:hover {
+                        filter: brightness(1.7);
+                    }
 
-                        @media all and (max-width: 1599px) {
+                    @media screen and (max-width:1050px) {
+                        margin-bottom: 20px;
+                    }
+
+                    .text-en {
+                        line-height: 0.8;
+                        @include Cormorant(12rem);
+                        font-weight: 100;
+
+                        @media screen and (max-width:1450px) {
+                            @include Cormorant(11rem);
+                        }
+
+                        @media screen and (max-width:1250px) {
+                            @include Cormorant(10rem);
+                        }
+
+                        @media screen and (max-width:1050px) {
+                            @include Cormorant(8rem);
+                        }
+
+                        @media screen and (max-width:950px) {
+                            @include Cormorant(7rem);
+                        }
+
+                        @media screen and (max-width:799px) {
+                            @include Cormorant(5rem);
+                            letter-spacing: -3px;
+                        }
+
+                        @media screen and (max-width:550px) {
+                            @include Cormorant(4rem);
                             width: 70%;
                         }
+                    }
 
-                        .kanban {
-                            width: 90%;
-                            height: 80%;
-                            margin-left: 1.5%;
+                    .text-ch {
+                        line-height: 0.8;
+                        margin-top: -10px;
+                        align-self: end;
+                        @include Noto-Serif-TC(2rem);
+                        text-align: start;
+                        line-height: 2.5rem;
+
+                        @media screen and (max-width:1450px) {
+                            @include Noto-Serif-TC(1.5rem);
+                            text-align: start;
+                        }
+
+                        @media screen and (max-width:950px) {
+                            @include Cormorant(1rem);
+                        }
+
+                        @media screen and (max-width:550px) {
+                            @include Cormorant(0.8rem);
+                        }
+                    }
+                }
+
+                .list-a {
+                    cursor: pointer;
+                }
+
+
+            }
+
+            aside {
+                justify-self: end;
+                align-self: flex-end;
+
+                a {
+                    width: 4.125rem;
+                    height: 4.125rem;
+                    margin: 2px;
+
+                    @media screen and (max-width:799px) {
+                        width: 2.5rem;
+                        height: auto;
+                    }
+
+                    img {
+                        width: 50px;
+
+                        @media screen and (max-width:799px) {
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .web {
+        display: block;
+        width: 100%;
+        background-color: #ffffe8;
+        transition: 1s ease;
+
+
+        main {
+            .shop-frame {
+                position: fixed;
+                top: 1000px;
+                left: 50%;
+                margin-left: -45.5%;
+                height: 2400px;
+                width: 91%;
+                background-color: rgb(245, 240, 223);
+                z-index: 5;
+                padding-top: 100px;
+                border-radius: 2000px;
+
+                h1 {
+                    color: #805944;
+                    @include Cormorant(5rem);
+                    font-weight: 200;
+                    margin-bottom: 400px;
+
+                    @media screen and (max-width:799px) {
+                        font-size: 4rem;
+                        font-weight: 500;
+                        margin-bottom: 90px;
+                        color: #6e4105;
+                    }
+                }
+            }
+
+            //主要內容
+            .shop {
+                top: 0px;
+                transition: 1s ease;
+                width: 100%;
+                height: 160vh;
+                background-color: transparent;
+                overflow: hidden;
+                z-index: 4;
+
+                //共通swiper樣式更換
+                .swiper {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .swipermid-button-prev::after,
+                .swipermid-button-next::after,
+                .swipertop-button-prev::after,
+                .swipertop-button-next::after,
+                .swipermenu-button-prev::after,
+                .swipermenu-button-next::after {
+                    display: none;
+                }
+
+                .swiper-button-prev {
+                    background-image: url(../img/swiper-light-prev.svg);
+                    @include bg-style();
+                }
+
+                .swiper-button-next {
+                    background-image: url(../img/swiper-light-next.svg);
+                    @include bg-style();
+                }
+
+                .shop-main {
+                    width: 100%;
+                    height: 100vh;
+
+
+                    .top {
+                        width: 100%;
+                        height: 30%;
+                        @include flex(row);
+                        justify-content: start;
+
+                        .kanban-bg {
+                            width: 55%;
+                            max-width: 1150px;
+                            background-image: url(../img/menu-board.png);
+                            @include bg-style();
+                            background-size: 100% 80%;
+                            background-position: 0px 0px;
                             @include flex(column);
-                            position: relative;
-                            top: -10px;
+                            align-items: flex-start;
 
-                            .types {
-                                @include flex(row);
-                                justify-content: space-between;
-                                margin-bottom: 15px;
+                            @media all and (max-width: 1599px) {
+                                width: 70%;
+                            }
 
-                                .type {
-                                    margin-left: 2rem;
-                                    margin-right: 2rem;
+                            .kanban {
+                                width: 90%;
+                                height: 80%;
+                                margin-left: 1.5%;
+                                @include flex(column);
+                                position: relative;
+                                top: -10px;
+
+                                .types {
                                     @include flex(row);
-                                    cursor: pointer;
-                                    color: #fafaef; 
-                                    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                                    filter: brightness(1.4) contrast(1.9) hue-rotate(-40deg);
+                                    justify-content: space-between;
+                                    margin-bottom: 15px;
 
-                                    &:hover{
-                                        filter: brightness(1) contrast(1);
-                                    }
-                                    &:visited{
-                                        filter: brightness(1) contrast(1);
-                                    }
-
-                                    @media all and (max-width: 1599px) {
+                                    .type {
                                         margin-left: 2rem;
                                         margin-right: 2rem;
-                                    }
+                                        @include flex(row);
+                                        cursor: pointer;
+                                        color: #fafaef;
+                                        transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                                        filter: brightness(1.4) contrast(1.9) hue-rotate(-40deg);
 
-                                    .icon {
-                                        height: 65px;
-                                        width: 65px;
-                                        @include flex(column);
-                                        margin-right: 0.5rem;
-                                    }
+                                        &:hover {
+                                            filter: brightness(1) contrast(1);
+                                        }
 
-                                    .title-en {
-                                        @include Lobster(1.875rem);
-                                    }
+                                        &:visited {
+                                            filter: brightness(1) contrast(1);
+                                        }
 
-                                    .title-ch {
-                                        @include Noto-Serif-TC(1rem);
+                                        @media all and (max-width: 1599px) {
+                                            margin-left: 2rem;
+                                            margin-right: 2rem;
+                                        }
+
+                                        .icon {
+                                            height: 65px;
+                                            width: 65px;
+                                            @include flex(column);
+                                            margin-right: 0.5rem;
+                                        }
+
+                                        .title-en {
+                                            @include Lobster(1.875rem);
+                                        }
+
+                                        .title-ch {
+                                            @include Noto-Serif-TC(1rem);
+                                        }
                                     }
                                 }
-                            }
 
-                            .items {
-                                .swiper-item {
-                                    width: 100%;
-                                    height: 100%;
-                                    position: relative;
-                                    color: #ffffe8;
+                                .items {
+                                    .swiper-item {
+                                        width: 100%;
+                                        height: 100%;
+                                        position: relative;
+                                        color: #ffffe8;
 
-                                    .mySwiper {
-                                        .swiper-wrapper {
-                                            .swiper-slide {
-                                                cursor: pointer;
+                                        .mySwiper {
+                                            .swiper-wrapper {
+                                                .swiper-slide {
+                                                    cursor: pointer;
 
-                                                .item-en {
-                                                    height: 1.875rem;
-                                                    @include Lobster(1.875rem);
-                                                }
+                                                    .item-en {
+                                                        height: 1.875rem;
+                                                        @include Lobster(1.875rem);
+                                                    }
 
-                                                .item-ch {
-                                                    @include Noto-Serif-TC(1rem);
-                                                }
+                                                    .item-ch {
+                                                        @include Noto-Serif-TC(1rem);
+                                                    }
 
-                                                .item-en-sp {
-                                                    height: 1.875rem;
-                                                    @include Lobster(1rem);
-                                                    @include flex(column);
+                                                    .item-en-sp {
+                                                        height: 1.875rem;
+                                                        @include Lobster(1rem);
+                                                        @include flex(column);
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
 
-                                    .swipertop-button-next {
-                                        right: -1.25rem;
-                                    }
+                                        .swipertop-button-next {
+                                            right: -1.25rem;
+                                        }
 
-                                    .swipertop-button-prev {
-                                        left: -1.25rem;
+                                        .swipertop-button-prev {
+                                            left: -1.25rem;
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    .light {
-                        position: relative;
-                        width: 40%;
-                        background-image: url(../img/light.png);
-                        @include bg-style();
-                        background-position: top;
+                        .light {
+                            position: relative;
+                            width: 40%;
+                            background-image: url(../img/light.png);
+                            @include bg-style();
+                            background-position: top;
+
+                            @media all and (max-width: 1599px) {
+                                display: none;
+                            }
+
+                            span {
+                                position: absolute;
+                                width: 60px;
+                                height: 60px;
+                                filter: blur(60px);
+                                background-color: #ffaa00;
+                                animation: blink 4s ease-in-out infinite;
+
+                            }
+
+                            .lightEffect1 {
+                                top: 63%;
+                                right: 35%;
+                            }
+
+                            .lightEffect2 {
+                                top: 63%;
+                                right: 64.7%;
+                            }
+
+                            @keyframes blink {
+                                0% {
+                                    opacity: 1;
+                                    /* 0%時不透明度為0.2 */
+                                }
+
+                                2% {
+                                    opacity: 0.2;
+                                    /* 50%時不透明度為1 */
+                                }
+
+                                5% {
+                                    opacity: 1;
+                                    /* 50%時不透明度為1 */
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    /* 100%時不透明度為0.2 */
+                                }
+                            }
+                        }
+
 
                         @media all and (max-width: 1599px) {
-                            display: none;
-                        }
-
-                        span {
-                            position: absolute;
-                            width: 60px;
-                            height: 60px;
-                            filter: blur(60px);
-                            background-color: #ffaa00;
-                            animation: blink 4s ease-in-out infinite;
-
-                        }
-
-                        .lightEffect1 {
-                            top: 63%;
-                            right: 35%;
-                        }
-
-                        .lightEffect2 {
-                            top: 63%;
-                            right: 64.7%;
-                        }
-                        @keyframes blink {
-                            0% {
-                              opacity: 1; /* 0%時不透明度為0.2 */
-                            }
-                            2% {
-                              opacity: 0.2; /* 50%時不透明度為1 */
-                            }
-                            5% {
-                                opacity: 1; /* 50%時不透明度為1 */
-                              }
-                            100% {
-                              opacity: 1; /* 100%時不透明度為0.2 */
-                            }
-                          }
-                    }
-
-
-                    @media all and (max-width: 1599px) {
-                        justify-content: start;
-                    }
-                }
-
-                .mid {
-                    .item-mid {
-                        .swipermid {
-                            width: 85%;
-                            height: 100%;
-                            margin: auto;
-                            overflow-x: clip;
-
-                            .swipermid-wrapper {
-
-                                .item-card {
-                                    @include flex(row);
-
-                                    .item-pic {
-                                        img {
-                                            width: 365px;
-                                            height: 365px;
-                                        }
-                                    }
-
-                                    .item-info {
-                                        width: 400px;
-                                        height: 365px;
-                                        margin-left: 30px;
-                                        margin-right: 60px;
-                                        @include flex(column);
-                                        position: relative;
-
-                                        .item-name {
-                                            margin-bottom: 20px;
-
-                                            .item-name-en {
-                                                @include Lobster(2.25rem);
-                                                line-height: 2rem;
-                                                text-align: start;
-                                                margin-bottom: 0.5rem;
-                                            }
-
-                                            .item-name-ch {
-                                                @include Noto-Serif-TC(1.5rem);
-                                                line-height: 2rem;
-                                                text-align: start;
-                                                margin-bottom: 1rem;
-                                            }
-
-                                            .item-sweet {
-                                                font-family: "Noto Serif TC", serif;
-
-                                                .sweet-round {
-                                                    width: 16px;
-                                                    height: 16px;
-                                                    margin: 0 2px;
-                                                }
-
-                                                .sweet-solid {
-                                                    background-color: #a67c52;
-                                                }
-
-                                                .sweet-hollow {
-                                                    background-color: #c6c5af;
-                                                }
-                                            }
-                                        }
-
-                                        .item-content {
-                                            .item-txt-ch-1 {
-                                                @include Noto-Serif-TC(1rem);
-                                                text-align: start;
-                                                width: 100%;
-                                            }
-
-                                            .item-txt-ch-2 {
-                                                @include Noto-Serif-TC(1rem);
-                                                text-align: start;
-                                                width: 100%;
-                                            }
-
-                                            .item-txt-en {
-                                                font-size: 1rem;
-                                                font-family: "Cormorant", serif;
-                                                font-style: italic;
-                                                width: 100%;
-                                                margin-bottom: 0.5rem;
-                                                margin-top: 0.3rem;
-                                                line-height: 1.2;
-                                            }
-
-                                            .composition-btn {
-                                                cursor: pointer;
-
-                                                .btn-ch {
-                                                    font-family: "Noto Serif TC", serif;
-                                                }
-
-                                                .btn-en {
-                                                    font-family: "Cormorant", serif;
-                                                }
-
-                                                &:hover {
-                                                    ~.composition-content {
-                                                        display: block;
-                                                    }
-                                                }
-                                            }
-
-                                            .composition-content {
-                                                display: none;
-                                                position: absolute;
-                                                padding: 15px;
-                                                top: 100%;
-                                                background: #fff;
-
-                                                .composition-content-ch {
-                                                    @include Noto-Serif-TC(1rem);
-                                                    text-align: start;
-                                                    width: 100%;
-                                                }
-
-                                                .composition-content-en {
-                                                    font-size: 1rem;
-                                                    font-family: "Cormorant", serif;
-                                                    font-style: italic;
-                                                }
-                                            }
-
-                                            .preservation-btn {
-                                                cursor: pointer;
-
-                                                .btn-ch {
-                                                    font-family: "Noto Serif TC", serif;
-                                                }
-
-                                                .btn-en {
-                                                    font-family: "Cormorant", serif;
-                                                }
-
-                                                &:hover {
-                                                    ~.preservation-content {
-                                                        display: block;
-                                                    }
-                                                }
-                                            }
-
-                                            .preservation-content {
-                                                display: none;
-                                                position: absolute;
-                                                padding: 15px;
-                                                top: 100%;
-                                                background: #fff;
-
-                                                .preservation-content-ch {
-                                                    @include Noto-Serif-TC(1rem);
-                                                    text-align: start;
-                                                    width: 100%;
-                                                }
-
-                                                .preservation-content-en {
-                                                    font-size: 1rem;
-                                                    font-family: "Cormorant", serif;
-                                                    font-style: italic;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .swipermid-button-next {
-                            width: 50px;
-                            height: 57px;
-                            right: 3rem;
-                            background-image: url(../img/swiper-dark-next.svg);
-                        }
-
-                        .swipermid-button-prev {
-                            width: 50px;
-                            height: 57px;
-                            left: 3rem;
-                            background-image: url(../img/swiper-dark-prev.svg);
-                        }
-
-                        .swipermid-slide img {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
+                            justify-content: start;
                         }
                     }
-                }
 
-                .bot {
-                    height: 60px;
-                    @include flex(column);
-                    align-items: flex-end;
+                    .mid {
+                        .item-mid {
+                            .swipermid {
+                                width: 85%;
+                                height: 100%;
+                                margin: auto;
+                                overflow-x: clip;
 
-                    .favor {
-                        margin-right: 50px;
-                        @include Noto-Serif-TC(1rem);
-                        text-align: start;
-                        top: -2.5rem;
-                        right: 0rem;
-                    }
-                }
-            }
-
-            .shop-bottom {
-                width: 100%;
-                height: 65vh;
-                padding-top: 20px;
-                background-image: url(../img/menu-bottom.png);
-                @include bg-style();
-                background-size: cover;
-                background-position: top;
-
-                display: flex;
-                justify-content: end;
-                align-items: flex-start;
-
-                .menu-btns {
-                    .shop-btn {
-                        width: 275px;
-                        height: 95px;
-                        @include bg-style();
-                        cursor: pointer;
-                    }
-
-                    .whole-menu-btn {
-                        margin-right: 5rem;
-
-                    }
-
-                    .how-to-buy-btn {
-                        margin-right: 10rem;
-                    }
-                }
-
-                .view-menu {
-                    background: rgba(0, 0, 0, 0.8);
-                    top: 0;
-                    z-index: 21;
-                    transition: all 1s;
-
-                    .view-menu-wrapper {
-                        width: 750px;
-                        height: 100%;
-
-                        .swiper-slide-menu {
-                            padding: 20px 0px;
-                            @include flex(column);
-                        }
-                    }
-                }
-            }
-
-            .shop-main-phone {
-                width: 100%;
-                height: 55vh;
-                padding-top: 20px;
-                transition: top 0.5s;
-                z-index: 10;
-                margin-bottom: -2vh;
-
-                .top {
-                    width: 100%;
-                    height: 22%;
-                    margin-bottom: 10px;
-                    @include flex(column);
-                    justify-content: end;
-
-                    .kanban {
-                        width: 100%;
-                        height: 100%;
-                        @include flex(column);
-                        justify-content: flex-end;
-
-                        .items {
-                            @include Cormorant(4.5rem);
-                            font-weight: 100;
-                            color: #b26c1740;
-                            margin-bottom: 7px;
-                            position: absolute;
-                            top: -22px;
-                        }
-
-                        .types {
-                            @include flex(row);
-                            width: 60%;
-                            position: relative;
-
-                            .swiper-slide {
-                                @include flex(column);
-                                justify-content: end;
-
-                                .type {
-                                    cursor: pointer;
-
-                                    .icon {
-                                        img {
-                                            height: 30px;
-                                            width: 30px;
-                                            filter: grayscale(100%);
-                                        }
-                                    }
-                                }
-                            }
-
-                            .swiper-SELECTED-sm {
-                                .type {
-                                    .icon {
-                                        img {
-                                            height: 40px;
-                                            width: 40px;
-                                            filter: unset;
-                                        }
-                                    }
-                                }
-
-
-                            }
-
-                            .swiper-slide-active {
-                                .type {
-                                    .icon {
-                                        img {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .mid {
-                    width: 100%;
-                    height: 78%;
-
-                    .item-mid {
-                        height: 100%;
-
-                        .swipermid {
-                            width: 85%;
-                            height: 100%;
-                            margin: auto;
-                            overflow-x: clip;
-
-                            .swipermid-wrapper {
-
-                                .swiper-slide {
-                                    @include flex(column);
-                                    justify-content: flex-start;
+                                .swipermid-wrapper {
 
                                     .item-card {
-                                        @include flex(column);
+                                        @include flex(row);
 
                                         .item-pic {
-                                            margin-top: 3px;
-
                                             img {
-                                                width: 260px;
+                                                width: 365px;
+                                                height: 365px;
                                             }
                                         }
 
                                         .item-info {
                                             width: 400px;
-                                            margin-top: 5px;
+                                            height: 365px;
+                                            margin-left: 30px;
+                                            margin-right: 60px;
                                             @include flex(column);
+                                            position: relative;
 
                                             .item-name {
-                                                position: relative;
-                                                color: #633416;
+                                                margin-bottom: 20px;
 
                                                 .item-name-en {
-                                                    @include Lobster(1.75rem);
-                                                    @include flex(row);
-                                                    height: 2rem;
-                                                    font-weight: 100;
-
-                                                    @media screen and (max-width:799px) {
-                                                        font-size: 1.5rem;
-                                                        font-weight: 100;
-                                                        height: 1.5rem;
-                                                    }
-
-                                                    img {
-                                                        height: 25px;
-                                                        margin-left: 0.5rem;
-                                                        margin-right: 0.5rem;
-                                                    }
-                                                }
-
-                                                .item-name-en-s {
-                                                    @include Lobster(1.25rem);
-                                                    @include flex(row);
-                                                    height: 1.5rem;
-
-                                                    img {
-                                                        height: 25px;
-                                                        margin-left: 0.5rem;
-                                                        margin-right: 0.5rem;
-                                                    }
+                                                    @include Lobster(2.25rem);
+                                                    line-height: 2rem;
+                                                    text-align: start;
+                                                    margin-bottom: 0.5rem;
                                                 }
 
                                                 .item-name-ch {
-                                                    @include Noto-Serif-TC(1.15rem);
-
+                                                    @include Noto-Serif-TC(1.5rem);
+                                                    line-height: 2rem;
+                                                    text-align: start;
+                                                    margin-bottom: 1rem;
                                                 }
 
                                                 .item-sweet {
-                                                    position: absolute;
-                                                    top: 55px;
-                                                    left: calc(50% - 78px);
-                                                    border: 1px solid #80594469;
-                                                    border-radius: 14px;
-                                                    background-color: rgb(245, 240, 223);
-                                                    padding: 2px 8px 2px 8px;
-                                                    @include Noto-Serif-TC(1rem);
-                                                    @include flex(row);
-                                                    flex-flow: row nowrap;
-
-                                                    @media screen and (min-width:799px) {
-                                                        top: 60px;
-                                                    }
+                                                    font-family: "Noto Serif TC", serif;
 
                                                     .sweet-round {
                                                         width: 16px;
@@ -1063,95 +697,471 @@ nav {
                                                     }
                                                 }
                                             }
-                                        }
-                                    }
 
-                                    .menu-info {
-                                        width: 100%;
-                                        height: 650px;
-                                        position: absolute;
-                                        bottom: -693px;
-                                        @include flex(column);
-                                        justify-content: flex-start;
-                                        align-items: flex-start;
-                                        display: none;
+                                            .item-content {
+                                                .item-txt-ch-1 {
+                                                    @include Noto-Serif-TC(1rem);
+                                                    text-align: start;
+                                                    width: 100%;
+                                                }
 
-                                        .tips {
-                                            margin-bottom: 1.5rem;
-                                            line-height: 90%;
+                                                .item-txt-ch-2 {
+                                                    @include Noto-Serif-TC(1rem);
+                                                    text-align: start;
+                                                    width: 100%;
+                                                }
 
-                                            .tips-ch {
-                                                @include Noto-Serif-TC(0.75rem);
-                                                text-align: left;
+                                                .item-txt-en {
+                                                    font-size: 1rem;
+                                                    font-family: "Cormorant", serif;
+                                                    font-style: italic;
+                                                    width: 100%;
+                                                    margin-bottom: 0.5rem;
+                                                    margin-top: 0.3rem;
+                                                    line-height: 1.2;
+                                                }
+
+                                                .composition-btn {
+                                                    cursor: pointer;
+
+                                                    .btn-ch {
+                                                        font-family: "Noto Serif TC", serif;
+                                                    }
+
+                                                    .btn-en {
+                                                        font-family: "Cormorant", serif;
+                                                    }
+
+                                                    &:hover {
+                                                        ~.composition-content {
+                                                            display: block;
+                                                        }
+                                                    }
+                                                }
+
+                                                .composition-content {
+                                                    display: none;
+                                                    position: absolute;
+                                                    padding: 15px;
+                                                    top: 100%;
+                                                    background: #fff;
+
+                                                    .composition-content-ch {
+                                                        @include Noto-Serif-TC(1rem);
+                                                        text-align: start;
+                                                        width: 100%;
+                                                    }
+
+                                                    .composition-content-en {
+                                                        font-size: 1rem;
+                                                        font-family: "Cormorant", serif;
+                                                        font-style: italic;
+                                                    }
+                                                }
+
+                                                .preservation-btn {
+                                                    cursor: pointer;
+
+                                                    .btn-ch {
+                                                        font-family: "Noto Serif TC", serif;
+                                                    }
+
+                                                    .btn-en {
+                                                        font-family: "Cormorant", serif;
+                                                    }
+
+                                                    &:hover {
+                                                        ~.preservation-content {
+                                                            display: block;
+                                                        }
+                                                    }
+                                                }
+
+                                                .preservation-content {
+                                                    display: none;
+                                                    position: absolute;
+                                                    padding: 15px;
+                                                    top: 100%;
+                                                    background: #fff;
+
+                                                    .preservation-content-ch {
+                                                        @include Noto-Serif-TC(1rem);
+                                                        text-align: start;
+                                                        width: 100%;
+                                                    }
+
+                                                    .preservation-content-en {
+                                                        font-size: 1rem;
+                                                        font-family: "Cormorant", serif;
+                                                        font-style: italic;
+                                                    }
+                                                }
                                             }
+                                        }
+                                    }
+                                }
+                            }
 
-                                            .tips-en {
-                                                @include Lobster(0.75rem);
-                                                text-align: left;
+                            .swipermid-button-next {
+                                width: 50px;
+                                height: 57px;
+                                right: 3rem;
+                                background-image: url(../img/swiper-dark-next.svg);
+                            }
+
+                            .swipermid-button-prev {
+                                width: 50px;
+                                height: 57px;
+                                left: 3rem;
+                                background-image: url(../img/swiper-dark-prev.svg);
+                            }
+
+                            .swipermid-slide img {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .bot {
+                        height: 60px;
+                        @include flex(column);
+                        align-items: flex-end;
+
+                        .favor {
+                            margin-right: 50px;
+                            @include Noto-Serif-TC(1rem);
+                            text-align: start;
+                            top: -2.5rem;
+                            right: 0rem;
+                        }
+                    }
+                }
+
+                .shop-bottom {
+                    width: 100%;
+                    height: 65vh;
+                    padding-top: 20px;
+                    background-image: url(../img/menu-bottom.png);
+                    @include bg-style();
+                    background-size: cover;
+                    background-position: top;
+
+                    display: flex;
+                    justify-content: end;
+                    align-items: flex-start;
+
+                    .menu-btns {
+                        .shop-btn {
+                            width: 275px;
+                            height: 95px;
+                            @include bg-style();
+                            cursor: pointer;
+                        }
+
+                        .whole-menu-btn {
+                            margin-right: 5rem;
+
+                        }
+
+                        .how-to-buy-btn {
+                            margin-right: 10rem;
+                        }
+                    }
+
+                    .view-menu {
+                        background: rgba(0, 0, 0, 0.8);
+                        top: 0;
+                        z-index: 21;
+                        transition: all 1s;
+
+                        .view-menu-wrapper {
+                            width: 750px;
+                            height: 100%;
+
+                            .swiper-slide-menu {
+                                padding: 20px 0px;
+                                @include flex(column);
+                            }
+                        }
+                    }
+                }
+
+                .shop-main-phone {
+                    width: 100%;
+                    height: 55vh;
+                    padding-top: 20px;
+                    transition: top 0.5s;
+                    z-index: 10;
+                    margin-bottom: -2vh;
+
+                    .top {
+                        width: 100%;
+                        height: 22%;
+                        margin-bottom: 10px;
+                        @include flex(column);
+                        justify-content: end;
+
+                        .kanban {
+                            width: 100%;
+                            height: 100%;
+                            @include flex(column);
+                            justify-content: flex-end;
+
+                            .items {
+                                @include Cormorant(4.5rem);
+                                font-weight: 100;
+                                color: #b26c1740;
+                                margin-bottom: 7px;
+                                position: absolute;
+                                top: -22px;
+                            }
+
+                            .types {
+                                @include flex(row);
+                                width: 60%;
+                                position: relative;
+
+                                .swiper-slide {
+                                    @include flex(column);
+                                    justify-content: end;
+
+                                    .type {
+                                        cursor: pointer;
+
+                                        .icon {
+                                            img {
+                                                height: 30px;
+                                                width: 30px;
+                                                filter: grayscale(100%);
                                             }
                                         }
+                                    }
+                                }
 
-                                        .info-ch {
-                                            @include Noto-Serif-TC(0.9rem);
-                                            font-weight: 100;
-                                            opacity: 0.9;
-                                            text-align: left;
-                                            line-height: 120%;
-                                        }
-
-                                        .info-en {
-                                            @include Cormorant(1.1rem);
-                                            text-align: left;
-                                            line-height: 100%;
-                                        }
-
-                                        p {
-                                            margin-bottom: 8px;
-                                        }
-
-                                        .info-btn {
-                                            cursor: pointer;
-                                            padding: 0px 8px 0px 8px;
-                                            border: 1px solid rgb(245, 240, 223);
-                                            border-radius: 10px;
-
-                                            &:active {
-                                                background-color: rgb(245, 240, 223);
-                                                color: #553000;
+                                .swiper-SELECTED-sm {
+                                    .type {
+                                        .icon {
+                                            img {
+                                                height: 40px;
+                                                width: 40px;
+                                                filter: unset;
                                             }
                                         }
                                     }
 
-                                    .description-phone {
-                                        color: rgb(245, 240, 223);
-                                    }
 
-                                    .preservation-phone {
-                                        color: #ffffe8;
-                                    }
                                 }
 
                                 .swiper-slide-active {
-                                    .preservation-phone {
-                                        display: none;
-                                    }
-
-                                    .description-phone {
-                                        display: flex;
+                                    .type {
+                                        .icon {
+                                            img {}
+                                        }
                                     }
                                 }
+                            }
+                        }
+                    }
 
-                                input {
-                                    display: none;
+                    .mid {
+                        width: 100%;
+                        height: 78%;
 
-                                    &:checked {
-                                        &~.swiper-slide-active {
-                                            .preservation-phone {
-                                                display: flex;
+                        .item-mid {
+                            height: 100%;
+
+                            .swipermid {
+                                width: 85%;
+                                height: 100%;
+                                margin: auto;
+                                overflow-x: clip;
+
+                                .swipermid-wrapper {
+
+                                    .swiper-slide {
+                                        @include flex(column);
+                                        justify-content: flex-start;
+
+                                        .item-card {
+                                            @include flex(column);
+
+                                            .item-pic {
+                                                margin-top: 3px;
+
+                                                img {
+                                                    width: 260px;
+                                                }
                                             }
 
-                                            .description-phone {
-                                                display: none;
+                                            .item-info {
+                                                width: 400px;
+                                                margin-top: 5px;
+                                                @include flex(column);
+
+                                                .item-name {
+                                                    position: relative;
+                                                    color: #633416;
+
+                                                    .item-name-en {
+                                                        @include Lobster(1.75rem);
+                                                        @include flex(row);
+                                                        height: 2rem;
+                                                        font-weight: 100;
+
+                                                        @media screen and (max-width:799px) {
+                                                            font-size: 1.5rem;
+                                                            font-weight: 100;
+                                                            height: 1.5rem;
+                                                        }
+
+                                                        img {
+                                                            height: 25px;
+                                                            margin-left: 0.5rem;
+                                                            margin-right: 0.5rem;
+                                                        }
+                                                    }
+
+                                                    .item-name-en-s {
+                                                        @include Lobster(1.25rem);
+                                                        @include flex(row);
+                                                        height: 1.5rem;
+
+                                                        img {
+                                                            height: 25px;
+                                                            margin-left: 0.5rem;
+                                                            margin-right: 0.5rem;
+                                                        }
+                                                    }
+
+                                                    .item-name-ch {
+                                                        @include Noto-Serif-TC(1.15rem);
+
+                                                    }
+
+                                                    .item-sweet {
+                                                        position: absolute;
+                                                        top: 55px;
+                                                        left: calc(50% - 78px);
+                                                        border: 1px solid #80594469;
+                                                        border-radius: 14px;
+                                                        background-color: rgb(245, 240, 223);
+                                                        padding: 2px 8px 2px 8px;
+                                                        @include Noto-Serif-TC(1rem);
+                                                        @include flex(row);
+                                                        flex-flow: row nowrap;
+
+                                                        @media screen and (min-width:799px) {
+                                                            top: 60px;
+                                                        }
+
+                                                        .sweet-round {
+                                                            width: 16px;
+                                                            height: 16px;
+                                                            margin: 0 2px;
+                                                        }
+
+                                                        .sweet-solid {
+                                                            background-color: #a67c52;
+                                                        }
+
+                                                        .sweet-hollow {
+                                                            background-color: #c6c5af;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .menu-info {
+                                            width: 100%;
+                                            height: 650px;
+                                            position: absolute;
+                                            bottom: -693px;
+                                            @include flex(column);
+                                            justify-content: flex-start;
+                                            align-items: flex-start;
+                                            display: none;
+
+                                            .tips {
+                                                margin-bottom: 1.5rem;
+                                                line-height: 90%;
+
+                                                .tips-ch {
+                                                    @include Noto-Serif-TC(0.75rem);
+                                                    text-align: left;
+                                                }
+
+                                                .tips-en {
+                                                    @include Lobster(0.75rem);
+                                                    text-align: left;
+                                                }
+                                            }
+
+                                            .info-ch {
+                                                @include Noto-Serif-TC(0.9rem);
+                                                font-weight: 100;
+                                                opacity: 0.9;
+                                                text-align: left;
+                                                line-height: 120%;
+                                            }
+
+                                            .info-en {
+                                                @include Cormorant(1.1rem);
+                                                text-align: left;
+                                                line-height: 100%;
+                                            }
+
+                                            p {
+                                                margin-bottom: 8px;
+                                            }
+
+                                            .info-btn {
+                                                cursor: pointer;
+                                                padding: 0px 8px 0px 8px;
+                                                border: 1px solid rgb(245, 240, 223);
+                                                border-radius: 10px;
+
+                                                &:active {
+                                                    background-color: rgb(245, 240, 223);
+                                                    color: #553000;
+                                                }
+                                            }
+                                        }
+
+                                        .description-phone {
+                                            color: rgb(245, 240, 223);
+                                        }
+
+                                        .preservation-phone {
+                                            color: #ffffe8;
+                                        }
+                                    }
+
+                                    .swiper-slide-active {
+                                        .preservation-phone {
+                                            display: none;
+                                        }
+
+                                        .description-phone {
+                                            display: flex;
+                                        }
+                                    }
+
+                                    input {
+                                        display: none;
+
+                                        &:checked {
+                                            &~.swiper-slide-active {
+                                                .preservation-phone {
+                                                    display: flex;
+                                                }
+
+                                                .description-phone {
+                                                    display: none;
+                                                }
                                             }
                                         }
                                     }
@@ -1160,1015 +1170,988 @@ nav {
                         }
                     }
                 }
-            }
 
-            .shop-bottom-phone {
-                width: 100%;
-                height: 67vh;
-                padding-top: 5px;
-                background-image: url(../img/menu-bottom.png);
-                @include bg-style();
-                background-size: cover;
-                background-position: top;
-                transition: top 0.5s;
+                .shop-bottom-phone {
+                    width: 100%;
+                    height: 67vh;
+                    padding-top: 5px;
+                    background-image: url(../img/menu-bottom.png);
+                    @include bg-style();
+                    background-size: cover;
+                    background-position: top;
+                    transition: top 0.5s;
 
-                @include flex(column);
-                justify-content: flex-start;
-
-                .menu-btns {
-                    display: none !important;
-                    margin-left: auto;
-                    padding-right: 50px;
-
-                    @media screen and (max-width:799px) {
-                        display: none !important;
-                    }
-
-                    .shop-btn {
-                        width: 150px;
-                        height: 40px;
-                        @include bg-style();
-                        cursor: pointer;
-                    }
-
-                    .whole-menu-btn {
-                        background-image: url(../img/btn-whole-menu.svg);
-                    }
-                }
-
-                .view-menu-phone {
-                    background: rgba(0, 0, 0, 0.8);
-                    top: 0;
-                    z-index: 21;
-                    transition: all 1s;
                     @include flex(column);
+                    justify-content: flex-start;
 
-                    .view-menu-wrapper {
-                        width: 60%;
-                        height: 80%;
+                    .menu-btns {
+                        display: none !important;
+                        margin-left: auto;
+                        padding-right: 50px;
 
-                        .swiper-slide-menu {
-                            padding: 20px 0px;
-                            @include flex(column);
+                        @media screen and (max-width:799px) {
+                            display: none !important;
+                        }
 
-                            img {
-                                height: 100%;
+                        .shop-btn {
+                            width: 150px;
+                            height: 40px;
+                            @include bg-style();
+                            cursor: pointer;
+                        }
+
+                        .whole-menu-btn {
+                            background-image: url(../img/btn-whole-menu.svg);
+                        }
+                    }
+
+                    .view-menu-phone {
+                        background: rgba(0, 0, 0, 0.8);
+                        top: 0;
+                        z-index: 21;
+                        transition: all 1s;
+                        @include flex(column);
+
+                        .view-menu-wrapper {
+                            width: 60%;
+                            height: 80%;
+
+                            .swiper-slide-menu {
+                                padding: 20px 0px;
+                                @include flex(column);
+
+                                img {
+                                    height: 100%;
+                                }
                             }
                         }
                     }
-                }
 
-                .info-bg {
-                    @include bg-style();
-                    width: 450px;
-                    height: 650px;
+                    .info-bg {
+                        @include bg-style();
+                        width: 450px;
+                        height: 650px;
+                    }
                 }
             }
-        }
 
 
-        .news {
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.7);
-            @include flex(row);
-            position: fixed;
-            z-index: 12;
+            .news {
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.7);
+                @include flex(row);
+                position: fixed;
+                z-index: 12;
 
-            .news-border {
-                width: 1175px;
-                height: 760px;
-                background-image: url(../img/news-border.svg);
-                @include bg-style();
-                @include flex(column);
-                justify-content: flex-start;
-                margin-top: 5rem;
-
-                @media all and (max-width: 1199px) {
-                    background-image: url(../img/news-border-s.svg);
-                }
-
-                @media all and (max-width: 799px) {
-                    width: 600px;
-                    height: 600px;
-                }
-
-                .news-logo {
-                    width: 260px;
-                    height: 260px;
-                    margin-top: 2rem;
+                .news-border {
+                    width: 1175px;
+                    height: 760px;
+                    background-image: url(../img/news-border.svg);
+                    @include bg-style();
+                    @include flex(column);
+                    justify-content: flex-start;
+                    margin-top: 5rem;
 
                     @media all and (max-width: 1199px) {
-                        width: 200px;
-                        height: 200px;
-                        margin-top: 5rem;
+                        background-image: url(../img/news-border-s.svg);
                     }
 
                     @media all and (max-width: 799px) {
-                        width: 150px;
-                        height: 150px;
-                        margin-top: 4.5rem;
-                    }
-                }
-
-                .news-title {
-                    @include flex(row);
-                    width: 100%;
-                    margin-top: 2rem;
-                    margin-bottom: 2rem;
-
-                    @media all and (max-width: 1199px) {
-                        margin-top: 1.5rem;
-                        margin-bottom: 1.5rem;
+                        width: 600px;
+                        height: 600px;
                     }
 
-                    @media all and (max-width: 799px) {
-                        margin-top: 1rem;
-                        margin-bottom: 1rem;
-                    }
-
-                    .news-line {
-                        width: 30%;
-                        height: 2px;
-                        background-color: #5d412e;
-                        margin-left: 2%;
-                        margin-right: 2%;
+                    .news-logo {
+                        width: 260px;
+                        height: 260px;
+                        margin-top: 2rem;
 
                         @media all and (max-width: 1199px) {
-                            width: 20%;
-                        }
-                    }
-
-                    .news-txt {
-                        @include Lobster(4rem);
-                        color: #5d412e;
-
-                        @media all and (max-width: 1199px) {
-                            @include Lobster(3rem);
+                            width: 200px;
+                            height: 200px;
+                            margin-top: 5rem;
                         }
 
                         @media all and (max-width: 799px) {
-                            @include Lobster(2.5rem);
+                            width: 150px;
+                            height: 150px;
+                            margin-top: 4.5rem;
+                        }
+                    }
+
+                    .news-title {
+                        @include flex(row);
+                        width: 100%;
+                        margin-top: 2rem;
+                        margin-bottom: 2rem;
+
+                        @media all and (max-width: 1199px) {
+                            margin-top: 1.5rem;
+                            margin-bottom: 1.5rem;
+                        }
+
+                        @media all and (max-width: 799px) {
+                            margin-top: 1rem;
+                            margin-bottom: 1rem;
+                        }
+
+                        .news-line {
+                            width: 30%;
+                            height: 2px;
+                            background-color: #5d412e;
+                            margin-left: 2%;
+                            margin-right: 2%;
+
+                            @media all and (max-width: 1199px) {
+                                width: 20%;
+                            }
+                        }
+
+                        .news-txt {
+                            @include Lobster(4rem);
+                            color: #5d412e;
+
+                            @media all and (max-width: 1199px) {
+                                @include Lobster(3rem);
+                            }
+
+                            @media all and (max-width: 799px) {
+                                @include Lobster(2.5rem);
+                            }
+                        }
+                    }
+
+                    .news-en {
+                        @include Cormorant(2.5rem);
+                        color: #5d412e;
+                        margin-bottom: 1rem;
+
+                        @media all and (max-width: 1199px) {
+                            @include Cormorant(2.25rem);
+                        }
+
+                        @media all and (max-width: 799px) {
+                            @include Cormorant(2rem);
+                        }
+                    }
+
+                    .news-ch {
+                        @include Noto-Serif-TC(2.5rem);
+                        color: #5d412e;
+                        margin-bottom: 1rem;
+
+                        @media all and (max-width: 1199px) {
+                            @include Noto-Serif-TC(2.25rem);
+                        }
+
+                        @media all and (max-width: 799px) {
+                            @include Noto-Serif-TC(2rem);
+                        }
+                    }
+
+                    .news-btn {
+                        width: 70px;
+                        height: 70px;
+                        background-image: url(../img/btn-X.svg);
+                        @include bg-style();
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .banner {
+                position: fixed;
+                top: 17%;
+                left: 50%;
+                margin-left: calc(-94%/2);
+                z-index: 4;
+                width: 94%;
+                height: calc(100vh - 18%);
+                background-color: #f5eee500;
+                @include flex(column);
+                justify-content: flex-start;
+                overflow: hidden;
+
+                @media screen and (max-width:799px) {
+                    top: 100px;
+                    height: calc(100vh - 110px);
+                    width: 90%;
+                    margin-left: calc(-90%/2);
+                }
+
+                .decor {
+                    position: absolute;
+                }
+
+                .dots {
+                    width: 98%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    z-index: 5;
+
+                    div {
+                        @include flex(column);
+                        justify-content: space-between;
+
+                        span {
+                            display: inline-block;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background-color: #f9e2d2;
+                            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.348);
                         }
                     }
                 }
 
-                .news-en {
-                    @include Cormorant(2.5rem);
-                    color: #5d412e;
-                    margin-bottom: 1rem;
-
-                    @media all and (max-width: 1199px) {
-                        @include Cormorant(2.25rem);
-                    }
-
-                    @media all and (max-width: 799px) {
-                        @include Cormorant(2rem);
-                    }
+                .ellipse {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 90%;
+                    height: 70vh;
+                    border: 1px solid rgba(252, 238, 211, 0.838);
+                    border-radius: 50% 50% 50% 50%;
                 }
 
-                .news-ch {
-                    @include Noto-Serif-TC(2.5rem);
-                    color: #5d412e;
-                    margin-bottom: 1rem;
+                .banner-animation {
+                    width: 100%;
 
-                    @media all and (max-width: 1199px) {
-                        @include Noto-Serif-TC(2.25rem);
-                    }
-
-                    @media all and (max-width: 799px) {
-                        @include Noto-Serif-TC(2rem);
-                    }
                 }
 
-                .news-btn {
-                    width: 70px;
-                    height: 70px;
-                    background-image: url(../img/btn-X.svg);
-                    @include bg-style();
-                    cursor: pointer;
-                }
-            }
-        }
-
-        .banner {
-            position: fixed;
-            top: 17%;
-            left: 50%;
-            margin-left: calc(-94%/2);
-            z-index: 4;
-            width: 94%;
-            height: calc(100vh - 18%);
-            background-color: #f5eee500;
-            @include flex(column);
-            justify-content: flex-start;
-            overflow: hidden;
-
-            @media screen and (max-width:799px) {
-                top: 100px;
-                height: calc(100vh - 110px);
-                width: 90%;
-                margin-left: calc(-90%/2);
-            }
-
-            .decor {
-                position: absolute;
-            }
-
-            .dots {
-                width: 98%;
-                height: 100%;
-                display: flex;
-                justify-content: space-between;
-                z-index: 5;
-
-                div {
-                    @include flex(column);
-                    justify-content: space-between;
-
-                    span {
-                        display: inline-block;
-                        width: 10px;
-                        height: 10px;
-                        border-radius: 50%;
-                        background-color: #f9e2d2;
-                        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.348);
-                    }
-                }
-            }
-
-            .ellipse {
-                top: 50%;
-                transform: translateY(-50%);
-                width: 90%;
-                height: 70vh;
-                border: 1px solid rgba(252, 238, 211, 0.838);
-                border-radius: 50% 50% 50% 50%;
-            }
-
-            .banner-animation {
-                width: 100%;
-
-            }
-
-            .banner-animate {
-                width: 100%;
-                height: 70vh;
-                padding-top: 7rem;
-                @include flex(row);
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-
-                @media (max-width: 900px) {
-                    transform: scale(0.8);
-                }
-
-                .animate-1 {
-                    width: 1040px;
-                    height: 500px;
-                    background-image: url(../img/animate-ray.png);
-                    @include bg-style();
+                .banner-animate {
+                    width: 100%;
+                    height: 70vh;
+                    padding-top: 7rem;
+                    @include flex(row);
                     position: absolute;
-                    bottom: 10%;
-
-                    @media (max-width: 1200px) {
-                        bottom: 0%;
-                    }
-
-                    @media (max-width: 900px) {
-                        bottom: -10%;
-                    }
-                }
-
-                .animate-2 {
-                    width: 1040px;
-                    height: 300px;
-                    border-radius: 50%;
-                    background: transparent;
-                    border: rgb(75, 52, 46) solid 5px;
-                    position: absolute;
-                    bottom: 5%;
-
-                    @media (max-width: 1200px) {
-                        bottom: -5%;
-                    }
-
-                    @media (max-width: 900px) {
-                        width: 860px;
-                        height: 200px;
-                    }
-                }
-
-                .animate-4 {
-                    width: 500px;
-                    height: 525px;
-                    background-image: url(../img/animate-cookie.png);
-                    @include bg-style();
-                    position: absolute;
-                    left: calc(50% - 250px);
                     top: 50%;
                     transform: translateY(-50%);
 
                     @media (max-width: 900px) {
-                        width: 350px;
-                        height: 360px;
-                        left: calc(50% - 175px);
-                        top: 0%;
-                        transform: translateY(-60%);
+                        transform: scale(0.8);
+                    }
+
+                    .animate-1 {
+                        width: 1040px;
+                        height: 500px;
+                        background-image: url(../img/animate-ray.png);
+                        @include bg-style();
+                        position: absolute;
+                        bottom: 10%;
+
+                        @media (max-width: 1200px) {
+                            bottom: 0%;
+                        }
+
+                        @media (max-width: 900px) {
+                            bottom: -10%;
+                        }
+                    }
+
+                    .animate-2 {
+                        width: 1040px;
+                        height: 300px;
+                        border-radius: 50%;
+                        background: transparent;
+                        border: rgb(75, 52, 46) solid 5px;
+                        position: absolute;
+                        bottom: 5%;
+
+                        @media (max-width: 1200px) {
+                            bottom: -5%;
+                        }
+
+                        @media (max-width: 900px) {
+                            width: 860px;
+                            height: 200px;
+                        }
+                    }
+
+                    .animate-4 {
+                        width: 500px;
+                        height: 525px;
+                        background-image: url(../img/animate-cookie.png);
+                        @include bg-style();
+                        position: absolute;
+                        left: calc(50% - 250px);
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        @media (max-width: 900px) {
+                            width: 350px;
+                            height: 360px;
+                            left: calc(50% - 175px);
+                            top: 0%;
+                            transform: translateY(-60%);
+                        }
                     }
                 }
-            }
 
-            .banner-title {
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-                @include flex(row);
-                justify-content: flex-start;
-                margin-top: 0rem;
-
-                @media (max-width: 900px) {
-                    top: 20%;
-                }
-
-                .banner-en {
-                    @include Cormorant(12rem);
-                    font-weight: 100;
-                    letter-spacing: -16px;
-                    color: #5d412e;
-                    white-space: nowrap;
-                    margin-bottom: 0.5rem;
-                    // text-shadow: 0 0 1px rgb(237, 174, 116);
-                    text-stroke: 2px black;
-                    -webkit-text-stroke: 2px rgb(254, 231, 204);
-
-                    @media (max-width: 1200px) {
-                        font-size: 10rem;
-                    }
+                .banner-title {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    @include flex(row);
+                    justify-content: flex-start;
+                    margin-top: 0rem;
 
                     @media (max-width: 900px) {
-                        letter-spacing: -6px;
-                        font-size: 6rem;
+                        top: 20%;
                     }
+
+                    .banner-en {
+                        @include Cormorant(12rem);
+                        font-weight: 100;
+                        letter-spacing: -16px;
+                        color: #5d412e;
+                        white-space: nowrap;
+                        margin-bottom: 0.5rem;
+                        // text-shadow: 0 0 1px rgb(237, 174, 116);
+                        text-stroke: 2px black;
+                        -webkit-text-stroke: 2px rgb(254, 231, 204);
+
+                        @media (max-width: 1200px) {
+                            font-size: 10rem;
+                        }
+
+                        @media (max-width: 900px) {
+                            letter-spacing: -6px;
+                            font-size: 6rem;
+                        }
+                    }
+
+                    .light-up {
+                        color: #fbe1d100;
+                    }
+
+
                 }
-
-                .light-up {
-                    color: #fbe1d100;
-                }
-
-
             }
-        }
 
-        .fortune {
-            width: 100%;
-            height: 100%;
-            z-index: 12;
+            .fortune {
+                width: 100%;
+                height: 100%;
+                z-index: 12;
 
-            .fortune-pop-1 {
-                width: 550px;
-                height: 550px;
-                border-radius: 999rem;
-                background-color: #40281b;
-                position: relative;
-                @include flex(row);
-                top: 15%;
-                left: 15%;
-
-                img {
-                    width: 95%;
-                    height: 95%;
-                    z-index: 13;
-                }
-
-                .fortune-pop-2 {
-                    width: 180px;
-                    height: 180px;
+                .fortune-pop-1 {
+                    width: 550px;
+                    height: 550px;
                     border-radius: 999rem;
                     background-color: #40281b;
-                    position: absolute;
-                    bottom: 0%;
-                    right: 0%;
+                    position: relative;
+                    @include flex(row);
+                    top: 15%;
+                    left: 15%;
 
-                    .fortune-pop-3 {
-                        width: 65px;
-                        height: 65px;
+                    img {
+                        width: 95%;
+                        height: 95%;
+                        z-index: 13;
+                    }
+
+                    .fortune-pop-2 {
+                        width: 180px;
+                        height: 180px;
                         border-radius: 999rem;
                         background-color: #40281b;
                         position: absolute;
-                        bottom: -30%;
-                        right: -30%;
+                        bottom: 0%;
+                        right: 0%;
+
+                        .fortune-pop-3 {
+                            width: 65px;
+                            height: 65px;
+                            border-radius: 999rem;
+                            background-color: #40281b;
+                            position: absolute;
+                            bottom: -30%;
+                            right: -30%;
+                        }
+                    }
+
+                    .fortune-heart {
+                        width: 100px;
+                        height: 120px;
+                        background-image: url(../img/heart.svg);
+                        @include bg-style();
+                        position: absolute;
+                        top: calc(50% - 60px);
+                        left: calc(50% - 50px);
+                        z-index: 13;
                     }
                 }
 
-                .fortune-heart {
-                    width: 100px;
-                    height: 120px;
-                    background-image: url(../img/heart.svg);
-                    @include bg-style();
-                    position: absolute;
-                    top: calc(50% - 60px);
-                    left: calc(50% - 50px);
-                    z-index: 13;
-                }
+                @media all and (max-width: 899px) {}
             }
 
-            @media all and (max-width: 899px) {}
-        }
-
-        .how-about {
-            height: 4000px;
-
-            @media screen and (max-width:799px) {
-                height: 2000px;
-            }
-
-
-            .how-to-buy {
-                position: fixed;
-                top: 3000px;
-                left: 50%;
-                margin-left: -50%;
-                height: 2500px;
-                width: 100%;
-                background-color: #f1e9e1;
-                border-radius: 100px;
-                z-index: 6;
-                padding-top: 100px;
-                @include flex(column);
-                justify-content: start;
+            .how-about {
+                height: 4000px;
 
                 @media screen and (max-width:799px) {
+                    height: 2000px;
+                }
+
+
+                .how-to-buy {
+                    position: fixed;
+                    top: 3000px;
+                    left: 50%;
+                    margin-left: -50%;
                     height: 2500px;
-                    padding-bottom: 400px;
-                }
-
-                h1 {
-                    @include Cormorant(5rem);
-                    font-weight: 100;
-                    color: #6e4105;
-                    margin-bottom: 350px;
-
-                    @media screen and (max-width:799px) {
-                        margin-bottom: 110px;
-
-                        font-size: 4rem;
-                        font-weight: 500;
-                    }
-                }
-
-                .sticky-block-how {
                     width: 100%;
-                    height: 130vh;
                     background-color: #f1e9e1;
-                    top: 0;
-                    padding: 2%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: flex-start;
+                    border-radius: 100px;
+                    z-index: 6;
+                    padding-top: 100px;
+                    @include flex(column);
+                    justify-content: start;
 
                     @media screen and (max-width:799px) {
-                        flex-direction: column-reverse;
-                        justify-content: flex-end;
-                        align-items: center;
+                        height: 2500px;
+                        padding-bottom: 400px;
                     }
 
-                    .how-right {
-                        position: relative;
-                        width: 25%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
+                    h1 {
+                        @include Cormorant(5rem);
+                        font-weight: 100;
+                        color: #6e4105;
+                        margin-bottom: 350px;
 
                         @media screen and (max-width:799px) {
-                            width: 90%;
+                            margin-bottom: 110px;
+
+                            font-size: 4rem;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .sticky-block-how {
+                        width: 100%;
+                        height: 130vh;
+                        background-color: #f1e9e1;
+                        top: 0;
+                        padding: 2%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: flex-start;
+
+                        @media screen and (max-width:799px) {
+                            flex-direction: column-reverse;
+                            justify-content: flex-end;
+                            align-items: center;
                         }
 
-                        .how-dscp {
-                            font-weight: bold;
-                            text-align: start;
-                            list-style: none;
-                            width: 100%;
-                            height: 0px;
-                            color: #724408;
-                            padding: 0px;
-                            margin: 0;
-                            overflow: hidden;
-                            transform: 0.5s ease;
+                        .how-right {
+                            position: relative;
+                            width: 25%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
 
-                            .how-dscp-li {
-                                transition: 0.3s ease-out;
-                                border-top: 1px solid #5c3401;
-                                padding: 10px 0px 20px 10px;
-                                transform: translateX(5px);
-                                opacity: 0;
-                                left: 0px;
+                            @media screen and (max-width:799px) {
+                                width: 90%;
+                            }
 
-                                @media screen and (max-width:1366px) {
+                            .how-dscp {
+                                font-weight: bold;
+                                text-align: start;
+                                list-style: none;
+                                width: 100%;
+                                height: 0px;
+                                color: #724408;
+                                padding: 0px;
+                                margin: 0;
+                                overflow: hidden;
+                                transform: 0.5s ease;
+
+                                .how-dscp-li {
+                                    transition: 0.3s ease-out;
+                                    border-top: 1px solid #5c3401;
                                     padding: 10px 0px 20px 10px;
+                                    transform: translateX(5px);
+                                    opacity: 0;
+                                    left: 0px;
+
+                                    @media screen and (max-width:1366px) {
+                                        padding: 10px 0px 20px 10px;
+                                    }
+
+                                    &:hover {
+                                        filter: brightness(1.3);
+                                    }
+
+                                    div {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        cursor: pointer;
+
+                                        @media screen and (max-width:799px) {
+                                            flex-direction: column;
+                                            align-items: flex-start;
+                                        }
+
+                                        span {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 58px;
+                                            height: 58px;
+                                            min-width: 58px;
+                                            min-height: 58px;
+                                            margin-right: 30px;
+                                            border-radius: 50%;
+                                            background-color: #40281b;
+                                            transition: 0.5s ease;
+
+                                            @media screen and (max-width:799px) {
+                                                display: none;
+                                            }
+                                        }
+
+                                        .how-dscp-li-En {
+                                            @include Cormorant(3rem);
+                                            font-weight: 500;
+
+
+                                            @media screen and (max-width:1366px) {
+                                                font-size: (2rem);
+                                            }
+
+                                            @media screen and (max-width:799px) {
+                                                font-size: 1.5rem;
+                                                margin-bottom: 0px;
+                                            }
+
+                                        }
+
+                                        .how-dscp-li-Ch {
+                                            @include Noto-Serif-TC(2rem);
+                                            font-weight: 400;
+                                            margin-left: 20px;
+
+                                            @media screen and (max-width:1366px) {
+                                                font-size: (1.3rem);
+                                            }
+
+                                            @media screen and (max-width:799px) {
+                                                font-size: 1.2rem;
+                                                margin-bottom: 10px;
+                                            }
+                                        }
+
+                                        p {
+                                            @media screen and (max-width:799px) {
+                                                line-height: 1.15;
+                                            }
+                                        }
+
+                                    }
+
+                                    .dscp-li {
+                                        font-family: 'Cormorant Infant', serif;
+                                        color: #553000;
+                                        margin: 0px;
+                                        height: 0;
+                                        font-size: 1.3rem;
+                                        font-weight: 500;
+                                        transition: 0.5s ease-out;
+                                        transform-origin: 50% 0;
+                                        overflow: hidden;
+                                        line-height: 1.5;
+
+
+                                        @media screen and (max-width: 1366px) {
+                                            font-size: (1.2rem);
+                                        }
+
+                                        @media screen and (max-width:799px) {
+                                            font-size: 1rem;
+                                        }
+
+                                    }
+
+                                    &:nth-child(1) {
+                                        transition-delay: 0.2s;
+                                    }
+
+                                    &:nth-child(2) {
+                                        transition-delay: 0.3s;
+                                    }
+
+                                    &:nth-child(3) {
+                                        transition-delay: 0.4s;
+                                    }
                                 }
+
+
+
+                            }
+
+                            #how-img-1 {
+                                filter: grayscale(40%);
+                                width: 100%;
+                                transition: 0.5s ease;
 
                                 &:hover {
-                                    filter: brightness(1.3);
+                                    filter: grayscale(0%);
                                 }
 
-                                div {
-                                    display: flex;
-                                    flex-direction: row;
-                                    align-items: center;
-                                    cursor: pointer;
-
-                                    @media screen and (max-width:799px) {
-                                        flex-direction: column;
-                                        align-items: flex-start;
-                                    }
-
-                                    span {
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                        width: 58px;
-                                        height: 58px;
-                                        min-width: 58px;
-                                        min-height: 58px;
-                                        margin-right: 30px;
-                                        border-radius: 50%;
-                                        background-color: #40281b;
-                                        transition: 0.5s ease;
-
-                                        @media screen and (max-width:799px) {
-                                            display: none;
-                                        }
-                                    }
-
-                                    .how-dscp-li-En {
-                                        @include Cormorant(3rem);
-                                        font-weight: 500;
-
-
-                                        @media screen and (max-width:1366px) {
-                                            font-size: (2rem);
-                                        }
-
-                                        @media screen and (max-width:799px) {
-                                            font-size: 1.5rem;
-                                            margin-bottom: 0px;
-                                        }
-
-                                    }
-
-                                    .how-dscp-li-Ch {
-                                        @include Noto-Serif-TC(2rem);
-                                        font-weight: 400;
-                                        margin-left: 20px;
-
-                                        @media screen and (max-width:1366px) {
-                                            font-size: (1.3rem);
-                                        }
-
-                                        @media screen and (max-width:799px) {
-                                            font-size: 1.2rem;
-                                            margin-bottom: 10px;
-                                        }
-                                    }
-
-                                    p {
-                                        @media screen and (max-width:799px) {
-                                            line-height: 1.15;
-                                        }
-                                    }
-
+                                @media screen and (max-width:1450px) {
+                                    display: none;
                                 }
 
-                                .dscp-li {
-                                    font-family: 'Cormorant Infant', serif;
-                                    color: #553000;
-                                    margin: 0px;
-                                    height: 0;
-                                    font-size: 1.3rem;
-                                    font-weight: 500;
-                                    transition: 0.5s ease-out;
-                                    transform-origin: 50% 0;
-                                    overflow: hidden;
-                                    line-height: 1.5;
 
-
-                                    @media screen and (max-width: 1366px) {
-                                        font-size: (1.2rem);
-                                    }
-
-                                    @media screen and (max-width:799px) {
-                                        font-size: 1rem;
-                                    }
-
-                                }
-
-                                &:nth-child(1) {
-                                    transition-delay: 0.2s;
-                                }
-
-                                &:nth-child(2) {
-                                    transition-delay: 0.3s;
-                                }
-
-                                &:nth-child(3) {
-                                    transition-delay: 0.4s;
-                                }
                             }
-
-
-
                         }
 
-                        #how-img-1 {
-                            filter: grayscale(40%);
-                            width: 100%;
-                            transition: 0.5s ease;
+                        .how-midline {
+                            position: relative;
+                            top: -500px;
+                            width: 8px;
+                            height: 0%;
+                            border-left: 1px solid #774a3252;
+                            border-right: 1px solid #40281b5f;
+                            transform: translateY(0);
+                            transform-origin: 0 0;
+                            transition: 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                            z-index: 7;
 
-                            &:hover {
-                                filter: grayscale(0%);
-                            }
-
-                            @media screen and (max-width:1450px) {
+                            @media screen and (max-width:799px) {
                                 display: none;
                             }
-
-
                         }
-                    }
 
-                    .how-midline {
-                        position: relative;
-                        top: -500px;
-                        width: 8px;
-                        height: 0%;
-                        border-left: 1px solid #774a32;
-                        border-right: 1px solid #40281b;
-                        transform: translateY(0);
-                        transform-origin: 0 0;
-                        transition: 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                        z-index: 7;
+                        .how-left {
+                            position: relative;
+                            width: 65%;
 
-                        @media screen and (max-width:799px) {
-                            display: none;
-                        }
-                    }
+                            #how-img-2 {
+                                filter: grayscale(40%);
+                                width: 100%;
+                                transition: 0.5s ease;
 
-                    .how-left {
-                        position: relative;
-                        width: 65%;
+                                &:hover {
+                                    filter: grayscale(0%);
+                                }
 
-                        #how-img-2 {
-                            filter: grayscale(40%);
-                            width: 100%;
-                            transition: 0.5s ease;
-
-                            &:hover {
-                                filter: grayscale(0%);
                             }
-
                         }
+
                     }
-
-                }
-            }
-
-
-            .aboutus {
-                @include flex(column);
-                justify-content: flex-start;
-                height: 3900px;
-                width: 100%;
-                background-color: rgb(241, 233, 225);
-                position: fixed;
-                top: 2000px;
-                z-index: 5;
-                padding-top: 400px;
-                padding-bottom: 500px;
-
-                // rwd未完成
-                @media screen and (max-width:799px) {
-                    height: 2100px;
-                    padding-bottom: 0;
-                    padding-top: 0px;
-                    z-index: 9;
                 }
 
-                .aboutus-BG {
-                    background-image: url(../img/門背景_工作區域\ 1.svg);
-                    background-position: top;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    position: fixed;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    opacity: 0;
-                    filter: brightness(2);
-                    transition: 0.2s ease-out;
-                }
 
-                .aboutus-card {
+                .aboutus {
                     @include flex(column);
                     justify-content: flex-start;
-                    position: sticky;
-                    top: 0;
-                    border-radius: 0%;
+                    height: 3900px;
                     width: 100%;
-                    height: 170vh;
                     background-color: rgb(241, 233, 225);
-                    padding-top: 5vh;
-                    opacity: 0.95;
-                    transition: 0.2s ease-out;
-                    padding-bottom: 20px;
+                    position: fixed;
+                    top: 2000px;
+                    z-index: 5;
+                    padding-top: 400px;
+                    padding-bottom: 500px;
 
-                    .aboutus-h1 {
-                        @include Cormorant(4rem);
-                        font-weight: 200;
-                        color: rgb(137, 87, 60);
-                        border-bottom: 1px double rgba(241, 233, 225, 0.521);
-                        margin-bottom: 4%;
-                        transition: 1s ease;
+                    // rwd未完成
+                    @media screen and (max-width:799px) {
+                        height: 2100px;
+                        padding-bottom: 0;
+                        padding-top: 0px;
+                        z-index: 9;
+                    }
+
+                    .aboutus-BG {
+                        background-image: url(../img/門背景_工作區域\ 1.svg);
+                        background-position: top;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: fixed;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
                         opacity: 0;
-
-                        @media all and (max-width: 1599px) {
-                            font-size: 3.4rem;
-                        }
-
-                        @media screen and (max-width:1366px) {
-                            font-size: (3rem);
-                        }
-
-                        @media screen and (max-width:799px) {
-                            font-size: 2.5rem;
-                            margin-bottom: 25px;
-                        }
+                        filter: brightness(2);
+                        transition: 0.2s ease-out;
                     }
 
-                    .aboutus-En {
-                        display: flex;
-                        flex-flow: row wrap;
-                        justify-content: center;
-                        width: 62.8%;
-                        margin-bottom: 3%;
+                    .aboutus-card {
+                        @include flex(column);
+                        justify-content: flex-start;
+                        position: sticky;
+                        top: 0;
+                        border-radius: 0%;
+                        width: 100%;
+                        height: 170vh;
+                        background-color: rgb(241, 233, 225);
+                        padding-top: 5vh;
+                        opacity: 0.95;
+                        transition: 0.2s ease-out;
+                        padding-bottom: 20px;
 
-                        @media all and (max-width: 1599px) {
-                            width: 70%;
-                        }
-
-                        @media screen and (max-width:799px) {
-                            margin-bottom: 25px;
-                            width: 80%;
-                        }
-
-                        .En-anim {
-                            position: relative;
-                            top: 5px;
-                            @include Cormorant(2rem);
+                        .aboutus-h1 {
+                            @include Cormorant(4rem);
                             font-weight: 200;
-                            text-align: center;
-                            line-height: 1.4;
-                            color: rgb(239, 232, 224);
-                            display: inline;
+                            color: rgb(137, 87, 60);
+                            border-bottom: 1px double rgba(241, 233, 225, 0.521);
+                            margin-bottom: 4%;
+                            transition: 1s ease;
                             opacity: 0;
-                            margin-bottom: 0;
-                            margin-right: 0.5rem;
 
                             @media all and (max-width: 1599px) {
-                                font-size: (1.9rem);
-                                line-height: 1.1;
+                                font-size: 3.4rem;
                             }
 
                             @media screen and (max-width:1366px) {
-                                font-size: (1.8rem);
-                                margin-right: 0.4rem;
+                                font-size: (3rem);
                             }
 
                             @media screen and (max-width:799px) {
-                                margin-right: 0.3rem;
-                                font-size: 1.2rem;
-                                line-height: 1;
+                                font-size: 2.5rem;
+                                margin-bottom: 25px;
                             }
                         }
-                    }
 
-                    .aboutus-Ch {
-                        width: 62.8%;
-                        display: flex;
-                        flex-flow: row wrap;
-                        justify-content: center;
-
-                        @media all and (max-width: 1599px) {
-                            width: 70%;
-                        }
-
-                        @media screen and (max-width:799px) {
-                            width: 80%;
-                        }
-
-                        .Ch-anim {
-                            position: relative;
-                            top: 5px;
-                            @include Noto-Serif-TC(1.5rem);
-                            text-align: center;
-                            line-height: 1.4;
-                            font-weight: 100;
-                            color: rgb(239, 232, 224);
-                            display: inline;
-                            opacity: 0;
-                            margin-bottom: 4px;
+                        .aboutus-En {
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+                            width: 62.8%;
+                            margin-bottom: 3%;
 
                             @media all and (max-width: 1599px) {
-                                font-size: (1.5rem);
-                                line-height: 1.2;
-                            }
-
-                            @media screen and (max-width:1366px) {
-                                font-size: (1.4rem);
+                                width: 70%;
                             }
 
                             @media screen and (max-width:799px) {
-                                font-size: 1rem;
-                                line-height: 1.15;
+                                margin-bottom: 25px;
+                                width: 80%;
                             }
+
+                            .En-anim {
+                                position: relative;
+                                top: 5px;
+                                @include Cormorant(2rem);
+                                font-weight: 200;
+                                text-align: center;
+                                line-height: 1.4;
+                                color: rgb(239, 232, 224);
+                                display: inline;
+                                opacity: 0;
+                                margin-bottom: 0;
+                                margin-right: 0.5rem;
+
+                                @media all and (max-width: 1599px) {
+                                    font-size: (1.9rem);
+                                    line-height: 1.1;
+                                }
+
+                                @media screen and (max-width:1366px) {
+                                    font-size: (1.8rem);
+                                    margin-right: 0.4rem;
+                                }
+
+                                @media screen and (max-width:799px) {
+                                    margin-right: 0.3rem;
+                                    font-size: 1.2rem;
+                                    line-height: 1;
+                                }
+                            }
+                        }
+
+                        .aboutus-Ch {
+                            width: 62.8%;
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+
+                            @media all and (max-width: 1599px) {
+                                width: 70%;
+                            }
+
+                            @media screen and (max-width:799px) {
+                                width: 80%;
+                            }
+
+                            .Ch-anim {
+                                position: relative;
+                                top: 5px;
+                                @include Noto-Serif-TC(1.5rem);
+                                text-align: center;
+                                line-height: 1.4;
+                                font-weight: 100;
+                                color: rgb(239, 232, 224);
+                                display: inline;
+                                opacity: 0;
+                                margin-bottom: 4px;
+
+                                @media all and (max-width: 1599px) {
+                                    font-size: (1.5rem);
+                                    line-height: 1.2;
+                                }
+
+                                @media screen and (max-width:1366px) {
+                                    font-size: (1.4rem);
+                                }
+
+                                @media screen and (max-width:799px) {
+                                    font-size: 1rem;
+                                    line-height: 1.15;
+                                }
+                            }
+                        }
+
+                        .phoneCookie {
+                            @include flex(row);
+                            flex: 1;
+                            height: 30%;
+                            padding-top: 3vh;
+
+                            img {
+                                height: 60%;
+                                animation: rotate 6s linear infinite;
+                            }
+
+                            @keyframes rotate {
+                                from {
+                                    transform: rotate(0deg);
+                                    /* 開始時旋轉角度為 0 度 */
+                                }
+
+                                to {
+                                    transform: rotate(360deg);
+                                    /* 結束時旋轉角度為 360 度 */
+                                }
+                            }
+
                         }
                     }
 
-                    .phoneCookie {
-                        @include flex(row);
-                        flex: 1;
-                        height: 30%;
-                        padding-top: 3vh;
-
-                        img {
-                            height: 60%;
-                            animation: rotate 6s linear infinite;
-                        }
-
-                        @keyframes rotate {
-                            from {
-                                transform: rotate(0deg);
-                                /* 開始時旋轉角度為 0 度 */
-                            }
-
-                            to {
-                                transform: rotate(360deg);
-                                /* 結束時旋轉角度為 360 度 */
-                            }
-                        }
-
-                    }
                 }
 
             }
 
-        }
-
-        footer {
-            width: 100%;
-            background-color: rgb(241, 233, 225);
-            padding: 20px 60px 20px 60px;
-            z-index: 15;
-            position: fixed;
-            bottom: -100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #5d412e;
-            transition: 1s cubic-bezier(.06, .87, .84, 1);
-            
-
-            @media screen and (max-width:799px) {
-                padding: 20px 40px;
-                max-height: 300px;
-                border-top-left-radius: 50% 50%;
-                border-top-right-radius: 50% 50%;
-                border: #e5b89da0 1px solid;
-            }
-
-            .footer-top {
-                @include Cormorant(3rem);
-                width: 85%;
-                border-width: 1px 0px 1px 0px;
-                border-style: solid;
-                border-color: #52301a9a;
-
-                @media screen and (max-width:799px) {
-                    display: none;
-                }
-            }
-
-            .footer-bot {
-                width: 85%;
+            footer {
+                width: 100%;
+                background-color: rgb(241, 233, 225);
+                padding: 20px 60px 20px 60px;
+                z-index: 15;
+                position: fixed;
+                bottom: -100%;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                transform: translateX(5%);
+                color: #5d412e;
+                transition: 1s cubic-bezier(.06, .87, .84, 1);
+
 
                 @media screen and (max-width:799px) {
-                    width: 100%;
-                    flex-direction: column;
-                    transform: translateX(0%);
-
+                    padding: 20px 40px;
+                    max-height: 300px;
+                    border-top-left-radius: 50% 50%;
+                    border-top-right-radius: 50% 50%;
+                    border: #e5b89da0 1px solid;
                 }
 
-                .footer-logo {
-                    @include flex(column);
-                    align-items: flex-end;
-                    padding: 20px 10px 20px 10px;
-                    width: 30%;
-
-                    @media screen and (max-width:799px) {
-                        width: 80%;
-                        align-items: center;
-                        padding: 10px 0px 10px 0px;
-                        max-width: 300px;
-                    }
-
-                    img {
-                        width: 50%;
-                    }
-                }
-
-                .footer-img {
-                    @include flex(column);
-                    padding: 20px 10px 20px 10px;
-                    width: 30%;
+                .footer-top {
+                    @include Cormorant(3rem);
+                    width: 85%;
+                    border-width: 1px 0px 1px 0px;
+                    border-style: solid;
+                    border-color: #52301a9a;
 
                     @media screen and (max-width:799px) {
                         display: none;
                     }
-
-                    img {
-                        width: 90%;
-                    }
                 }
 
-
-                .footer-info {
-                    width: 40%;
-                    padding: 20px 10px 20px 10px;
-                    @include Cormorant(2rem);
+                .footer-bot {
+                    width: 85%;
                     display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    align-items: flex-start;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translateX(5%);
 
                     @media screen and (max-width:799px) {
                         width: 100%;
-                        padding: 0;
+                        flex-direction: column;
+                        transform: translateX(0%);
+
                     }
 
-                    .openhour {
-                        text-align: left;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        width: 100%;
-                        font-size: 2.5rem;
-                        margin-bottom: 10px;
-                        flex-wrap: nowrap;
-
+                    .footer-logo {
+                        @include flex(column);
+                        align-items: flex-end;
+                        padding: 20px 10px 20px 10px;
+                        width: 30%;
 
                         @media screen and (max-width:799px) {
-                            color: #a05730;
-                            text-align: center;
+                            width: 80%;
+                            align-items: center;
+                            padding: 10px 0px 10px 0px;
+                            max-width: 300px;
                         }
 
-                        h1 {
-                            margin: 0;
-                            line-height: 0.9;
+                        img {
+                            width: 50%;
+                        }
+                    }
 
-                            @media screen and (max-width:1599px) {
-                                font-size: 2rem;
-                            }
+                    .footer-img {
+                        @include flex(column);
+                        padding: 20px 10px 20px 10px;
+                        width: 30%;
 
-                            @media screen and (max-width:1399px) {
-                                font-size: 1.8rem;
-                            }
+                        @media screen and (max-width:799px) {
+                            display: none;
                         }
 
-                        span {
-                            display: inline-block;
-                            font-size: 1.5rem;
-                            line-height: 0.9;
+                        img {
+                            width: 90%;
+                        }
+                    }
 
-                            @media screen and (max-width:1599px) {
-                                font-size: 1.3rem;
+
+                    .footer-info {
+                        width: 40%;
+                        padding: 20px 10px 20px 10px;
+                        @include Cormorant(2rem);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: flex-start;
+
+                        @media screen and (max-width:799px) {
+                            width: 100%;
+                            padding: 0;
+                        }
+
+                        .openhour {
+                            text-align: left;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            width: 100%;
+                            font-size: 2.5rem;
+                            margin-bottom: 10px;
+                            flex-wrap: nowrap;
+
+
+                            @media screen and (max-width:799px) {
+                                color: #a05730;
+                                text-align: center;
                             }
 
-                            @media screen and (max-width:1399px) {
-                                font-size: 1.1rem;
-                            }
-
-                            span {
-                                font-size: 2.5rem;
-                                font-weight: 300;
+                            h1 {
+                                margin: 0;
+                                line-height: 0.9;
 
                                 @media screen and (max-width:1599px) {
                                     font-size: 2rem;
@@ -2178,409 +2161,92 @@ nav {
                                     font-size: 1.8rem;
                                 }
                             }
-                        }
-                    }
-
-                    .footer-bot-right {
-                        width: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: flex-start;
-
-                        @media screen and (max-width:799px) {
-                            justify-content: center;
-                        }
-
-                        .address {
-                            text-align: left;
-                            font-size: 1.4rem;
-                            color: #b66e47;
-
-                            @media screen and (max-width:1599px) {
-                                font-size: 1.1rem;
-                            }
-
-                            @media screen and (max-width:1399px) {
-                                font-size: 0.9rem;
-                                margin-top: 10px;
-                                line-height: 1.1;
-                                margin-right: 8px;
-                            }
 
                             span {
-                                text-align: left;
-                                font-size: 2rem;
+                                display: inline-block;
+                                font-size: 1.5rem;
                                 line-height: 0.9;
-                                text-decoration: none;
 
                                 @media screen and (max-width:1599px) {
-                                    font-size: 1.4rem;
+                                    font-size: 1.3rem;
                                 }
 
                                 @media screen and (max-width:1399px) {
-                                    font-size: 1.2rem;
+                                    font-size: 1.1rem;
+                                }
+
+                                span {
+                                    font-size: 2.5rem;
+                                    font-weight: 300;
+
+                                    @media screen and (max-width:1599px) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media screen and (max-width:1399px) {
+                                        font-size: 1.8rem;
+                                    }
                                 }
                             }
                         }
 
-                        .socialmedia {
+                        .footer-bot-right {
+                            width: 100%;
                             display: flex;
                             flex-direction: row;
                             justify-content: flex-start;
-                            align-items: flex-end;
 
-                            img {
-                                width: 50px;
+                            @media screen and (max-width:799px) {
+                                justify-content: center;
+                            }
+
+                            .address {
+                                text-align: left;
+                                font-size: 1.4rem;
+                                color: #b66e47;
 
                                 @media screen and (max-width:1599px) {
-                                    width: 40px;
+                                    font-size: 1.1rem;
                                 }
 
-                                @media screen and (max-width:799px) {
-                                    width: 40px;
+                                @media screen and (max-width:1399px) {
+                                    font-size: 0.9rem;
+                                    margin-top: 10px;
+                                    line-height: 1.1;
+                                    margin-right: 8px;
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
-    }
+                                span {
+                                    text-align: left;
+                                    font-size: 2rem;
+                                    line-height: 0.9;
+                                    text-decoration: none;
 
+                                    @media screen and (max-width:1599px) {
+                                        font-size: 1.4rem;
+                                    }
 
-}
-
-// W500
-.phone {
-    display: none;
-    width: 100%;
-    height: 100%;
-
-    // @media all and  (max-width: 599px) {
-    //     display: flex;
-    // }
-
-    .phone-cookie {
-        width: 300px;
-        height: 300px;
-        position: fixed;
-        z-index: 14;
-        display: none;
-        left: calc(50% - 150px);
-
-        .phone-cookie-lax {
-            width: 100%;
-            height: 100%;
-            background-image: url(../img/phone-cookie.png);
-            @include bg-style();
-        }
-    }
-
-    // 同 web
-    .web-background-phone {
-        width: 100%;
-        height: 100vh;
-        z-index: 11;
-        position: fixed;
-        background-color: #40281b;
-        @include flex(column);
-
-        .web-title {
-            width: 100%;
-            height: 15%;
-            @include Cormorant(4rem);
-            text-align: start;
-            color: #f4d4bd;
-            @include flex(row);
-        }
-
-        .web-border-1 {
-            width: 95%;
-            height: 85%;
-            border: #f4d4bd solid 2px;
-            border-bottom: 0px;
-            padding: 5px 5px 0px 5px;
-
-            .web-border-2 {
-                // width: calc(100% - 2px);
-                height: 100%;
-                border: #f4d4bd solid 1px;
-                border-bottom: 0px;
-                padding: 25px 25px 0px 25px;
-
-                .web-inside-phone {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 100px 100px 0 0;
-                    background-image: url(../img/heart-bg.png);
-                    @include bg-style();
-                    background-size: cover;
-                    margin: auto;
-                    @include flex(column);
-                    overflow: visible;
-                }
-            }
-        }
-    }
-
-    .news-phone {
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7);
-        @include flex(row);
-        position: fixed;
-        z-index: 12;
-
-        .news-border {
-            width: 95%;
-            background-image: url(../img/news-border.svg);
-            @include bg-style();
-            @include flex(column);
-            justify-content: flex-start;
-            padding-top: 0.5rem;
-
-            .news-logo {
-                width: 20%;
-                margin-top: 0.75rem;
-            }
-
-            .news-title {
-                @include flex(row);
-                width: 100%;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
-
-                .news-line {
-                    width: 30%;
-                    height: 2px;
-                    background-color: #5d412e;
-                    margin-left: 2%;
-                    margin-right: 2%;
-                }
-
-                .news-txt {
-                    @include Lobster(2rem);
-                    color: #5d412e;
-                }
-            }
-
-            .news-en {
-                @include Cormorant(1rem);
-                color: #5d412e;
-                margin-bottom: 0.5rem;
-            }
-
-            .news-ch {
-                @include Noto-Serif-TC(1rem);
-                color: #5d412e;
-                margin-bottom: 0.7rem;
-            }
-
-            .news-btn {
-                width: 30px;
-                height: 30px;
-                background-image: url(../img/btn-X.svg);
-                @include bg-style();
-                cursor: pointer;
-                margin-bottom: 0.75rem;
-            }
-        }
-    }
-
-    .banner-phone {
-        z-index: 11;
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        @include flex(column);
-        display: none;
-
-        .banner-animation {
-            width: 100%;
-        }
-
-        .banner-animate {
-            width: 100%;
-            height: 50%;
-            position: relative;
-
-            @media (min-width: 600px) {
-                height: 70%;
-            }
-
-            .animate-1-phone {
-                width: 100%;
-                height: 100%;
-                background-image: url(../img/animate-ray-phone.png);
-                @include bg-style();
-                position: absolute;
-                left: 0%;
-                top: 30%;
-            }
-
-            .animate-2-phone {
-                width: 90%;
-                height: 50vw;
-                clip-path: ellipse(50% 30% at 50% 50%);
-                background: radial-gradient(#8a4418, #8a4418, #fff);
-                position: absolute;
-                left: 5%;
-                top: 55%;
-
-                @media (min-width: 600px) {
-                    top: 60%;
-                }
-
-                @media (min-width: 800px) {
-                    top: 40%;
-                }
-
-                @media (min-width: 1100px) {
-                    top: 30%;
-                }
-            }
-
-            .animate-3-phone {
-                width: 50%;
-                height: 50vw;
-                background-image: url(../img/animate-cookie.png);
-                @include bg-style();
-                position: absolute;
-                left: 25%;
-                top: 40%;
-
-                @media (min-width: 600px) {
-                    top: 40%;
-                }
-
-                @media (min-width: 800px) {
-                    top: 20%;
-                }
-
-                @media (min-width: 1100px) {
-                    top: 10%;
-                }
-            }
-        }
-
-        .banner-title-phone {
-            width: 100%;
-            @include flex(column);
-            margin-top: 2rem;
-
-            .banner-en {
-                width: 150%;
-                @include Cormorant(1rem);
-                color: #5d412e;
-                margin-bottom: 1rem;
-                transform: scaleX(0.8);
-
-                @media (min-width: 800px) {
-                    font-size: 1.5rem;
-                }
-
-                @media (min-width: 1100px) {
-                    font-size: 2rem;
-                }
-            }
-
-            .banner-ch {
-                width: 150%;
-                @include Noto-Serif-TC(1.25rem);
-                color: #5d412e;
-                transform: scaleX(0.8);
-
-                @media (min-width: 800px) {
-                    font-size: 1.5rem;
-                }
-
-                @media (min-width: 1100px) {
-                    font-size: 2rem;
-                }
-            }
-        }
-    }
-
-    .shop-phone {
-        width: 100%;
-        height: 150vh;
-        background-color: #f9e2d2;
-
-        //共通swiper樣式更換
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swipermid-button-prev::after,
-        .swipermid-button-next::after,
-        .swipertop-button-prev::after,
-        .swipertop-button-next::after,
-        .swipermenu-button-prev::after,
-        .swipermenu-button-next::after {
-            display: none;
-        }
-
-        .swiper-button-prev {
-            background-image: url(../img/swiper-light-prev.svg);
-            @include bg-style();
-        }
-
-        .swiper-button-next {
-            background-image: url(../img/swiper-light-next.svg);
-            @include bg-style();
-        }
-
-        .shop-main-phone {
-            width: 100%;
-            height: 55vh;
-
-            .top {
-                width: 100%;
-                height: 25%;
-                @include flex(column);
-                justify-content: end;
-
-                .kanban {
-                    width: 100%;
-                    height: 100%;
-                    @include flex(column);
-
-                    .items {
-                        width: 20%;
-                        margin-bottom: 5px;
-                        @include Cormorant(1.25rem);
-                        color: #40281b;
-                    }
-
-                    .types {
-                        @include flex(row);
-                        transform: translate(calc(50% - (67.5px / 2)));
-                        width: 270px;
-
-                        .swiper-slide {
-                            @include flex(column);
-                            justify-content: end;
-
-                            .type {
-                                .icon {
-                                    img {
-                                        height: 30px;
-                                        width: 30px;
-                                        filter: grayscale(100%);
+                                    @media screen and (max-width:1399px) {
+                                        font-size: 1.2rem;
                                     }
                                 }
                             }
-                        }
 
-                        .swiper-slide-active {
-                            .type {
-                                .icon {
-                                    img {
-                                        height: 50px;
-                                        width: 50px;
-                                        filter: unset;
+                            .socialmedia {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                align-items: flex-end;
+
+                                img {
+                                    width: 50px;
+
+                                    @media screen and (max-width:1599px) {
+                                        width: 40px;
+                                    }
+
+                                    @media screen and (max-width:799px) {
+                                        width: 40px;
                                     }
                                 }
                             }
@@ -2589,593 +2255,9 @@ nav {
                 }
             }
 
-            .mid {
-                width: 100%;
-                height: 75%;
-
-                .item-mid {
-                    height: 100%;
-
-                    .swipermid {
-                        width: 85%;
-                        height: 100%;
-                        margin: auto;
-                        overflow-x: clip;
-
-                        .swipermid-wrapper {
-                            .swiper-slide {
-                                @include flex(column);
-
-                                .item-card {
-                                    @include flex(column);
-
-                                    .item-pic {
-                                        img {
-                                            width: 245px;
-                                            height: 245px;
-                                        }
-                                    }
-
-                                    .item-info {
-                                        width: 400px;
-                                        @include flex(column);
-
-                                        .item-name {
-                                            margin-bottom: 10px;
-
-                                            .item-name-en {
-                                                @include Lobster(1.75rem);
-                                                @include flex(row);
-                                                height: 2rem;
-
-                                                img {
-                                                    height: 25px;
-                                                    margin-left: 0.5rem;
-                                                    margin-right: 0.5rem;
-                                                }
-                                            }
-
-                                            .item-name-en-s {
-                                                @include Lobster(1.25rem);
-                                                @include flex(row);
-                                                height: 1.5rem;
-
-                                                img {
-                                                    height: 25px;
-                                                    margin-left: 0.5rem;
-                                                    margin-right: 0.5rem;
-                                                }
-                                            }
-
-                                            .item-name-ch {
-                                                @include Noto-Serif-TC(1.25rem);
-                                            }
-
-                                            .item-sweet {
-                                                @include Noto-Serif-TC(1rem);
-                                                @include flex(row);
-
-                                                .sweet-round {
-                                                    width: 16px;
-                                                    height: 16px;
-                                                    margin: 0 2px;
-                                                }
-
-                                                .sweet-solid {
-                                                    background-color: #a67c52;
-                                                }
-
-                                                .sweet-hollow {
-                                                    background-color: #c6c5af;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                .menu-info {
-                                    width: 300px;
-                                    height: 650px;
-                                    bottom: -700px;
-                                    position: absolute;
-                                    @include flex(column);
-                                    align-items: flex-start;
-                                    display: none;
-
-                                    .tips {
-                                        margin-bottom: 3rem;
-
-                                        .tips-ch {
-                                            @include Noto-Serif-TC(0.75rem);
-                                            text-align: left;
-                                        }
-
-                                        .tips-en {
-                                            @include Lobster(0.75rem);
-                                            text-align: left;
-                                        }
-                                    }
-
-                                    .info-ch {
-                                        @include Noto-Serif-TC(1rem);
-                                        text-align: left;
-                                        line-height: 1.5rem;
-                                    }
-
-                                    .info-en {
-                                        @include Noto-Serif-TC(1rem);
-                                        text-align: left;
-                                    }
-
-                                    p {
-                                        margin-bottom: 1rem;
-                                    }
-
-                                    .info-btn {
-                                        cursor: pointer;
-                                    }
-                                }
-
-                                .description-phone {
-                                    color: #5d412e;
-                                }
-
-                                .preservation-phone {
-                                    color: #ffffe8;
-                                }
-                            }
-
-                            .swiper-slide-active {
-                                .preservation-phone {
-                                    display: none;
-                                }
-
-                                .description-phone {
-                                    display: flex;
-                                }
-                            }
-
-                            input {
-                                display: none;
-
-                                &:checked {
-                                    &~.swiper-slide-active {
-                                        .preservation-phone {
-                                            display: flex;
-                                        }
-
-                                        .description-phone {
-                                            display: none;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
 
-        .shop-bottom-phone {
-            width: 100%;
-            height: 100vh;
-            padding-top: 5px;
 
-            background-image: url(../img/menu-bottom.png);
-            @include bg-style();
-            background-size: cover;
-            background-position: top;
-
-            @include flex(column);
-            justify-content: flex-start;
-
-            .menu-btns {
-                margin-left: auto;
-                padding-right: 50px;
-
-                .shop-btn {
-                    width: 150px;
-                    height: 55px;
-                    @include bg-style();
-                    cursor: pointer;
-                }
-
-                .whole-menu-btn {
-                    background-image: url(../img/btn-whole-menu.svg);
-                }
-            }
-
-            .view-menu-phone {
-                background: rgba(0, 0, 0, 0.8);
-                top: 0;
-                z-index: 21;
-                transition: all 1s;
-                @include flex(column);
-
-                .view-menu-wrapper {
-                    width: 80%;
-                    height: 70%;
-
-                    .swiper-slide-menu {
-                        padding: 20px 0px;
-                        @include flex(column);
-
-                        img {
-                            height: 100%;
-                        }
-                    }
-                }
-            }
-
-            .info-bg {
-                background-image: url(../img/menu-info-w.svg);
-                @include bg-style();
-                width: 450px;
-                height: 650px;
-                margin-bottom: 100px;
-            }
-        }
     }
 
-    .how-to-buy-phone {
-        width: 100%;
-        height: 100%;
-        z-index: 12;
-        padding: 50px 32px 0px 32px;
-        position: relative;
-        display: none;
-
-        .how-to-buy-lax-phone {
-            width: 100%;
-            height: 100%;
-
-            .fortune-phone {
-                width: 100%;
-                height: 50%;
-                z-index: 12;
-                @include flex(row);
-                justify-content: start;
-
-                .fortune-pop-1 {
-                    width: 250px;
-                    height: 250px;
-                    border-radius: 999rem;
-                    background-color: #40281b;
-                    position: relative;
-                    @include flex(row);
-                    top: 0%;
-                    left: 0%;
-
-                    img {
-                        width: 95%;
-                        height: 95%;
-                        z-index: 13;
-                    }
-
-                    .fortune-pop-2 {
-                        width: 100px;
-                        height: 100px;
-                        border-radius: 999rem;
-                        background-color: #40281b;
-                        position: absolute;
-                        bottom: 0%;
-                        right: 0%;
-
-                        .fortune-pop-3 {
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 999rem;
-                            background-color: #40281b;
-                            position: absolute;
-                            bottom: -30%;
-                            right: -30%;
-                        }
-                    }
-
-                    .fortune-heart-phone {
-                        width: 100px;
-                        height: 120px;
-                        background-image: url(../img/heart.svg);
-                        @include bg-style();
-                        position: absolute;
-                        top: 10%;
-                        left: 105%;
-                        z-index: 13;
-                    }
-                }
-            }
-
-            .how-title-phone {
-                width: 150px;
-                height: 150px;
-                background-image: url(../img/how-to-buy.svg);
-                @include bg-style();
-                position: absolute;
-                top: 60%;
-                left: 10%;
-            }
-
-            .how-circle-phone {
-                @include flex(row);
-                position: absolute;
-                top: 65%;
-                right: 5%;
-
-                .how-pop {
-                    width: 250px;
-                    height: 250px;
-                    border-radius: 999rem;
-                    background-color: #40281b;
-                    position: relative;
-                    @include flex(column);
-
-                    .btn-ask {
-                        width: 100px;
-                        height: 50px;
-                        background-image: url(../img/btn-ask.svg);
-                        @include bg-style();
-                        z-index: 12;
-                    }
-
-                    .pop-line {
-                        width: 200px;
-                        height: 20px;
-                        background-image: url(../img/pop-line.svg);
-                        @include bg-style();
-                        margin: 1rem;
-                        z-index: 12;
-                    }
-
-                    .btn-reserve {
-                        width: 100px;
-                        height: 50px;
-                        background-image: url(../img/btn-reserve.svg);
-                        @include bg-style();
-                        z-index: 12;
-                    }
-
-                    .pop-triangle {
-                        width: 150px;
-                        height: 150px;
-                        position: absolute;
-                        border-radius: 1rem;
-                        background-color: #40281b;
-                        clip-path: polygon(20% 0, 100% 0, 100% 80%, 10% 100%, 0 100%, 0 90%);
-                        bottom: 0%;
-                        left: 5%;
-                    }
-                }
-            }
-
-            .how-paper-phone {
-                width: 684px;
-                height: 900px;
-                background-image: url(../img/how-paper.svg);
-                @include bg-style();
-                position: absolute;
-                top: 70%;
-                right: -5%;
-
-                .how-txt {
-                    color: #40281b;
-                    position: absolute;
-                    top: 30%;
-                    left: 45%;
-
-                    .how-txt-en-lax-phone {
-                        width: 100%;
-                        height: 100%;
-
-                        .how-suptitle-en {
-                            @include Cormorant(1rem);
-                            font-style: italic;
-                            text-align: start;
-                            margin-bottom: 0.5rem;
-                        }
-
-                        .how-content-en {
-                            @include Cormorant(0.75rem);
-                            font-style: italic;
-                            text-align: start;
-                            margin-bottom: 2.5rem;
-                        }
-                    }
-
-                    .how-txt-ch-lax-phone {
-                        width: 100%;
-                        height: 100%;
-
-                        .how-suptitle-ch {
-                            @include Noto-Serif-TC(1rem);
-                            font-style: italic;
-                            text-align: left;
-                            margin-bottom: 0.55rem;
-                        }
-
-                        .how-content-ch {
-                            @include Noto-Serif-TC(0.75rem);
-                            font-style: italic;
-                            text-align: left;
-                            margin-bottom: 2.5rem;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .about-us-phone {
-        width: 100%;
-        height: 100%;
-        display: none;
-
-        @media all and (max-width: 1199px) {
-            // display: flex;
-        }
-
-        .about-us-lax-phone {
-            width: 100%;
-            height: 100%;
-            padding-left: 10%;
-            background-image: url(../img/about-bg.png);
-            @include bg-style();
-            background-size: cover;
-            position: relative;
-            border-radius: 100px 100px 0 0;
-
-            .about-bag-1 {
-                width: 100%;
-                height: 100%;
-
-                .about-bag-lax-phone {
-                    width: 700px;
-                    height: 700px;
-                    background-image: url(../img/usbag-1.png);
-                    @include bg-style();
-                    position: relative;
-                    top: -5%;
-                    left: -40%;
-
-                    .about-cookie-phone {
-                        width: 700px;
-                        height: 700px;
-                        background-image: url(../img/uscookie-1.png);
-                        @include bg-style();
-                        position: absolute;
-                    }
-
-                    .about-bag-2 {
-                        width: 700px;
-                        height: 700px;
-                        background-image: url(../img/usbag-2.png);
-                        @include bg-style();
-                        position: absolute;
-
-                        .about-title {
-                            @include Lobster(2rem);
-                            transform: rotateZ(-35deg);
-                            position: absolute;
-                            top: 50%;
-                            left: 15%;
-                        }
-
-                        .about-content {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: flex-start;
-                            position: absolute;
-                            top: 53%;
-                            left: 35%;
-
-                            .about-content-en {
-                                @include Cormorant(1rem);
-                                font-style: italic;
-                                text-align: start;
-                                margin-bottom: 2rem;
-                            }
-
-                            .about-content-ch {
-                                @include Noto-Serif-TC(0.8rem);
-                                font-style: italic;
-                                text-align: left;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .footer-phone {
-        width: 100%;
-        height: 100%;
-        display: none;
-
-        .footer-lax-phone {
-            width: 100%;
-            height: 100%;
-
-            .footer-pic {
-                width: 100%;
-                height: 50%;
-                background-image: url(../img/footer-bg.png);
-                @include bg-style();
-                background-size: cover;
-                border-radius: 100px 100px 0 0;
-            }
-
-            .footer-info {
-                width: 100%;
-                height: 50%;
-                @include flex(column);
-                background-color: #40281b;
-
-                .footer-back-icon {
-                    width: 40px;
-                    height: 40px;
-                    background-image: url(../img/icon-back.svg);
-                    @include bg-style();
-                    margin-bottom: 2rem;
-                }
-
-                .footer-add {
-                    @include Noto-Serif-TC(1.25rem);
-                    color: #9c6a4e;
-                    line-height: 1;
-                    margin-bottom: 2rem;
-                }
-
-                .footer-time {
-                    color: #9c6a4e;
-                    line-height: 1;
-                    margin-bottom: 2.5rem;
-
-                    .footer-time-ch {
-                        @include Noto-Serif-TC(1rem);
-                        margin-bottom: 1rem;
-                    }
-
-                    .footer-time-en {
-                        @include Cormorant(1rem);
-                        font-style: italic;
-                    }
-                }
-
-                .footer-number {
-                    @include Noto-Serif-TC(1rem);
-                    color: #9c6a4e;
-                    margin-bottom: 2rem;
-
-                    a {
-                        color: #9c6a4e;
-                    }
-                }
-
-                .footer-icons {
-                    @include flex(row);
-
-                    .icon-fb {
-                        width: 50px;
-                        height: 50px;
-                        background-image: url(../img/icon-fb.svg);
-                    }
-
-                    .icon-ig {
-                        width: 50px;
-                        height: 50px;
-                        background-image: url(../img/icon-ig.svg);
-                        margin-left: 3rem;
-                        margin-right: 3rem;
-                    }
-
-                    .icon-map {
-                        width: 50px;
-                        height: 50px;
-                        background-image: url(../img/icon-map.svg);
-                    }
-                }
-            }
-        }
-    }
 }
